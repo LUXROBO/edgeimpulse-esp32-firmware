@@ -43,15 +43,15 @@
 #define TOGGLE_BIT_POS(x,y) (x ^= (1<<y))
 
 // Set the flag bits in word.
-#define 	SET_BIT_MASK(y, flag)   ( y |= (flag) )
+#define SET_BIT_MASK(y, flag)   ( y |= (flag) )
 
 // Clear the flag bits in word.
-#define 	CLEAR_BIT_MASK(y, flag)   ( y &= ~(flag) )
+#define CLEAR_BIT_MASK(y, flag)   ( y &= ~(flag) )
 
 // Flip the flag bits in word.
-#define 	TOGGLE_BIT_MASK(y, flag)   ( y ^= (flag) )
+#define TOGGLE_BIT_MASK(y, flag)   ( y ^= (flag) )
 
 // Test whether all the flag bits in word are set.
-#define 	TEST_BIT_MASK(y, flag)   ( ((y)&(flag)) == (flag) )
+#define TEST_BIT_MASK(y, flag)   ( ((y)&(flag)) == (flag) )
 
 #endif  //!__EI_UTILS__H__

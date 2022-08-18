@@ -45,40 +45,40 @@ static void arm_bitonic_sort_core_f32(float32_t *pSrc, uint32_t n, uint8_t dir)
 
     for(k=0; k<step; k++)
     {
-	if(dir == (*leftPtr > *rightPtr))
-	{
+    if(dir == (*leftPtr > *rightPtr))
+    {
             // Swap
-	    temp=*leftPtr;
-	    *leftPtr=*rightPtr;
-	    *rightPtr=temp;
-	}
+        temp=*leftPtr;
+        *leftPtr=*rightPtr;
+        *rightPtr=temp;
+    }
 
-	leftPtr++;  // Move right
-	rightPtr--; // Move left
+    leftPtr++;  // Move right
+    rightPtr--; // Move left
     }
 
     // Merge
     for(step=(n>>2); step>0; step/=2)
     {
-	for(j=0; j<n; j=j+step*2)
-	{
-	    leftPtr  = pSrc+j;
-	    rightPtr = pSrc+j+step;
+    for(j=0; j<n; j=j+step*2)
+    {
+        leftPtr  = pSrc+j;
+        rightPtr = pSrc+j+step;
 
-	    for(k=0; k<step; k++)
-	    {
-		if(*leftPtr > *rightPtr)
-		{
-		    // Swap
-	    	    temp=*leftPtr;
-		    *leftPtr=*rightPtr;
-		    *rightPtr=temp;
-		}
+        for(k=0; k<step; k++)
+        {
+        if(*leftPtr > *rightPtr)
+        {
+            // Swap
+                temp=*leftPtr;
+            *leftPtr=*rightPtr;
+            *rightPtr=temp;
+        }
 
-		leftPtr++;
-		rightPtr++;
-	    }
-	}
+        leftPtr++;
+        rightPtr++;
+        }
+    }
     }
 }
 #endif
@@ -929,15 +929,15 @@ const arm_sort_instance_f32 * S,
         if(pSrc == pDst) // in-place
             pOut = pSrc;
         else
-    	    pOut = pDst;
+            pOut = pDst;
 
         float32x4x2_t ab1, ab2;
         float32x4x2_t cd1, cd2;
 
-	if(blockSize == 1)
-		pOut = pSrc;
-	else if(blockSize == 2)
-	{
+    if(blockSize == 1)
+        pOut = pSrc;
+    else if(blockSize == 2)
+    {
             float32_t temp;
 
             if( dir==(pSrc[0]>pSrc[1]) )
@@ -946,16 +946,16 @@ const arm_sort_instance_f32 * S,
                 pOut[1] = pSrc[0];
                 pOut[0] = temp;
             }
-	    else
-		pOut = pSrc;
-	}
-	else if(blockSize == 4)
+        else
+        pOut = pSrc;
+    }
+    else if(blockSize == 4)
         {
-    	    float32x4_t a = vld1q_f32(pSrc);
+            float32x4_t a = vld1q_f32(pSrc);
 
-    	    a = arm_bitonic_sort_4_f32(a, dir);
+            a = arm_bitonic_sort_4_f32(a, dir);
 
-    	    vst1q_f32(pOut, a);
+            vst1q_f32(pOut, a);
         }
         else if(blockSize == 8)
         {
@@ -1027,8 +1027,8 @@ const arm_sort_instance_f32 * S,
     {
         for(s=2; s<=blockSize; s=s*2)
         {
-    	    for(i=0; i<blockSize; i=i+s)
-    	        arm_bitonic_sort_core_f32(pA+i, s, dir);
+            for(i=0; i<blockSize; i=i+s)
+                arm_bitonic_sort_core_f32(pA+i, s, dir);
         }
     }
 #endif

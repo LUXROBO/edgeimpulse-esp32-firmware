@@ -127,7 +127,7 @@ void arm_abs_f16(
     {
         /* C = |A| */
 
-    	/* Calculate absolute values and then store the results in the destination buffer. */
+        /* Calculate absolute values and then store the results in the destination buffer. */
         vec1 = vld1q_f16(pSrc);
         res = vabsq_f16(vec1);
         vst1q_f16(pDst, res);

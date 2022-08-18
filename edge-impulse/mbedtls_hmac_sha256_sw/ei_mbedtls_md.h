@@ -87,7 +87,7 @@ int ei_mbedtls_md_starts( mbedtls_md_context_t *ctx )
 
 
 #define SHA256_VALIDATE_RET(cond)                           \
-	    MBEDTLS_INTERNAL_VALIDATE_RET( cond, MBEDTLS_ERR_SHA256_BAD_INPUT_DATA )
+        MBEDTLS_INTERNAL_VALIDATE_RET( cond, MBEDTLS_ERR_SHA256_BAD_INPUT_DATA )
 
 #ifndef GET_UINT32_BE
 #define GET_UINT32_BE(n,b,i)                            \

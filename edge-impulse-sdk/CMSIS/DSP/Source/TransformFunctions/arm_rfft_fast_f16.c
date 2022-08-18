@@ -424,7 +424,7 @@ void merge_rfft_f16(
    *pOut++ = 0.5f * ( xAR - xAI );
 
    pB  =  p + 2*k ;
-   pA +=  2	   ;
+   pA +=  2;
 
    while (k > 0)
    {

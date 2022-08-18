@@ -506,17 +506,17 @@ void arm_conv_f32(
         x = x1v;
         res = vmlaq_n_f32(res,x,c[3]);
 
-	x = vextq_f32(x1v,x2v,1);
+        x = vextq_f32(x1v,x2v,1);
 
         res = vmlaq_n_f32(res,x,c[2]);
 
         x = vextq_f32(x1v,x2v,2);
 
-	res = vmlaq_n_f32(res,x,c[1]);
+        res = vmlaq_n_f32(res,x,c[1]);
 
-	x = vextq_f32(x1v,x2v,3);
+        x = vextq_f32(x1v,x2v,3);
 
-	res = vmlaq_n_f32(res,x,c[0]);
+        res = vmlaq_n_f32(res,x,c[0]);
 
         py -= 4;
 

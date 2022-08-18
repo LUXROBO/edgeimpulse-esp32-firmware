@@ -108,87 +108,87 @@ extern "C"
 
 #define vtrn256_128q(a, b)                   \
 do {                                         \
-	float32x4_t vtrn128_temp = a.val[1]; \
-	a.val[1] = b.val[0];                 \
-	b.val[0] = vtrn128_temp ;            \
+  float32x4_t vtrn128_temp = a.val[1]; \
+  a.val[1] = b.val[0];                 \
+  b.val[0] = vtrn128_temp ;            \
 } while (0)
 
 #define vtrn128_64q(a, b)           \
 do {                                \
-	float32x2_t ab, cd, ef, gh; \
-	ab = vget_low_f32(a);	    \
-	ef = vget_low_f32(b);	    \
-	cd = vget_high_f32(a);	    \
-	gh = vget_high_f32(b);      \
-	a = vcombine_f32(ab, ef);   \
-	b = vcombine_f32(cd, gh);   \
+  float32x2_t ab, cd, ef, gh; \
+  ab = vget_low_f32(a);     \
+  ef = vget_low_f32(b);     \
+  cd = vget_high_f32(a);     \
+  gh = vget_high_f32(b);      \
+  a = vcombine_f32(ab, ef);   \
+  b = vcombine_f32(cd, gh);   \
 } while (0)
 
 #define vtrn256_64q(a, b)                  \
 do {                                       \
-	float32x2_t a_0, a_1, a_2, a_3;    \
-	float32x2_t b_0, b_1, b_2, b_3;    \
-	a_0 = vget_low_f32(a.val[0]);      \
-	a_1 = vget_high_f32(a.val[0]);     \
-	a_2 = vget_low_f32(a.val[1]);      \
-	a_3 = vget_high_f32(a.val[1]);     \
-	b_0 = vget_low_f32(b.val[0]);      \
-	b_1 = vget_high_f32(b.val[0]);     \
-	b_2 = vget_low_f32(b.val[1]);      \
-	b_3 = vget_high_f32(b.val[1]);     \
-	a.val[0] = vcombine_f32(a_0, b_0); \
-	a.val[1] = vcombine_f32(a_2, b_2); \
-	b.val[0] = vcombine_f32(a_1, b_1); \
-	b.val[1] = vcombine_f32(a_3, b_3); \
+  float32x2_t a_0, a_1, a_2, a_3;    \
+  float32x2_t b_0, b_1, b_2, b_3;    \
+  a_0 = vget_low_f32(a.val[0]);      \
+  a_1 = vget_high_f32(a.val[0]);     \
+  a_2 = vget_low_f32(a.val[1]);      \
+  a_3 = vget_high_f32(a.val[1]);     \
+  b_0 = vget_low_f32(b.val[0]);      \
+  b_1 = vget_high_f32(b.val[0]);     \
+  b_2 = vget_low_f32(b.val[1]);      \
+  b_3 = vget_high_f32(b.val[1]);     \
+  a.val[0] = vcombine_f32(a_0, b_0); \
+  a.val[1] = vcombine_f32(a_2, b_2); \
+  b.val[0] = vcombine_f32(a_1, b_1); \
+  b.val[1] = vcombine_f32(a_3, b_3); \
 } while (0)
 
 #define vtrn128_32q(a, b)                               \
 do {                                                    \
-	float32x4x2_t vtrn32_tmp = vtrnq_f32((a), (b)); \
-	(a) = vtrn32_tmp.val[0];                        \
-	(b) = vtrn32_tmp.val[1];                        \
+  float32x4x2_t vtrn32_tmp = vtrnq_f32((a), (b)); \
+  (a) = vtrn32_tmp.val[0];                        \
+  (b) = vtrn32_tmp.val[1];                        \
 } while (0)
 
 #define vtrn256_32q(a, b)               \
 do {                                    \
-	float32x4x2_t vtrn32_tmp_1 = vtrnq_f32((a.val[0]), (b.val[0])); \
-	float32x4x2_t vtrn32_tmp_2 = vtrnq_f32((a.val[1]), (b.val[1])); \
-	a.val[0] = vtrn32_tmp_1.val[0]; \
-	a.val[1] = vtrn32_tmp_2.val[0]; \
-	b.val[0] = vtrn32_tmp_1.val[1]; \
-	b.val[1] = vtrn32_tmp_2.val[1]; \
+  float32x4x2_t vtrn32_tmp_1 = vtrnq_f32((a.val[0]), (b.val[0])); \
+  float32x4x2_t vtrn32_tmp_2 = vtrnq_f32((a.val[1]), (b.val[1])); \
+  a.val[0] = vtrn32_tmp_1.val[0]; \
+  a.val[1] = vtrn32_tmp_2.val[0]; \
+  b.val[0] = vtrn32_tmp_1.val[1]; \
+  b.val[1] = vtrn32_tmp_2.val[1]; \
 } while (0)
 
 #define vminmaxq(a, b)                    \
-	do {                              \
-	float32x4_t minmax_tmp = (a);     \
-	(a) = vminq_f32((a), (b));        \
-	(b) = vmaxq_f32(minmax_tmp, (b)); \
+  do {                              \
+  float32x4_t minmax_tmp = (a);     \
+  (a) = vminq_f32((a), (b));        \
+  (b) = vmaxq_f32(minmax_tmp, (b)); \
 } while (0)
 
 #define vminmax256q(a, b)                         \
-	do {                                      \
-	float32x4x2_t minmax256_tmp = (a);        \
-	a.val[0] = vminq_f32(a.val[0], b.val[0]); \
-	a.val[1] = vminq_f32(a.val[1], b.val[1]); \
-	b.val[0] = vmaxq_f32(minmax256_tmp.val[0], b.val[0]); \
-	b.val[1] = vmaxq_f32(minmax256_tmp.val[1], b.val[1]); \
+  do {                                      \
+  float32x4x2_t minmax256_tmp = (a);        \
+  a.val[0] = vminq_f32(a.val[0], b.val[0]); \
+  a.val[1] = vminq_f32(a.val[1], b.val[1]); \
+  b.val[0] = vmaxq_f32(minmax256_tmp.val[0], b.val[0]); \
+  b.val[1] = vmaxq_f32(minmax256_tmp.val[1], b.val[1]); \
 } while (0)
 
 #define vrev128q_f32(a) \
         vcombine_f32(vrev64_f32(vget_high_f32(a)), vrev64_f32(vget_low_f32(a)))
 
 #define vrev256q_f32(a)     \
-	do {                \
+  do {                \
         float32x4_t rev_tmp = vcombine_f32(vrev64_f32(vget_high_f32(a.val[0])), vrev64_f32(vget_low_f32(a.val[0]))); \
-	a.val[0] = vcombine_f32(vrev64_f32(vget_high_f32(a.val[1])), vrev64_f32(vget_low_f32(a.val[1])));  \
-	a.val[1] = rev_tmp; \
+  a.val[0] = vcombine_f32(vrev64_f32(vget_high_f32(a.val[1])), vrev64_f32(vget_low_f32(a.val[1])));  \
+  a.val[1] = rev_tmp; \
 } while (0)
 
 #define vldrev128q_f32(a, p) \
-	do {                 \
-	a = vld1q_f32(p);    \
-	a = vrev128q_f32(a); \
+  do {                 \
+  a = vld1q_f32(p);    \
+  a = vrev128q_f32(a); \
 } while (0)
 
 #endif /* ARM_MATH_NEON */

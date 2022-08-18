@@ -96,8 +96,8 @@ void arm_selection_sort_f32(
         {
             /* Swap the minimum/maximum with the leftmost element */
             temp=pA[i];
-	    pA[i]=pA[k];
-	    pA[k]=temp;
+            pA[i]=pA[k];
+            pA[k]=temp;
         }
     }
 }

@@ -47,9 +47,9 @@ static void arm_heapify(float32_t * pSrc, uint32_t n, uint32_t i, uint8_t dir)
 
     if (k != i)
     {
-	temp = pSrc[i];
-	pSrc[i]=pSrc[k];
-	pSrc[k]=temp;
+        temp = pSrc[i];
+        pSrc[i]=pSrc[k];
+        pSrc[k]=temp;
 
         arm_heapify(pSrc, n, k, dir);
     }
@@ -106,12 +106,12 @@ void arm_heap_sort_f32(
     for (i = blockSize - 1; i >= 0; i--)
     {
         // Swap
-	temp = pA[i];
-	pA[i] = pA[0];
+    temp = pA[i];
+    pA[i] = pA[0];
         pA[0] = temp;
 
         // Restore heap order
-	arm_heapify(pA, i, 0, S->dir);
+    arm_heapify(pA, i, 0, S->dir);
     }
 }
 /**

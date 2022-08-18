@@ -585,11 +585,11 @@ void arm_correlate_f32(
 
         x = vextq_f32(x1v,x2v,2);
 
-	res = vmlaq_n_f32(res,x,c[2]);
+        res = vmlaq_n_f32(res,x,c[2]);
 
         x = vextq_f32(x1v,x2v,3);
 
-	res = vmlaq_n_f32(res,x,c[3]);
+        res = vmlaq_n_f32(res,x,c[3]);
 
         x1v = x2v;
         px+=4;

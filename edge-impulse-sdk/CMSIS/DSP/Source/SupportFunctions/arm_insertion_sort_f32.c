@@ -77,13 +77,13 @@ void arm_insertion_sort_f32(
     // Real all the element of the input array
     for(i=0; i<blockSize; i++)
     {
-	// Move the i-th element to the right position
+        // Move the i-th element to the right position
         for (j = i; j>0 && dir==(pA[j]<pA[j-1]); j--)
         {
-	    // Swap
+            // Swap
             temp = pA[j];
-	    pA[j] = pA[j-1];
-	    pA[j-1] = temp;
+            pA[j] = pA[j-1];
+            pA[j-1] = temp;
         }
     }
 }

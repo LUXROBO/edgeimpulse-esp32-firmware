@@ -71,31 +71,31 @@ void arm_bubble_sort_f32(
 
     if(pSrc != pDst) // out-of-place
     {
-	memcpy(pDst, pSrc, blockSize*sizeof(float32_t) );
-	pA = pDst;
+    memcpy(pDst, pSrc, blockSize*sizeof(float32_t) );
+    pA = pDst;
     }
     else
-	pA = pSrc;
+    pA = pSrc;
 
     while(swapped==1) // If nothing has been swapped after one loop stop
     {
-	swapped=0;
+    swapped=0;
 
         for(i=0; i<blockSize-1; i++)
-	{
-	    if(dir==(pA[i]>pA[i+1]))
-	    {
-		// Swap
-		temp = pA[i];
-		pA[i] = pA[i+1];
-		pA[i+1] = temp;
+    {
+        if(dir==(pA[i]>pA[i+1]))
+        {
+        // Swap
+        temp = pA[i];
+        pA[i] = pA[i+1];
+        pA[i+1] = temp;
 
-		// Update flag
-		swapped = 1;
-	    }
-	}
+        // Update flag
+        swapped = 1;
+        }
+    }
 
-	blockSize--;
+    blockSize--;
     }
 }
 

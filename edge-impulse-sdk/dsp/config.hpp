@@ -42,7 +42,7 @@
             #define EIDSP_LOAD_CMSIS_DSP_SOURCES      1
         #endif // Mbed OS 6.0 version check
     #else
-        #define EIDSP_USE_CMSIS_DSP		        1
+        #define EIDSP_USE_CMSIS_DSP             1
         #define EIDSP_LOAD_CMSIS_DSP_SOURCES    1
     #endif
 #else

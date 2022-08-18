@@ -44,7 +44,7 @@ static void topDownMerge(float32_t * pA, uint32_t begin, uint32_t middle, uint32
     // Read all the elements in the sublist
     for (k = begin; k < end; k++)
     {
-	// Merge
+        // Merge
         if (i < middle && (j >= end || dir==(pA[i] <= pA[j])) )
         {
             pB[k] = pA[i];

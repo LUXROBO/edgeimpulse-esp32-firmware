@@ -90,10 +90,10 @@ void EiDeviceESP32::init_device_id(void)
 {
     // Setup device ID
     char temp[18];
-	uint8_t baseMac[6];
-	esp_read_mac(baseMac, ESP_MAC_WIFI_STA);
+    uint8_t baseMac[6];
+    esp_read_mac(baseMac, ESP_MAC_WIFI_STA);
 
-	sprintf(temp,
+    sprintf(temp,
             "%02X:%02X:%02X:%02X:%02X:%02X",
             baseMac[0],
             baseMac[1],
@@ -327,7 +327,7 @@ uint32_t EiDeviceESP32::filesys_get_n_available_sample_blocks(void)
 bool ei_user_invoke_stop(void)
 {
     bool stop_found = false;
-	char ch = getchar();
+    char ch = getchar();
 
     if (ch == 'b') {
         stop_found = true;
@@ -343,7 +343,7 @@ bool ei_user_invoke_stop(void)
  */
 char ei_get_serial_byte(void)
 {
-	char ch = getchar();
+    char ch = getchar();
     // for some reason ESP32 only gets 10 (\n)and AT server has 13 (\r) as terminator character...
     if (ch == '\n') {
         ch = '\r';
@@ -365,7 +365,7 @@ void ei_putc(char cChar)
 
 char ei_getchar()
 {
-	char ch = getchar();
+    char ch = getchar();
     // for some reason ESP32 only gets 10 (\n)and AT server has 13 (\r) as terminator character...
 
     if (ch == 255) {
