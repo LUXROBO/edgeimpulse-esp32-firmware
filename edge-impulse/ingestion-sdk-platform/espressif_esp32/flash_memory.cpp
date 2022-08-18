@@ -78,7 +78,7 @@ EiFlashMemory::EiFlashMemory(uint32_t config_size):
 
     ESP_LOGI(TAG, "Found partition '%s' at offset 0x%x with size 0x%x\n", partition->label, partition->address, partition->size);
 
-    memory_size = partition->size; 
+    memory_size = partition->size;
 
     ESP_LOGI(TAG, "memory_size %d used_blocks %d\n", memory_size, used_blocks);
 

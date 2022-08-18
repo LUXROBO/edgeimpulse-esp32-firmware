@@ -88,7 +88,7 @@ void arm_fir_init_f16(
   memset(pState, 0, (numTaps + (blockSize - 1U) + ROUND_UP(blockSize, 8)) * sizeof(float16_t));
 #else
   memset(pState, 0, (numTaps + (blockSize - 1U)) * sizeof(float16_t));
-#endif 
+#endif
 
   /* Assign state pointer */
   S->pState = pState;

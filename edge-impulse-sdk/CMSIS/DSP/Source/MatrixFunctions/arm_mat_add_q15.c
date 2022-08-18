@@ -136,7 +136,7 @@ arm_status arm_mat_add_q15(
         q15_t *pInA = pSrcA->pData;                    /* input data matrix pointer A */
         q15_t *pInB = pSrcB->pData;                    /* input data matrix pointer B */
         q15_t *pOut = pDst->pData;                     /* output data matrix pointer */
-        
+
         uint32_t numSamples;                           /* total number of elements in the matrix */
         uint32_t blkCnt;                               /* loop counters */
         arm_status status;                             /* status of matrix addition */

@@ -177,7 +177,7 @@ arm_status arm_mat_trans_f32(
         *px++ = *(pIn + 1 * nColumns);
         *px++ = *(pIn + 2 * nColumns);
         *px++ = *(pIn + 3 * nColumns);
-        
+
         px += (nRows - 4);
         pIn++;
 

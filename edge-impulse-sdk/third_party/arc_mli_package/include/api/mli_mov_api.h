@@ -54,7 +54,7 @@ typedef struct _mli_mov_handle_t {
 // Synchronous data movement functions
 //---------------------------------------------------------------------
 
-/** 
+/**
  * @brief Synchronous copy from src tensor to dst tensor
  *
  * @detail This function will perform a data copy from the src tensor to the dst tensor
@@ -79,7 +79,7 @@ mli_mov_tensor_sync(const mli_tensor* src, const mli_mov_cfg_t* cfg, mli_tensor*
 // Asynchronous data movement functions
 //---------------------------------------------------------------------
 
-/** 
+/**
  * @brief Prepare asynchronous copy from src to dst
  *
  * @detail This function will prepare a data copy from the src tensor to the dst tensor
@@ -102,7 +102,7 @@ mli_mov_tensor_sync(const mli_tensor* src, const mli_mov_cfg_t* cfg, mli_tensor*
 mli_status
 mli_mov_prepare(mli_mov_handle_t* h, const mli_tensor* src, const mli_mov_cfg_t* cfg, mli_tensor* dst);
 
-/** 
+/**
  * @brief Register a callback for a datatransfer
  *
  * @detail This function will register a callback function that will be called after
@@ -123,7 +123,7 @@ mli_mov_prepare(mli_mov_handle_t* h, const mli_tensor* src, const mli_mov_cfg_t*
 mli_status
 mli_mov_registercallback(mli_mov_handle_t* h, void (*cb)(int32_t), int32_t cookie);
 
-/** 
+/**
  * @brief Start asynchronous copy from src to dst
  *
  * @detail This function will start the data copy from the src tensor to the dst tensor
@@ -143,7 +143,7 @@ mli_mov_registercallback(mli_mov_handle_t* h, void (*cb)(int32_t), int32_t cooki
 mli_status
 mli_mov_start(mli_mov_handle_t* h, const mli_tensor* src, const mli_mov_cfg_t* cfg, mli_tensor* dst);
 
-/** 
+/**
  * @brief Polling function to detect if transfer has completed
  *
  * @detail This function will return true when the transfer is completed, and false in all
@@ -156,7 +156,7 @@ mli_mov_start(mli_mov_handle_t* h, const mli_tensor* src, const mli_mov_cfg_t* c
 bool
 mli_mov_isdone(mli_mov_handle_t* h);
 
-/** 
+/**
  * @brief Synchronize to transfer complete
  *
  * @detail This function will do active polling and return after the transfer has completed.
@@ -172,7 +172,7 @@ mli_mov_wait(mli_mov_handle_t* h);
 //---------------------------------------------------------------------
 // functions to set available resources (e.g. dma channels)
 //---------------------------------------------------------------------
-/** 
+/**
  * @brief set dma channels that can be used by mli_mov functions
  *
  * @detail This function is used to set a pool of the dma channels
@@ -188,7 +188,7 @@ mli_mov_wait(mli_mov_handle_t* h);
 mli_status
 mli_mov_set_num_dma_ch(int ch_offset, int num_ch);
 
-/** 
+/**
  * @brief Acquire dma channel(s)
  *
  * @detail This function is used to obtain one or more dma channels from the pool
@@ -201,7 +201,7 @@ mli_mov_set_num_dma_ch(int ch_offset, int num_ch);
 mli_status
 mli_mov_acquire_handle(int num_ch, mli_mov_handle_t* h);
 
-/** 
+/**
  * @brief Release dma channle(s)
  *
  * @detail This function will release the dma channels from the handle h back to the pool.
@@ -218,7 +218,7 @@ mli_mov_release_handle(mli_mov_handle_t* h);
 // Helper functions to fill mli_mov_cfg_t
 //---------------------------------------------------------------------
 
-/** 
+/**
  * @brief Construction of cfg struct for full tensor copy
  *
  * @detail This function will fill the cfg struct with the values needed for a full tensor copy
@@ -231,7 +231,7 @@ mli_mov_release_handle(mli_mov_handle_t* h);
 mli_status
 mli_mov_cfg_for_copy(mli_mov_cfg_t* cfg);
 
-/** 
+/**
  * @brief Construction of cfg struct for slicing
  *
  * @detail This function will fill the cfg struct with the values needed for copying a slice
@@ -248,7 +248,7 @@ mli_mov_cfg_for_copy(mli_mov_cfg_t* cfg);
 mli_status
 mli_mov_cfg_for_slice(mli_mov_cfg_t* cfg, int* offsets, int* sizes, int* dst_mem_stride);
 
-/** 
+/**
  * @brief Construction of cfg struct for concatenation
  *
  * @detail This function will fill the cfg struct with the values needed for copying a complete tensor
@@ -264,7 +264,7 @@ mli_mov_cfg_for_slice(mli_mov_cfg_t* cfg, int* offsets, int* sizes, int* dst_mem
 mli_status
 mli_mov_cfg_for_concat(mli_mov_cfg_t* cfg, int* dst_offsets, int* dst_mem_stride);
 
-/** 
+/**
  * @brief Construction of cfg struct for subsampling
  *
  * @detail This function will fill the cfg struct with the values needed for subsampling a tensor
@@ -280,7 +280,7 @@ mli_mov_cfg_for_concat(mli_mov_cfg_t* cfg, int* dst_offsets, int* dst_mem_stride
 mli_status
 mli_mov_cfg_for_subsample(mli_mov_cfg_t* cfg, int* sub_sample_step, int* dst_mem_stride);
 
-/** 
+/**
  * @brief Construction of cfg struct for permutaion or transposing a tensor
  *
  * @detail This function will fill the cfg struct with the values needed for reordering the order of the dimensions in a tensor.
@@ -293,7 +293,7 @@ mli_mov_cfg_for_subsample(mli_mov_cfg_t* cfg, int* sub_sample_step, int* dst_mem
 mli_status
 mli_mov_cfg_for_permute(mli_mov_cfg_t* cfg, uint8_t* perm_dim);
 
-/** 
+/**
  * @brief Construction of cfg struct for padding
  *
  * @detail This function will fill the cfg struct with the values needed adding zero padding to a tensor in CHW layout.
@@ -310,7 +310,7 @@ mli_mov_cfg_for_permute(mli_mov_cfg_t* cfg, uint8_t* perm_dim);
 mli_status
 mli_mov_cfg_for_padding2d_chw(mli_mov_cfg_t* cfg, uint8_t padleft, uint8_t padright, uint8_t padtop, uint8_t padbot, int* dst_mem_stride);
 
-/** 
+/**
  * @brief Construction of cfg struct for padding
  *
  * @detail This function will fill the cfg struct with the values needed adding zero padding to a tensor in HWC layout.
@@ -327,7 +327,7 @@ mli_mov_cfg_for_padding2d_chw(mli_mov_cfg_t* cfg, uint8_t padleft, uint8_t padri
 mli_status
 mli_mov_cfg_for_padding2d_hwc(mli_mov_cfg_t* cfg, uint8_t padleft, uint8_t padright, uint8_t padtop, uint8_t padbot, int* dst_mem_stride);
 
-/** 
+/**
  * @brief Construction of cfg struct
  *
  * @detail This function will fill the cfg struct

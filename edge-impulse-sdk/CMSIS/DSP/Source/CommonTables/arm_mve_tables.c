@@ -26,7 +26,7 @@
  * limitations under the License.
  */
 
- 
+
 #include "edge-impulse-sdk/CMSIS/DSP/Include/arm_math_types.h"
 
 #if defined(ARM_MATH_MVEF) && !defined(ARM_MATH_AUTOVECTORIZE)

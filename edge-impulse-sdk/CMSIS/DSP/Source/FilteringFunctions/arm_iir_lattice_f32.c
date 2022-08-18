@@ -123,7 +123,7 @@ void arm_iir_lattice_f32(
   const float32_t * pSrc,
         float32_t * pDst,
         uint32_t blockSize)
-{       
+{
         float32_t *pState = S->pState;                   /* State pointer */
         float32_t *pStateCur;                            /* State current pointer */
         float32_t acc;                                   /* Accumlator */

@@ -51,7 +51,7 @@
   <pre>
       {b10, b11, b12, a11, a12, b20, b21, b22, a21, a22, ...}
   </pre>
-                   
+
   @par
                    where <code>b1x</code> and <code>a1x</code> are the coefficients for the first stage,
                    <code>b2x</code> and <code>a2x</code> are the coefficients for the second stage,
@@ -87,12 +87,12 @@
                    The state variables are updated after each block of data is processed; the coefficients are untouched.
  */
 
-#if defined(ARM_MATH_NEON) 
+#if defined(ARM_MATH_NEON)
 /*
 
 Must be called after initializing the biquad instance.
 pCoeffs has size 5 * nbCascade
-Whereas the pCoeffs for the init has size (4*4 + 4*4)* nbCascade 
+Whereas the pCoeffs for the init has size (4*4 + 4*4)* nbCascade
 
 So this pCoeffs is the one which would be used for the not Neon version.
 The pCoeffs passed in init is bigger than the one for the not Neon version.
@@ -109,7 +109,7 @@ void arm_biquad_cascade_df2T_compute_coefs_f32(
 
    pDstCoeffs = (float32_t*)S->pCoeffs;
 
-   cnt = numStages >> 2; 
+   cnt = numStages >> 2;
    while(cnt > 0)
    {
       for(int i=0;i<4;i++)
@@ -139,7 +139,7 @@ void arm_biquad_cascade_df2T_compute_coefs_f32(
       *pDstCoeffs++ = 0;
       *pDstCoeffs++ = 0;
       *pDstCoeffs++ = b0[1] * b0[2] * b0[3];
-      
+
       /* Vec 4 */
       *pDstCoeffs++ = b0[0];
       *pDstCoeffs++ = b0[0] * b0[1];
@@ -185,7 +185,7 @@ void arm_biquad_cascade_df2T_compute_coefs_f32(
    }
 
 }
-#endif 
+#endif
 
 void arm_biquad_cascade_df2T_init_f32(
         arm_biquad_cascade_df2T_instance_f32 * S,

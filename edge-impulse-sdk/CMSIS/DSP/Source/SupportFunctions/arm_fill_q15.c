@@ -50,7 +50,7 @@ void arm_fill_q15(
   q15_t * pDst,
   uint32_t blockSize)
 {
-  uint32_t blkCnt;  
+  uint32_t blkCnt;
   blkCnt = blockSize >> 3;
   while (blkCnt > 0U)
   {

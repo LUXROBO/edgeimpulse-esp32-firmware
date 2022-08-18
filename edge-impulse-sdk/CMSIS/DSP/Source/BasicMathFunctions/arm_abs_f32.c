@@ -90,7 +90,7 @@ void arm_abs_f32(
         /* Increment pointers */
         pSrc += 4;
         pDst += 4;
-        
+
         /* Decrement the loop counter */
         blkCnt--;
     }
@@ -136,7 +136,7 @@ void arm_abs_f32(
         /* Increment pointers */
         pSrc += 4;
         pDst += 4;
-        
+
         /* Decrement the loop counter */
         blkCnt--;
     }

@@ -166,7 +166,7 @@ void ei_free(void *ptr);
 #endif
 
 #ifndef EI_PORTING_RASPBERRY
-#ifdef PICO_BOARD 
+#ifdef PICO_BOARD
 #define EI_PORTING_RASPBERRY      1
 #else
 #define EI_PORTING_RASPBERRY      0

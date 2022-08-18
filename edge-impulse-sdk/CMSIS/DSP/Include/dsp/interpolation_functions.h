@@ -22,7 +22,7 @@
  * limitations under the License.
  */
 
- 
+
 #ifndef _INTERPOLATION_FUNCTIONS_H_
 #define _INTERPOLATION_FUNCTIONS_H_
 
@@ -131,7 +131,7 @@ extern "C"
    * @{
    */
 
-  
+
   /**
    * @brief Processing function for the floating-point cubic spline interpolation.
    * @param[in]  S          points to an instance of the floating-point spline structure.
@@ -140,7 +140,7 @@ extern "C"
    * @param[in]  blockSize  number of samples of output data.
    */
   void arm_spline_f32(
-        arm_spline_instance_f32 * S, 
+        arm_spline_instance_f32 * S,
   const float32_t * xq,
         float32_t * pDst,
         uint32_t blockSize);
@@ -160,7 +160,7 @@ extern "C"
           arm_spline_type type,
     const float32_t * x,
     const float32_t * y,
-          uint32_t n, 
+          uint32_t n,
           float32_t * coeffs,
           float32_t * tempBuffer);
 
@@ -170,7 +170,7 @@ extern "C"
    */
 
 
-  
+
   /**
    * @addtogroup LinearInterpolate
    * @{
@@ -244,7 +244,7 @@ q7_t arm_linear_interp_q7(
    * @} end of LinearInterpolate group
    */
 
-  
+
 
 
   /**

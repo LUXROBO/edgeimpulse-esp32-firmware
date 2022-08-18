@@ -67,7 +67,7 @@ void arm_cmplx_mag_q15(
     blkCnt = blockSize >> 3;
     while (blkCnt > 0U)
     {
-        vecSrc = vld2q(pSrc);  
+        vecSrc = vld2q(pSrc);
         pSrc += 16;
         sum = vqaddq(vmulhq(vecSrc.val[0], vecSrc.val[0]),
                      vmulhq(vecSrc.val[1], vecSrc.val[1]));
@@ -76,7 +76,7 @@ void arm_cmplx_mag_q15(
 
         sum = FAST_VSQRT_Q15(sum);
 
-        vst1q(pDst, sum); 
+        vst1q(pDst, sum);
         pDst += 8;
         /*
          * Decrement the blockSize loop counter
@@ -92,14 +92,14 @@ void arm_cmplx_mag_q15(
     while (blkCnt > 0U)
     {
       /* C[0] = sqrt(A[0] * A[0] + A[1] * A[1]) */
-  
+
       in = read_q15x2_ia ((q15_t **) &pSrc);
       acc0 = __SMUAD(in, in);
-  
+
       /* store result in 2.14 format in destination buffer. */
       arm_sqrt_q15((q15_t) (acc0 >> 17), pDst++);
-  
-  
+
+
       /* Decrement loop counter */
       blkCnt--;
     }

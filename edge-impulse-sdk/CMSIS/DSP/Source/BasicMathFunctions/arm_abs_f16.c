@@ -88,7 +88,7 @@ void arm_abs_f16(
         /* Increment pointers */
         pSrc += 8;
         pDst += 8;
-        
+
         /* Decrement the loop counter */
         blkCnt--;
     }
@@ -135,7 +135,7 @@ void arm_abs_f16(
         /* Increment pointers */
         pSrc += 4;
         pDst += 4;
-        
+
         /* Decrement the loop counter */
         blkCnt--;
     }

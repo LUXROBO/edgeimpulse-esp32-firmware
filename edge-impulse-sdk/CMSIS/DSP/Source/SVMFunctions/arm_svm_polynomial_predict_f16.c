@@ -156,9 +156,9 @@ void arm_svm_polynomial_predict_f16(
 
         vSum = vfmaq_m_f16(vSum, vld1q(pDualCoef),
                              arm_vec_exponent_f16
-                             (vaddq_n_f16(vmulq_n_f16(vtmp, S->gamma), S->coef0), 
+                             (vaddq_n_f16(vmulq_n_f16(vtmp, S->gamma), S->coef0),
                                 S->degree),vctp16q(4));
-        
+
         pDualCoef += 4;
 
         pSrcA += numCols * 4;
@@ -232,9 +232,9 @@ void arm_svm_polynomial_predict_f16(
 
         vSum = vfmaq_m_f16(vSum, vld1q(pDualCoef),
                              arm_vec_exponent_f16
-                             (vaddq_n_f16(vmulq_n_f16(vtmp, S->gamma), S->coef0), S->degree), 
+                             (vaddq_n_f16(vmulq_n_f16(vtmp, S->gamma), S->coef0), S->degree),
                              vctp16q(2));
-        
+
         pDualCoef += 2;
         pSrcA += numCols * 2;
         row -= 2;
@@ -291,12 +291,12 @@ void arm_svm_polynomial_predict_f16(
         vtmp = vsetq_lane(vecAddAcrossF16Mve(acc0), vtmp, 0);
         vSum = vfmaq_m_f16(vSum, vld1q(pDualCoef),
                              arm_vec_exponent_f16
-                             (vaddq_n_f16(vmulq_n_f16(vtmp, S->gamma), S->coef0), S->degree), 
+                             (vaddq_n_f16(vmulq_n_f16(vtmp, S->gamma), S->coef0), S->degree),
                              vctp16q(1));
     }
     sum += (_Float16)vecAddAcrossF16Mve(vSum);
 
-    
+
     *pResult = S->classes[STEP(sum)];
 }
 
@@ -330,5 +330,5 @@ void arm_svm_polynomial_predict_f16(
  * @} end of polysvm group
  */
 
-#endif /* #if defined(ARM_FLOAT16_SUPPORTED) */ 
+#endif /* #if defined(ARM_FLOAT16_SUPPORTED) */
 

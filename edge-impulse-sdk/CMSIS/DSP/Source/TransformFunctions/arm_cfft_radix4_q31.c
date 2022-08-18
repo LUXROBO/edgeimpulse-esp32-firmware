@@ -62,7 +62,7 @@ void arm_bitreversal_q31(
   @param[in]     S    points to an instance of the Q31 CFFT/CIFFT structure
   @param[in,out] pSrc points to the complex data buffer of size <code>2*fftLen</code>. Processing occurs in-place
   @return        none
- 
+
   @par Input and output formats:
                  Internally input is downscaled by 2 for every stage to avoid saturations inside CFFT/CIFFT process.
                  Hence the output format is different for different FFT sizes.
@@ -150,12 +150,12 @@ void arm_radix4_butterfly_q31(
 {
         uint32_t n1, n2, ia1, ia2, ia3, i0, i1, i2, i3, j, k;
         q31_t t1, t2, r1, r2, s1, s2, co1, co2, co3, si1, si2, si3;
-        
+
         q31_t xa, xb, xc, xd;
         q31_t ya, yb, yc, yd;
         q31_t xa_out, xb_out, xc_out, xd_out;
         q31_t ya_out, yb_out, yc_out, yd_out;
-        
+
         q31_t *ptr1;
 
   /* Total process is divided into three stages */
@@ -501,7 +501,7 @@ void arm_radix4_butterfly_q31(
  * Wn = co1 + j * (si1)
  * W2n = co2 + j * (si2)
  * W3n = co3 + j * (si3)
- 
+
  * The real and imaginary output values for the radix-4 butterfly are
  * xa' = xa + xb + xc + xd
  * ya' = ya + yb + yc + yd
@@ -526,7 +526,7 @@ void arm_radix4_butterfly_inverse_q31(
         q31_t ya, yb, yc, yd;
         q31_t xa_out, xb_out, xc_out, xd_out;
         q31_t ya_out, yb_out, yc_out, yd_out;
-        
+
         q31_t *ptr1;
 
   /* input is be 1.31(q31) format for all FFT sizes */

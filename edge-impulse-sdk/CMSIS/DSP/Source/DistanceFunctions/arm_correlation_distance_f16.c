@@ -81,10 +81,10 @@ float16_t arm_correlation_distance_f16(float16_t *pA,float16_t *pB, uint32_t blo
     pwrb = pwrb / blockSize;
 
     arm_sqrt_f16(pwra * pwrb,&tmp);
- 
+
     return(1.0f - dot / tmp);
 
-   
+
 }
 
 
@@ -93,5 +93,5 @@ float16_t arm_correlation_distance_f16(float16_t *pA,float16_t *pB, uint32_t blo
  * @} end of Correlation group
  */
 
-#endif /* #if defined(ARM_FLOAT16_SUPPORTED) */ 
+#endif /* #if defined(ARM_FLOAT16_SUPPORTED) */
 

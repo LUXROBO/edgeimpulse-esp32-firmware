@@ -80,7 +80,7 @@ arm_status arm_mat_ldlt_f64(
 {
 
   arm_status status;                             /* status of matrix inverse */
- 
+
 
 #ifdef ARM_MATH_MATRIX_CHECK
 
@@ -117,7 +117,7 @@ arm_status arm_mat_ldlt_f64(
     {
         /* Find pivot */
         float64_t m=F64_MIN,a;
-        int j=k; 
+        int j=k;
 
 
         for(int r=k;r<n;r++)
@@ -160,7 +160,7 @@ arm_status arm_mat_ldlt_f64(
                pA[w*n+k] = pA[w*n+k] / a;
         }
 
-        
+
 
     }
 
@@ -192,12 +192,12 @@ arm_status arm_mat_ldlt_f64(
       pd->pData[d*n+d] = pl->pData[d*n+d];
       pl->pData[d*n+d] = 1.0;
     }
-  
+
     status = ARM_MATH_SUCCESS;
 
   }
 
-  
+
   /* Return to application */
   return (status);
 }

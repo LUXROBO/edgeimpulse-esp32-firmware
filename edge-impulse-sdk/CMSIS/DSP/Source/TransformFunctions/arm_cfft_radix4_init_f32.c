@@ -159,7 +159,7 @@ arm_status arm_cfft_radix4_init_f32(
 #endif
 #endif
 #endif
-  
+
   return (status);
 }
 

@@ -64,7 +64,7 @@ void arm_bitreversal_q15(
   @param[in]     S     points to an instance of the Q15 CFFT/CIFFT structure.
   @param[in,out] pSrc  points to the complex data buffer. Processing occurs in-place.
   @return        none
- 
+
   @par Input and output formats:
                  Internally input is downscaled by 2 for every stage to avoid saturations inside CFFT/CIFFT process.
                  Hence the output format is different for different FFT sizes.
@@ -122,7 +122,7 @@ void arm_cfft_radix4_q15(
  * Wn = co1 + j * (- si1)
  * W2n = co2 + j * (- si2)
  * W3n = co3 + j * (- si3)
- 
+
  * The real and imaginary output values for the radix-4 butterfly are
  * xa' = xa + xb + xc + xd
  * ya' = ya + yb + yc + yd
@@ -1001,7 +1001,7 @@ void arm_radix4_butterfly_q15(
  * Wn = co1 + j * (si1)
  * W2n = co2 + j * (si2)
  * W3n = co3 + j * (si3)
- 
+
  * The real and imaginary output values for the radix-4 butterfly are
  * xa' = xa + xb + xc + xd
  * ya' = ya + yb + yc + yd
@@ -1026,13 +1026,13 @@ void arm_radix4_butterfly_inverse_q15(
         q31_t R, S, T, U;
         q31_t C1, C2, C3, out1, out2;
         uint32_t n1, n2, ic, i0, j, k;
-        
+
         q15_t *ptr1;
         q15_t *pSi0;
         q15_t *pSi1;
         q15_t *pSi2;
         q15_t *pSi3;
-        
+
         q31_t xaya, xbyb, xcyc, xdyd;
 
   /* Total process is divided into three stages */

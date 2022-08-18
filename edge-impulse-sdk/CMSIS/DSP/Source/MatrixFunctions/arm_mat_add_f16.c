@@ -59,7 +59,7 @@ arm_status arm_mat_add_f16(
   const arm_matrix_instance_f16 * pSrcB,
   arm_matrix_instance_f16 * pDst)
 {
-    arm_status status;  
+    arm_status status;
     uint32_t  numSamples;       /* total number of elements in the matrix  */
     float16_t *pDataA, *pDataB, *pDataDst;
     f16x8_t vecA, vecB, vecDst;
@@ -94,12 +94,12 @@ arm_status arm_mat_add_f16(
     {
         /* C(m,n) = A(m,n) + B(m,n) */
         /* Add and then store the results in the destination buffer. */
-        vecA = vld1q(pSrcAVec); 
+        vecA = vld1q(pSrcAVec);
         pSrcAVec += 8;
-        vecB = vld1q(pSrcBVec); 
+        vecB = vld1q(pSrcBVec);
         pSrcBVec += 8;
         vecDst = vaddq(vecA, vecB);
-        vst1q(pDataDst, vecDst);  
+        vst1q(pDataDst, vecDst);
         pDataDst += 8;
         /*
          * Decrement the blockSize loop counter
@@ -113,8 +113,8 @@ arm_status arm_mat_add_f16(
     if (blkCnt > 0U)
     {
         mve_pred16_t p0 = vctp16q(blkCnt);
-        vecA = vld1q(pSrcAVec); 
-        vecB = vld1q(pSrcBVec); 
+        vecA = vld1q(pSrcAVec);
+        vecB = vld1q(pSrcBVec);
         vecDst = vaddq_m(vecDst, vecA, vecB, p0);
         vstrhq_p(pDataDst, vecDst, p0);
     }
@@ -213,5 +213,5 @@ arm_status arm_mat_add_f16(
   @} end of MatrixAdd group
  */
 
-#endif /* #if defined(ARM_FLOAT16_SUPPORTED) */ 
+#endif /* #if defined(ARM_FLOAT16_SUPPORTED) */
 

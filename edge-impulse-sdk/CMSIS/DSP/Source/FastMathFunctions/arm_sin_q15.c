@@ -54,7 +54,7 @@ q15_t arm_sin_q15(
   q15_t a, b;                                    /* Two nearest output values */
   q15_t fract;                                   /* Temporary values for fractional values */
 
-  
+
   if (x < 0)
   { /* convert negative numbers to corresponding positive ones */
     x = (uint16_t)x + 0x8000;

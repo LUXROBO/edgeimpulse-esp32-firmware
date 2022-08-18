@@ -65,7 +65,7 @@ void arm_cmplx_conj_q31(
 
     zero = vdupq_n_s32(0);
 
-   
+
     /* Compute 4 real samples at a time */
     blkCnt = blockSize >> 3U;
 
@@ -90,12 +90,12 @@ void arm_cmplx_conj_q31(
     while (blkCnt > 0U)
     {
       /* C[0] + jC[1] = A[0]+ j(-1)A[1] */
-  
+
       /* Calculate Complex Conjugate and store result in destination buffer. */
       *pDst++ =  *pSrc++;
       in = *pSrc++;
       *pDst++ = __QSUB(0, in);
-  
+
       /* Decrement loop counter */
       blkCnt--;
     }

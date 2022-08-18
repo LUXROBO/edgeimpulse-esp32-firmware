@@ -51,7 +51,7 @@ void arm_copy_q7(
         uint32_t blockSize)
 {
 
-  uint32_t blkCnt;  
+  uint32_t blkCnt;
 
   blkCnt = blockSize >> 4;
   while (blkCnt > 0U)

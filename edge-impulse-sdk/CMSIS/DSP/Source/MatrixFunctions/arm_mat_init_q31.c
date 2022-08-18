@@ -34,7 +34,7 @@
 
 /**
   @defgroup MatrixInit Matrix Initialization
- 
+
  */
 
 /**

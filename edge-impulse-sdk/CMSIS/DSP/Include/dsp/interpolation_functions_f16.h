@@ -22,7 +22,7 @@
  * limitations under the License.
  */
 
- 
+
 #ifndef _INTERPOLATION_FUNCTIONS_F16_H_
 #define _INTERPOLATION_FUNCTIONS_F16_H_
 

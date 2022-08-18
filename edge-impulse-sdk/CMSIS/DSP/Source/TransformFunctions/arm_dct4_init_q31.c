@@ -98,14 +98,14 @@ arm_status arm_dct4_init_q31(
     S->pTwiddle = WeightsQ31_2048;
     S->pCosFactor = cos_factorsQ31_2048;
     break;
-  #endif 
+  #endif
 
   #if !defined(ARM_DSP_CONFIG_TABLES) || defined(ARM_ALL_FFT_TABLES) || defined(ARM_TABLE_DCT4_Q31_512)
   case 512U:
     S->pTwiddle = WeightsQ31_512;
     S->pCosFactor = cos_factorsQ31_512;
     break;
-  #endif 
+  #endif
 
   #if !defined(ARM_DSP_CONFIG_TABLES) || defined(ARM_ALL_FFT_TABLES) || defined(ARM_TABLE_DCT4_Q31_128)
   case 128U:

@@ -66,7 +66,7 @@
                    The 4 state variables for stage 1 are first, then the 4 state variables for stage 2, and so on.
                    The state array has a total length of <code>4*numStages</code> values.
                    The state variables are updated after each block of data is processed; the coefficients are untouched.
- 
+
   @par             For MVE code, an additional buffer of modified coefficients is required.
                    Its size is numStages and each element of this buffer has type arm_biquad_mod_coef_f16.
                    So, its total size is 96*numStages float16_t elements.
@@ -137,8 +137,8 @@ static void generateCoefsFastBiquadF16(float16_t b0, float16_t b1, float16_t b2,
 
 void arm_biquad_cascade_df1_mve_init_f16(arm_biquad_casd_df1_inst_f16 * S,
                                          uint8_t numStages,
-                                         const float16_t * pCoeffs, 
-                                         arm_biquad_mod_coef_f16 * pCoeffsMod, 
+                                         const float16_t * pCoeffs,
+                                         arm_biquad_mod_coef_f16 * pCoeffsMod,
                                          float16_t * pState)
 {
     arm_biquad_cascade_df1_init_f16(S, numStages, (float16_t *)pCoeffsMod, pState);

@@ -26,7 +26,7 @@
 #include <cstdint>
 
 /**
- * @brief      Call this function periocally during inference to 
+ * @brief      Call this function periocally during inference to
  *             detect a user stop command
  *
  * @return     true if user requested stop
@@ -36,7 +36,7 @@ bool ei_user_invoke_stop_lib(void);
 /**
  * @brief Helper function for sending a data from memory over the
  * serial port. Data are encoded into base64 on the fly.
- * 
+ *
  * @param address address of samples
  * @param length number of samples (bytes)
  * @return true if eferything went fin

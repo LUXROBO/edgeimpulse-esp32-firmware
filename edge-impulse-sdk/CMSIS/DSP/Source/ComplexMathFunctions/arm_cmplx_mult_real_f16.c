@@ -93,7 +93,7 @@ void arm_cmplx_mult_real_f16(
 
     /* Compute 4 complex outputs at a time */
     blkCnt = blockSizeC >> 3;
-    while (blkCnt > 0U) 
+    while (blkCnt > 0U)
     {
         cmplxVec = vld1q(pSrcCmplx);
         rVec = vldrhq_gather_shifted_offset_f16(pSrcReal, strideVec);

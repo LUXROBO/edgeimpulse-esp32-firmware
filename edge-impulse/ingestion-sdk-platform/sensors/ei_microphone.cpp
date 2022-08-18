@@ -135,7 +135,7 @@ static void capture_samples(void* arg) {
 
     if (bytes_read <= 0) {
       ESP_LOGE(TAG, "Error in I2S read : %d", bytes_read);
-    } 
+    }
     else {
         if (bytes_read < i2s_bytes_to_read) {
         ESP_LOGW(TAG, "Partial I2S read");
@@ -145,7 +145,7 @@ static void capture_samples(void* arg) {
         for (int x = 0; x < i2s_bytes_to_read/2; x++) {
             sampleBuffer[x] = (int16_t)(sampleBuffer[x]) * 8;
         }
-        
+
         // see if are recording samples for ingestion
         // or inference and send them their way
         if (record_status == 1) {
@@ -167,7 +167,7 @@ static void finish_and_upload(char *filename, uint32_t sample_length_ms) {
 
     EiDeviceESP32* dev = static_cast<EiDeviceESP32*>(EiDeviceESP32::get_device());
     EiDeviceMemory* mem = dev->get_memory();
-    
+
     ei_printf("Done sampling, total bytes collected: %u\n", current_sample*2);
 
     dev->set_state(eiStateUploading);
@@ -281,7 +281,7 @@ bool ei_microphone_record(uint32_t sample_length_ms, uint32_t start_delay_ms, bo
 
     if(mem->erase_sample_data(0, (samples_required << 1) + 4096) != ((samples_required << 1) + 4096)) {
         return false;
-    }    
+    }
 
     vTaskDelay(start_delay_ms / portTICK_RATE_MS);
 
@@ -518,23 +518,23 @@ bool ei_microphone_sample_start(void)
 static int i2s_init(uint32_t sampling_rate) {
   // Start listening for audio: MONO @ 8/16KHz
   i2s_config_t i2s_config = {
-      .mode = (i2s_mode_t)(I2S_MODE_MASTER | I2S_MODE_RX | I2S_MODE_TX),
-      .sample_rate = sampling_rate,
-      .bits_per_sample = (i2s_bits_per_sample_t)16,
-      .channel_format = I2S_CHANNEL_FMT_ONLY_LEFT,
-      .communication_format = I2S_COMM_FORMAT_I2S,
-      .intr_alloc_flags = 0,
-      .dma_buf_count = 8,
-      .dma_buf_len = 512,
-      .use_apll = false,
-      .tx_desc_auto_clear = false,
-      .fixed_mclk = -1,
+    .mode = (i2s_mode_t)(I2S_MODE_MASTER | I2S_MODE_RX | I2S_MODE_TX),
+    .sample_rate = sampling_rate,
+    .bits_per_sample = (i2s_bits_per_sample_t)16,
+    .channel_format = I2S_CHANNEL_FMT_ONLY_LEFT,
+    .communication_format = I2S_COMM_FORMAT_I2S,
+    .intr_alloc_flags = 0,
+    .dma_buf_count = 8,
+    .dma_buf_len = 512,
+    .use_apll = false,
+    .tx_desc_auto_clear = false,
+    .fixed_mclk = -1,
   };
   i2s_pin_config_t pin_config = {
-      .bck_io_num = 26,    // IIS_SCLK
-      .ws_io_num = 32,     // IIS_LCLK
-      .data_out_num = -1,  // IIS_DSIN
-      .data_in_num = 33,   // IIS_DOUT
+    .bck_io_num = 41,                  // IIS_SCLK
+    .ws_io_num = 42,                   // IIS_LCLK
+    .data_out_num = I2S_PIN_NO_CHANGE, // IIS_DSIN
+    .data_in_num = 2                   // IIS_DOUT
   };
   esp_err_t ret = 0;
 

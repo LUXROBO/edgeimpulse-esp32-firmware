@@ -63,7 +63,7 @@ void arm_cmplx_mag_squared_q15(
   q15x8_t vReal, vImag;
   q15x8_t vMagSq;
 
-  
+
   blkCnt = blockSize >> 3;
   while (blkCnt > 0U)
   {

@@ -86,7 +86,7 @@ const float16_t twiddleCoefF16_16[32] = {
     (float16_t)0.707106781f, (float16_t)-0.707106781f,
     (float16_t)0.923879533f, (float16_t)-0.382683432f
 };
-#endif 
+#endif
 
 #if !defined(ARM_DSP_CONFIG_TABLES) || defined(ARM_ALL_FFT_TABLES) || defined(ARM_TABLE_TWIDDLECOEF_F16_32)
 
@@ -225,7 +225,7 @@ const float16_t twiddleCoefF16_64[128] = {
     (float16_t)0.980785280f, (float16_t)-0.195090322f,
     (float16_t)0.995184727f, (float16_t)-0.098017140f
 };
-#endif 
+#endif
 
 #if !defined(ARM_DSP_CONFIG_TABLES) || defined(ARM_ALL_FFT_TABLES) || defined(ARM_TABLE_TWIDDLECOEF_F16_128)
 
@@ -375,7 +375,7 @@ const float16_t twiddleCoefF16_128[256] = {
     (float16_t)0.995184727f, (float16_t)-0.098017140f,
     (float16_t)0.998795456f, (float16_t)-0.049067674f
 };
-#endif 
+#endif
 
 #if !defined(ARM_DSP_CONFIG_TABLES) || defined(ARM_ALL_FFT_TABLES) || defined(ARM_TABLE_TWIDDLECOEF_F16_256)
 
@@ -652,7 +652,7 @@ const float16_t twiddleCoefF16_256[512] = {
     (float16_t)0.998795456f, (float16_t)-0.049067674f,
     (float16_t)0.999698819f, (float16_t)-0.024541229f
 };
-#endif 
+#endif
 
 #if !defined(ARM_DSP_CONFIG_TABLES) || defined(ARM_ALL_FFT_TABLES) || defined(ARM_TABLE_TWIDDLECOEF_F16_512)
 
@@ -1186,7 +1186,7 @@ const float16_t twiddleCoefF16_512[1024] = {
     (float16_t)0.999924702f, (float16_t)-0.012271538f
 };
 
-#endif 
+#endif
 
 #if !defined(ARM_DSP_CONFIG_TABLES) || defined(ARM_ALL_FFT_TABLES) || defined(ARM_TABLE_TWIDDLECOEF_F16_1024)
 
@@ -2231,7 +2231,7 @@ const float16_t twiddleCoefF16_1024[2048] = {
     (float16_t)0.999924702f, (float16_t)-0.012271538f,
     (float16_t)0.999981175f, (float16_t)-0.006135885f
 };
-#endif 
+#endif
 
 #if !defined(ARM_DSP_CONFIG_TABLES) || defined(ARM_ALL_FFT_TABLES) || defined(ARM_TABLE_TWIDDLECOEF_F16_2048)
 
@@ -8417,7 +8417,7 @@ const float16_t twiddleCoefF16_4096[8192] = {
     (float16_t)0.999995294f, (float16_t)-0.003067957f,
     (float16_t)0.999998823f, (float16_t)-0.001533980f
 };
-#endif 
+#endif
 
 #if !defined(ARM_DSP_CONFIG_TABLES) || defined(ARM_ALL_FFT_TABLES) || defined(ARM_TABLE_TWIDDLECOEF_RFFT_F16_32)
 /**

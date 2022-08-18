@@ -224,7 +224,7 @@ void ei_start_impulse(bool continuous, bool debug, bool use_max_uart_speed)
     EiDeviceESP32* dev = static_cast<EiDeviceESP32*>(EiDeviceESP32::get_device());
     EiCameraESP32 *camera = static_cast<EiCameraESP32*>(EiCameraESP32::get_camera());
 
-    // check if minimum suitable sensor resolution is the same as 
+    // check if minimum suitable sensor resolution is the same as
     // desired snapshot resolution
     // if not we need to resize later
     fb_resolution = camera->search_resolution(snapshot_resolution.width, snapshot_resolution.height);

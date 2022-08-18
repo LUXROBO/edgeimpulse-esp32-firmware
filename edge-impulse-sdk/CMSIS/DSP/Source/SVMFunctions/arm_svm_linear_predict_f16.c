@@ -71,7 +71,7 @@ void arm_svm_linear_predict_f16(
     /*
      * compute 4 rows in parrallel
      */
-    while (row >= 4) 
+    while (row >= 4)
     {
         const float16_t *pInA2, *pInA3;
         float16_t const *pSrcA0Vec, *pSrcA1Vec, *pSrcA2Vec, *pSrcA3Vec, *pInVec;
@@ -308,5 +308,5 @@ void arm_svm_linear_predict_f16(
  * @} end of linearsvm group
  */
 
-#endif /* #if defined(ARM_FLOAT16_SUPPORTED) */ 
+#endif /* #if defined(ARM_FLOAT16_SUPPORTED) */
 

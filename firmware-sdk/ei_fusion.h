@@ -69,14 +69,14 @@ bool ei_add_sensor_to_fusion_list(ei_device_fusion_sensor_t sensor);
 
 /**
  * @brief Function combines all sensors AND prints results using ei_printf
- * 
+ *
  */
 void ei_built_sensor_fusion_list(void);
 
 /**
  * @brief Function combines all sensors AND returns const reference to list as a result
- * 
- * @return const std::vector<fused_sensors_t>& 
+ *
+ * @return const std::vector<fused_sensors_t>&
  */
 const std::vector<fused_sensors_t> &ei_get_sensor_fusion_list(void);
 

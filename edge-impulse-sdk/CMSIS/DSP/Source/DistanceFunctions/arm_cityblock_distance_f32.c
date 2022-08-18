@@ -105,10 +105,10 @@ float32_t arm_cityblock_distance_f32(const float32_t *pA,const float32_t *pB, ui
    {
         a = vld1q_f32(pA);
         b = vld1q_f32(pB);
- 
+
         tempV = vabdq_f32(a,b);
         accumV = vaddq_f32(accumV, tempV);
- 
+
         pA += 4;
         pB += 4;
         blkCnt --;
@@ -116,7 +116,7 @@ float32_t arm_cityblock_distance_f32(const float32_t *pA,const float32_t *pB, ui
    accumV2 = vpadd_f32(vget_low_f32(accumV),vget_high_f32(accumV));
    accumV2 = vpadd_f32(accumV2,accumV2);
    accum = vget_lane_f32(accumV2,0);
-   
+
 
    blkCnt = blockSize & 3;
    while(blkCnt > 0)
@@ -124,7 +124,7 @@ float32_t arm_cityblock_distance_f32(const float32_t *pA,const float32_t *pB, ui
       tmpA = *pA++;
       tmpB = *pB++;
       accum += fabsf(tmpA - tmpB);
-      
+
       blkCnt --;
    }
    return(accum);
@@ -141,10 +141,10 @@ float32_t arm_cityblock_distance_f32(const float32_t *pA,const float32_t *pB, ui
       tmpA = *pA++;
       tmpB = *pB++;
       accum  += fabsf(tmpA - tmpB);
-      
+
       blockSize --;
    }
-  
+
    return(accum);
 }
 #endif

@@ -759,5 +759,5 @@ arm_status arm_mat_mult_f16(
  * @} end of MatrixMult group
  */
 
-#endif /* #if defined(ARM_FLOAT16_SUPPORTED) */ 
+#endif /* #if defined(ARM_FLOAT16_SUPPORTED) */
 

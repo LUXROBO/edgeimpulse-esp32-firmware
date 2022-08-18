@@ -661,7 +661,7 @@ arm_status arm_mat_cmplx_mult_f32(
 
                 blkCnt--;
             }
-            
+
 
             /*
              * tail
@@ -761,7 +761,7 @@ arm_status arm_mat_cmplx_mult_f32(
             acc0 = vdupq_n_f32(0.0f);
 
             pSrcA0Vec = (float32_t const *) pInA0;
-           
+
             vecOffs = vecColBOffs;
 
             /*
@@ -778,11 +778,11 @@ arm_status arm_mat_cmplx_mult_f32(
                  */
                 vecOffs = vecOffs + (uint32_t) (numColsB * 2 * CMPLX_DIM);
 
-                vecA = vld1q(pSrcA0Vec);  
+                vecA = vld1q(pSrcA0Vec);
                 pSrcA0Vec += 4;
                 acc0 = vcmlaq(acc0, vecA, vecB);
                 acc0 = vcmlaq_rot90(acc0, vecA, vecB);
-                
+
 
                 blkCnt--;
             }
@@ -798,7 +798,7 @@ arm_status arm_mat_cmplx_mult_f32(
                 f32x4_t vecB, vecA;
 
                 vecB = vldrwq_gather_shifted_offset_z(pInB, vecOffs, p0);
-               
+
                 vecA = vld1q(pSrcA0Vec);
                 acc0 = vcmlaq(acc0, vecA, vecB);
                 acc0 = vcmlaq_rot90(acc0, vecA, vecB);
@@ -807,7 +807,7 @@ arm_status arm_mat_cmplx_mult_f32(
 
             px[0] = acc0[0] + acc0[2];
             px[1] = acc0[1] + acc0[3];
-           
+
             px += CMPLX_DIM;
             /*
              * Decrement the column loop counter
@@ -826,7 +826,7 @@ arm_status arm_mat_cmplx_mult_f32(
         rowCnt--;
     }
 
-    
+
       /* Set status as ARM_MATH_SUCCESS */
     status = ARM_MATH_SUCCESS;
   }
@@ -859,13 +859,13 @@ arm_status arm_mat_cmplx_mult_f32(
   float32x4x2_t a0V, a1V;
   float32x4_t accR0,accI0, accR1,accI1,tempR, tempI;
   float32x2_t accum = vdup_n_f32(0);
-  float32_t *pIn1B = pSrcA->pData;    
+  float32_t *pIn1B = pSrcA->pData;
 
   uint16_t col, i = 0U, j, rowCnt, row = numRowsA, colCnt;      /* loop counters */
   arm_status status;                             /* status of matrix multiplication */
-  float32_t sumReal1B, sumImag1B; 
-  float32_t sumReal2B, sumImag2B; 
-  float32_t *pxB;  
+  float32_t sumReal1B, sumImag1B;
+  float32_t sumReal2B, sumImag2B;
+  float32_t *pxB;
 
 #ifdef ARM_MATH_MATRIX_CHECK
 
@@ -1038,7 +1038,7 @@ arm_status arm_mat_cmplx_mult_f32(
 
         /* Decrement the column loop counter */
         col--;
-      } 
+      }
 
       /* Update the pointer pInA to point to the  starting address of the next 2 row */
       i = i + 2*numColsB;
@@ -1161,7 +1161,7 @@ arm_status arm_mat_cmplx_mult_f32(
         /* Decrement the column loop counter */
         col--;
 
-      } 
+      }
 
       /* Update the pointer pInA to point to the  starting address of the next row */
       i = i + numColsB;

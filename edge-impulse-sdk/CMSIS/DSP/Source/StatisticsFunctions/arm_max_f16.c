@@ -242,5 +242,5 @@ void arm_max_f16(
   @} end of Max group
  */
 
-#endif /* #if defined(ARM_FLOAT16_SUPPORTED) */ 
+#endif /* #if defined(ARM_FLOAT16_SUPPORTED) */
 

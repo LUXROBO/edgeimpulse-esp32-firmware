@@ -92,12 +92,12 @@ arm_status arm_mat_sub_f16(
     {
         /* C(m,n) = A(m,n) + B(m,n) */
         /* sub and then store the results in the destination buffer. */
-        vecA = vld1q(pSrcAVec); 
+        vecA = vld1q(pSrcAVec);
         pSrcAVec += 8;
-        vecB = vld1q(pSrcBVec); 
+        vecB = vld1q(pSrcBVec);
         pSrcBVec += 8;
         vecDst = vsubq(vecA, vecB);
-        vst1q(pDataDst, vecDst);  
+        vst1q(pDataDst, vecDst);
         pDataDst += 8;
         /*
          * Decrement the blockSize loop counter
@@ -112,8 +112,8 @@ arm_status arm_mat_sub_f16(
     if (blkCnt > 0U)
     {
         mve_pred16_t p0 = vctp16q(blkCnt);
-        vecA = vld1q(pSrcAVec); 
-        vecB = vld1q(pSrcBVec); 
+        vecA = vld1q(pSrcAVec);
+        vecB = vld1q(pSrcBVec);
         vecDst = vsubq_m(vecDst, vecA, vecB, p0);
         vstrhq_p(pDataDst, vecDst, p0);
     }
@@ -211,5 +211,5 @@ arm_status arm_mat_sub_f16(
   @} end of MatrixSub group
  */
 
-#endif /* #if defined(ARM_FLOAT16_SUPPORTED) */ 
+#endif /* #if defined(ARM_FLOAT16_SUPPORTED) */
 

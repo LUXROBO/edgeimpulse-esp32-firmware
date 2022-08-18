@@ -58,7 +58,7 @@ void arm_cmplx_conj_q15(
 {
     uint32_t blockSize = numSamples * CMPLX_DIM;   /* loop counters */
     uint32_t blkCnt;
-    q31_t in1; 
+    q31_t in1;
 
     q15x8x2_t vecSrc;
     q15x8_t zero;
@@ -80,19 +80,19 @@ void arm_cmplx_conj_q15(
         pDst += 16;
         blkCnt --;
     }
-    
+
      /* Tail */
     blkCnt = (blockSize & 0xF) >> 1;
 
     while (blkCnt > 0U)
     {
       /* C[0] + jC[1] = A[0]+ j(-1)A[1] */
-  
+
       /* Calculate Complex Conjugate and store result in destination buffer. */
       *pDst++ =  *pSrc++;
       in1 = *pSrc++;
       *pDst++ = __SSAT(-in1, 16);
-  
+
       /* Decrement loop counter */
       blkCnt--;
     }

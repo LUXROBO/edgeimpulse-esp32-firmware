@@ -68,7 +68,7 @@ Date:   Mon Feb 29 12:12:12 2016 +0000
 Title of the commit
 
 Short description of the change.
-   
+
 Signed-off-by: John Doe john.doe@example.org
 Signed-off-by: Foo Bar foo.bar@example.org
 ```

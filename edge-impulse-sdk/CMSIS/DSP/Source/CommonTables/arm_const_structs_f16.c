@@ -35,7 +35,7 @@
 
 
 /*
-ALLOW TABLE is true when config table is enabled and the Tramsform folder is included 
+ALLOW TABLE is true when config table is enabled and the Tramsform folder is included
 for compilation.
 */
 #if !defined(ARM_DSP_CONFIG_TABLES) || defined(ARM_FFT_ALLOW_TABLES)
@@ -45,7 +45,7 @@ for compilation.
 #if !defined(ARM_MATH_MVE_FLOAT16) || defined(ARM_MATH_AUTOVECTORIZE)
 
 
-/* 
+/*
 
 Those structures cannot be used to initialize the MVE version of the FFT F32 instances.
 So they are not compiled when MVE is defined.
@@ -56,7 +56,7 @@ For the MVE version, the new arm_cfft_init_f16 must be used.
 */
 
 #if !defined(__CC_ARM)
- 
+
 #if !defined(ARM_DSP_CONFIG_TABLES) || defined(ARM_ALL_FFT_TABLES) || (defined(ARM_TABLE_TWIDDLECOEF_F16_16) && defined(ARM_TABLE_BITREVIDX_FLT_16))
 const arm_cfft_instance_f16 arm_cfft_sR_f16_len16 = {
   16, twiddleCoefF16_16, armBitRevIndexTable_fixed_16, ARMBITREVINDEXTABLE_FIXED_16_TABLE_LENGTH
@@ -110,7 +110,7 @@ const arm_cfft_instance_f16 arm_cfft_sR_f16_len4096 = {
   4096, twiddleCoefF16_4096, armBitRevIndexTable_fixed_4096, ARMBITREVINDEXTABLE_FIXED_4096_TABLE_LENGTH
 };
 #endif
-#endif 
+#endif
 
 #endif /* !defined(ARM_MATH_MVEF) || defined(ARM_MATH_AUTOVECTORIZE) */
 

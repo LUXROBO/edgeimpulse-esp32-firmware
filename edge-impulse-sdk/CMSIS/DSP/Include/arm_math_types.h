@@ -58,7 +58,7 @@ extern "C"
 
 
 /* Included for instrinsics definitions */
-#if defined (_MSC_VER ) 
+#if defined (_MSC_VER )
 #include <stdint.h>
 #define __STATIC_FORCEINLINE static __forceinline
 #define __STATIC_INLINE static __inline
@@ -67,7 +67,7 @@ extern "C"
 #elif defined (__GNUC_PYTHON__)
 #include <stdint.h>
 #define  __ALIGNED(x) __attribute__((aligned(x)))
-#define __STATIC_FORCEINLINE static inline __attribute__((always_inline)) 
+#define __STATIC_FORCEINLINE static inline __attribute__((always_inline))
 #define __STATIC_INLINE static inline
 
 #else
@@ -208,11 +208,11 @@ extern "C"
   #define LOW_OPTIMIZATION_EXIT
   #define IAR_ONLY_LOW_OPTIMIZATION_ENTER
   #define IAR_ONLY_LOW_OPTIMIZATION_EXIT
-       
+
 #elif defined ( _MSC_VER ) || defined(__GNUC_PYTHON__)
       #define LOW_OPTIMIZATION_ENTER
       #define LOW_OPTIMIZATION_EXIT
-      #define IAR_ONLY_LOW_OPTIMIZATION_ENTER 
+      #define IAR_ONLY_LOW_OPTIMIZATION_ENTER
       #define IAR_ONLY_LOW_OPTIMIZATION_EXIT
 #endif
 

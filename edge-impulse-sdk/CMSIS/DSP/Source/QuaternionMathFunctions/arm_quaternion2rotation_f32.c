@@ -58,11 +58,11 @@
    @param[out]      pOutputRotations points to an array of 3x3 rotations (in row order)
    @param[in]       nbQuaternions number of quaternions in the array
    @return none.
-  
+
    @par
    Format of rotation matrix
-   
-   
+
+
    The quaternion a + ib + jc + kd is converted into rotation matrix:
    <pre>
      a^2 + b^2 - c^2 - d^2                 2bc - 2ad                 2bd + 2ac
@@ -76,8 +76,8 @@
 
 #include "edge-impulse-sdk/CMSIS/DSP/Include/arm_helium_utils.h"
 
-void arm_quaternion2rotation_f32(const float32_t *pInputQuaternions, 
-    float32_t *pOutputRotations, 
+void arm_quaternion2rotation_f32(const float32_t *pInputQuaternions,
+    float32_t *pOutputRotations,
     uint32_t nbQuaternions)
 {
   f32x4_t vec0,vec1, vec2 ,vec3;
@@ -97,7 +97,7 @@ void arm_quaternion2rotation_f32(const float32_t *pInputQuaternions,
 
     // 2 (q0^2 q1q0 q2q0 q3q0)
     vec2 = vmulq_n_f32(vec2, 2.0f);
-    
+
 
     // 2 q2q3
     q2q3 = vgetq_lane(vec0,2) * vgetq_lane(vec0,3);
@@ -106,9 +106,9 @@ void arm_quaternion2rotation_f32(const float32_t *pInputQuaternions,
     // 2 (q0q1 q1^2 q2q1 q3q1)
     vec3 = vmulq_n_f32(vec0, vgetq_lane(vec0,1));
     vec3 = vmulq_n_f32(vec3, 2.0f);
-   
 
-    
+
+
     vec0 = vsetq_lane(vgetq_lane(vec1,0) + vgetq_lane(vec1,1),vec0,0);
     vec0 = vsetq_lane(vgetq_lane(vec0,0) - vgetq_lane(vec1,2),vec0,0);
     vec0 = vsetq_lane(vgetq_lane(vec0,0) - vgetq_lane(vec1,3),vec0,0);
@@ -122,7 +122,7 @@ void arm_quaternion2rotation_f32(const float32_t *pInputQuaternions,
     tmp1 = vgetq_lane(vec1,0) - vgetq_lane(vec1,1);
     tmp2 = vgetq_lane(vec1,2) - vgetq_lane(vec1,3);
 
-  
+
     vec0 = vsetq_lane(tmp1 + tmp2,vec0,0);
     vec0 = vsetq_lane(q2q3 - vgetq_lane(vec2,1) ,vec0,1);
     vec0 = vsetq_lane(vgetq_lane(vec3,3) - vgetq_lane(vec2,2),vec0,2);
@@ -139,8 +139,8 @@ void arm_quaternion2rotation_f32(const float32_t *pInputQuaternions,
 }
 
 #else
-void arm_quaternion2rotation_f32(const float32_t *pInputQuaternions, 
-    float32_t *pOutputRotations, 
+void arm_quaternion2rotation_f32(const float32_t *pInputQuaternions,
+    float32_t *pOutputRotations,
     uint32_t nbQuaternions)
 {
    for(uint32_t nb=0; nb < nbQuaternions; nb++)

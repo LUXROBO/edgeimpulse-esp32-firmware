@@ -72,8 +72,8 @@ void arm_dot_prod_f32(
 {
     f32x4_t vecA, vecB;
     f32x4_t vecSum;
-    uint32_t blkCnt; 
-    float32_t sum = 0.0f;  
+    uint32_t blkCnt;
+    float32_t sum = 0.0f;
     vecSum = vdupq_n_f32(0.0f);
 
     /* Compute 4 outputs at a time */
@@ -87,7 +87,7 @@ void arm_dot_prod_f32(
          */
         vecA = vld1q(pSrcA);
         pSrcA += 4;
-        
+
         vecB = vld1q(pSrcB);
         pSrcB += 4;
 
@@ -131,8 +131,8 @@ void arm_dot_prod_f32(
 #if defined(ARM_MATH_NEON) && !defined(ARM_MATH_AUTOVECTORIZE)
     f32x4_t vec1;
     f32x4_t vec2;
-    f32x4_t accum = vdupq_n_f32(0);   
-    f32x2_t tmp = vdup_n_f32(0);    
+    f32x4_t accum = vdupq_n_f32(0);
+    f32x2_t tmp = vdup_n_f32(0);
 
     /* Compute 4 outputs at a time */
     blkCnt = blockSize >> 2U;
@@ -144,27 +144,27 @@ void arm_dot_prod_f32(
     {
         /* C = A[0]*B[0] + A[1]*B[1] + A[2]*B[2] + ... + A[blockSize-1]*B[blockSize-1] */
         /* Calculate dot product and then store the result in a temporary buffer. */
-        
+
 	      accum = vmlaq_f32(accum, vec1, vec2);
 	
         /* Increment pointers */
         pSrcA += 4;
-        pSrcB += 4; 
+        pSrcB += 4;
 
         vec1 = vld1q_f32(pSrcA);
         vec2 = vld1q_f32(pSrcB);
-        
+
         /* Decrement the loop counter */
         blkCnt--;
     }
-    
+
 #if __aarch64__
     sum = vpadds_f32(vpadd_f32(vget_low_f32(accum), vget_high_f32(accum)));
 #else
     tmp = vpadd_f32(vget_low_f32(accum), vget_high_f32(accum));
     sum = vget_lane_f32(tmp, 0) + vget_lane_f32(tmp, 1);
 
-#endif    
+#endif
 
     /* Tail */
     blkCnt = blockSize & 0x3;

@@ -124,12 +124,12 @@ arm_status arm_mat_mult_fast_q31(
         sum2 = 0;
         sum3 = 0;
         sum4 = 0;
-        
+
         /* Initiate data pointers */
         pInA = pSrcA->pData + i;
         pInB = pSrcB->pData + j;
         pInA2 = pInA + numColsA;
-        
+
         colCnt = numColsA;
 
         /* matrix multiplication */
@@ -258,7 +258,7 @@ arm_status arm_mat_mult_fast_q31(
           sum1 = (q31_t) ((((q63_t) sum1 << 32) + ((q63_t) *pInA++ * *pInB)) >> 32);
 #endif
           pInB += numColsB;
-          
+
           colCnt--;
         }
 

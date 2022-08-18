@@ -88,9 +88,9 @@ void arm_mult_f32(
 
         /* Increment pointers */
         pSrcA += 4;
-        pSrcB += 4; 
+        pSrcB += 4;
         pDst += 4;
-        
+
         /* Decrement the loop counter */
         blkCnt--;
     }
@@ -137,9 +137,9 @@ void arm_mult_f32(
 
         /* Increment pointers */
         pSrcA += 4;
-        pSrcB += 4; 
+        pSrcB += 4;
         pDst += 4;
-        
+
         /* Decrement the loop counter */
         blkCnt--;
     }

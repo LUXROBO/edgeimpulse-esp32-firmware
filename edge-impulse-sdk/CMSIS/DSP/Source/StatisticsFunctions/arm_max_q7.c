@@ -71,7 +71,7 @@ static void arm_small_blk_max_q7(
     blkCnt = blockSize >> 4;
     while (blkCnt > 0U)
     {
-        vecSrc = vldrbq_s8(pSrc);  
+        vecSrc = vldrbq_s8(pSrc);
         pSrc += 16;
         /*
          * Get current max per lane and current index per lane
@@ -87,8 +87,8 @@ static void arm_small_blk_max_q7(
          */
         blkCnt--;
     }
-   
-    
+
+
     /*
      * Get max value across the vector
      */
@@ -112,7 +112,7 @@ static void arm_small_blk_max_q7(
     {
       /* Initialize temp to the next consecutive values one by one */
       temp = *pSrc++;
-  
+
       /* compare for the maximum value */
       if (maxValue < temp)
       {
@@ -120,7 +120,7 @@ static void arm_small_blk_max_q7(
         maxValue = temp;
         idx = blockSize - blkCnt;
       }
-  
+
       /* Decrement loop counter */
       blkCnt--;
     }

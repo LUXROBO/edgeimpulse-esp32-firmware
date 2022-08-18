@@ -140,7 +140,7 @@ arm_status arm_rfft_init_q15(
            S->pCfft = &arm_cfft_sR_q15_len1024;
         #endif
         break;
-#endif 
+#endif
 #if !defined(ARM_DSP_CONFIG_TABLES) || defined(ARM_ALL_FFT_TABLES) || (defined(ARM_TABLE_TWIDDLECOEF_Q15_512) && defined(ARM_TABLE_BITREVIDX_FXT_512))
     case 1024U:
         S->twidCoefRModifier = 8U;
@@ -155,7 +155,7 @@ arm_status arm_rfft_init_q15(
           S->pCfft = &arm_cfft_sR_q15_len512;
         #endif
         break;
-#endif 
+#endif
 #if !defined(ARM_DSP_CONFIG_TABLES) || defined(ARM_ALL_FFT_TABLES) || (defined(ARM_TABLE_TWIDDLECOEF_Q15_256) && defined(ARM_TABLE_BITREVIDX_FXT_256))
     case 512U:
         S->twidCoefRModifier = 16U;
@@ -200,7 +200,7 @@ arm_status arm_rfft_init_q15(
            S->pCfft = &arm_cfft_sR_q15_len64;
         #endif
         break;
-#endif 
+#endif
 #if !defined(ARM_DSP_CONFIG_TABLES) || defined(ARM_ALL_FFT_TABLES) || (defined(ARM_TABLE_TWIDDLECOEF_Q15_32) && defined(ARM_TABLE_BITREVIDX_FXT_32))
     case 64U:
         S->twidCoefRModifier = 128U;
@@ -215,7 +215,7 @@ arm_status arm_rfft_init_q15(
           S->pCfft = &arm_cfft_sR_q15_len32;
         #endif
         break;
-#endif 
+#endif
 #if !defined(ARM_DSP_CONFIG_TABLES) || defined(ARM_ALL_FFT_TABLES) || (defined(ARM_TABLE_TWIDDLECOEF_Q15_16) && defined(ARM_TABLE_BITREVIDX_FXT_16))
     case 32U:
         S->twidCoefRModifier = 256U;

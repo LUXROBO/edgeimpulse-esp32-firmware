@@ -45,15 +45,15 @@ extern "C" {
 
 // for Depthwise convolution hwc kernel
 #define KRNL_DW_D_DIM_HWC 0 // Depthwise convolution hwc kernel depth (must be == 1)
-#define KRNL_DW_H_DIM_HWC 1 // Depthwise convolution hwc kernel height 
+#define KRNL_DW_H_DIM_HWC 1 // Depthwise convolution hwc kernel height
 #define KRNL_DW_W_DIM_HWC 2 // Depthwise convolution hwc kernel width
 #define KRNL_DW_C_DIM_HWC 3 // Depthwise convolution hwc output channels
 
-/** 
+/**
  * @brief Count Number of Elements in Tensor
  *
- * @detail Function calculates the number of elements in a tensor starting from the provided 
- * dimension number (dimension numbering starts from 0). If start_dim=0 function calculates total number of elements 
+ * @detail Function calculates the number of elements in a tensor starting from the provided
+ * dimension number (dimension numbering starts from 0). If start_dim=0 function calculates total number of elements
  * Function returns 0 if input tensor rank is invalid or start_dim is bigger then input rank
  *
  * For more info on primitive see MLI Documentation
@@ -65,10 +65,10 @@ extern "C" {
  */
 uint32_t mli_hlp_count_elem_num(const mli_tensor *in, uint32_t start_dim);
 
-/** 
+/**
  * @brief Get Tensor Basic Element Size
  *
- * @detail This function returns size of tensor basic element in bytes. It returns 0 if  
+ * @detail This function returns size of tensor basic element in bytes. It returns 0 if
  * pointer to tensor is invalid, or tensor contains unsupported element type.
  *
  * For more info on primitive see MLI Documentation
@@ -79,11 +79,11 @@ uint32_t mli_hlp_count_elem_num(const mli_tensor *in, uint32_t start_dim);
  */
 uint32_t mli_hlp_tensor_element_size(const mli_tensor *in);
 
-/** 
+/**
  * @brief Convert Tensor
  *
- * @detail This function copies elements from input tensor to output with data conversion according to 
- * the output tensor type parameters. This operation does not change tensor shape. It copies it from input to output. 
+ * @detail This function copies elements from input tensor to output with data conversion according to
+ * the output tensor type parameters. This operation does not change tensor shape. It copies it from input to output.
  *
  * For more info on primitive see MLI Documentation
  *
@@ -94,12 +94,12 @@ uint32_t mli_hlp_tensor_element_size(const mli_tensor *in);
  */
 mli_status mli_hlp_convert_tensor(mli_tensor *in, mli_tensor *out);
 
-/** 
+/**
  * @brief Point to Sub-Tensor
  *
- * @detail This function points to sub tensors in input tensor. This can be considered as indexing in 
- * a multidimensional array. This function performs operations on pointers and doesn’t copy data 
- * (only points to subsequence of data in input). For this reason, this function takes only parameters that 
+ * @detail This function points to sub tensors in input tensor. This can be considered as indexing in
+ * a multidimensional array. This function performs operations on pointers and doesnï¿½t copy daa
+ * (only points to subsequence of data in input). For this reason, this function takes only parameters that
  * can be translated to starting coordinates and size of required data.
  *
  * For more info on primitive see MLI Documentation
@@ -115,8 +115,8 @@ mli_status mli_hlp_point_to_subtensor(const mli_tensor *in, const mli_point_to_s
 /**
  * @brief Create a Sub-Tensor from a larger tensor
  *
- * @detail This function points to sub tensors in input tensor. This function performs operations 
- * on pointers and doesn’t copy data (only points to subsequence of data in input).
+ * @detail This function points to sub tensors in input tensor. This function performs operations
+ * on pointers and doesnï¿½t copy data (only points to subsequence of data in input).
  * For this reason, depending on the parameters, it can happen that the sub tensor contains
  * data that is not adjacent in memory.
  *

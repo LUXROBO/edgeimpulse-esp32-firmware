@@ -65,7 +65,7 @@ void arm_var_q15(
     q63_t           sumOfSquares = 0LL;
     q63_t           meanOfSquares, squareOfMean;        /* square of mean and mean of square */
     q63_t           sum = 0LL;
-    q15_t in; 
+    q15_t in;
 
     if (blockSize <= 1U) {
         *pResult = 0;
@@ -104,7 +104,7 @@ void arm_var_q15(
 #endif /* #if defined (ARM_MATH_DSP) */
       /* Compute sum and store result in a temporary variable, sum. */
       sum += in;
-  
+
       /* Decrement loop counter */
       blkCnt--;
     }

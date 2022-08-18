@@ -31,7 +31,7 @@
 #include "edge-impulse-sdk/CMSIS/DSP/Include/arm_const_structs.h"
 
 /*
-ALLOW TABLE is true when config table is enabled and the Tramsform folder is included 
+ALLOW TABLE is true when config table is enabled and the Tramsform folder is included
 for compilation.
 */
 #if !defined(ARM_DSP_CONFIG_TABLES) || defined(ARM_FFT_ALLOW_TABLES)
@@ -156,7 +156,7 @@ const arm_cfft_instance_f32 arm_cfft_sR_f32_len4096 = {
 
 #if !defined(ARM_MATH_MVEI) || defined(ARM_MATH_AUTOVECTORIZE)
 
-/* 
+/*
 
 Those structures cannot be used to initialize the MVE version of the FFT Q31 instances.
 So they are not compiled when MVE is defined.
@@ -419,7 +419,7 @@ const arm_rfft_fast_instance_f32 arm_rfft_fast_sR_f32_len4096 = {
 
 #if !defined(ARM_MATH_MVEI) || defined(ARM_MATH_AUTOVECTORIZE)
 
-/* 
+/*
 
 Those structures cannot be used to initialize the MVE version of the FFT Q31 instances.
 So they are not compiled when MVE is defined.

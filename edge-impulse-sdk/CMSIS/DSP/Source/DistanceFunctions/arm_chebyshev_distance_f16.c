@@ -130,7 +130,7 @@ float16_t arm_chebyshev_distance_f16(const float16_t *pA,const float16_t *pB, ui
       }
       blockSize --;
    }
-  
+
    return(maxVal);
 }
 #endif /* defined(ARM_MATH_MVEF) && !defined(ARM_MATH_AUTOVECTORIZE) */
@@ -140,5 +140,5 @@ float16_t arm_chebyshev_distance_f16(const float16_t *pA,const float16_t *pB, ui
  * @} end of Chebyshev group
  */
 
-#endif /* #if defined(ARM_FLOAT16_SUPPORTED) */ 
+#endif /* #if defined(ARM_FLOAT16_SUPPORTED) */
 

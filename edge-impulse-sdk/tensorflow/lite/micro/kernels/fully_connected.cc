@@ -860,7 +860,7 @@ TfLiteStatus EvalQuantizedInt8_MVP(TfLiteContext* context, TfLiteNode* node,
   sli_mvp_ml_fully_connected_s8_params_t *params = const_cast<sli_mvp_ml_fully_connected_s8_params_t*>(&data.op_params);
   params->input  = tflite::micro::GetTensorData<int8_t>(input);
   params->output = tflite::micro::GetTensorData<int8_t>(output);
-  
+
   sl_status_t result = sli_mvp_ml_fully_connected_s8(params);
   if (result == SL_STATUS_OK) {
     return kTfLiteOk;
@@ -1225,7 +1225,7 @@ TfLiteStatus Eval(TfLiteContext* context, TfLiteNode* node) {
           tflite::micro::GetTensorData<uint8_t>(output));
       break;
     }
-    
+
     default: {
       TF_LITE_KERNEL_LOG(context, "Type %s (%d) not supported.",
                          TfLiteTypeGetName(input->type), input->type);

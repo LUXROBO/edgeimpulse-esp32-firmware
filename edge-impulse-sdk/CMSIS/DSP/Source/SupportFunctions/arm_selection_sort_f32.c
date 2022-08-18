@@ -46,7 +46,7 @@
    *
    * @par        Algorithm
    *               The Selection sort algorithm is a comparison algorithm that
-   *               divides the input array into a sorted and an unsorted sublist 
+   *               divides the input array into a sorted and an unsorted sublist
    *               (initially the sorted sublist is empty and the unsorted sublist
    *               is the input array), looks for the smallest (or biggest)
    *               element in the unsorted sublist, swapping it with the leftmost
@@ -57,9 +57,9 @@
    */
 
 void arm_selection_sort_f32(
-  const arm_sort_instance_f32 * S, 
-        float32_t * pSrc, 
-        float32_t * pDst, 
+  const arm_sort_instance_f32 * S,
+        float32_t * pSrc,
+        float32_t * pDst,
         uint32_t blockSize)
 {
     uint32_t i, j, k;
@@ -91,8 +91,8 @@ void arm_selection_sort_f32(
                 k = j;
             }
         }
-    
-        if (k != i) 
+
+        if (k != i)
         {
             /* Swap the minimum/maximum with the leftmost element */
             temp=pA[i];

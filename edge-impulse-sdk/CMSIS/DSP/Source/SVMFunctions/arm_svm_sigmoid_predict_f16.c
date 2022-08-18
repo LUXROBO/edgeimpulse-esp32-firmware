@@ -327,5 +327,5 @@ void arm_svm_sigmoid_predict_f16(
  * @} end of sigmoidsvm group
  */
 
-#endif /* #if defined(ARM_FLOAT16_SUPPORTED) */ 
+#endif /* #if defined(ARM_FLOAT16_SUPPORTED) */
 

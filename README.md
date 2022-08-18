@@ -10,32 +10,11 @@ Edge Impulse enables developers to create the next generation of intelligent dev
 
 - Espressif ESP32 based development boards, preferably ESP-EYE (ESP32) and FireBeetle Board (ESP32). Using with other boards is possible, but code modifications is needed. For more on that read **Using with other ESP32 boards**.
 
-### Tools
-Install ESP IDF v4.4, following the instructions for your OS from [this page](https://docs.espressif.com/projects/esp-idf/en/v4.4/esp32/get-started/index.html#installation-step-by-step).
-
-You'll need three additional components to compile this firmware:
-- esp-camera
-- LIS3DHTR_ESP-IDF
-- ESP-NN
-
-Get them by cloning the corresponding repositories to components folder in the root folder of the project:
-
-```bash
-cd components
-git clone --recurse-submodules https://github.com/AIWintermuteAI/esp32-camera.git esp32-camera/
-cd esp32-camera && git checkout 089d998a2c9a4fc21ca06513885e64cdefa4e177 && cd ..
-git clone https://github.com/AIWintermuteAI/LIS3DHTR_ESP-IDF.git LIS3DHTR_ESP-IDF/
-cd LIS3DHTR_ESP-IDF && git checkout 641bda8c3e4b706a2365fe87dd4d925f96ea3f8c && cd ..
-git clone https://github.com/espressif/esp-nn.git esp-nn/
-cd esp-nn && git checkout 24d18025f300c1e15afa2abb86519da54c7a5d90 && cd ..
-cd ..
-```
-
 ### Building the application
 Then from the firmware folder execute:
 ```bash
 get_idf
-clear && idf.py build 
+clear && idf.py build
 ```
 ```get_idf``` is an alias for export.sh script that sets up ESP IDF environment variables. Read more about it [here](https://docs.espressif.com/projects/esp-idf/en/v4.4/esp32/get-started/index.html#step-4-set-up-the-environment-variables).
 

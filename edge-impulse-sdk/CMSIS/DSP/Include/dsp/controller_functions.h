@@ -22,7 +22,7 @@
  * limitations under the License.
  */
 
- 
+
 #ifndef _CONTROLLER_FUNCTIONS_H_
 #define _CONTROLLER_FUNCTIONS_H_
 
@@ -45,7 +45,7 @@ extern "C"
   /* 1.31(q31) Fixed value of 2/360 */
   /* -1 to +1 is divided into 360 values so total spacing is (2/360) */
 #define INPUT_SPACING         0xB60B61
-  
+
 /**
  * @defgroup groupController Controller Functions
  */
@@ -782,7 +782,7 @@ __STATIC_FORCEINLINE void arm_inv_clarke_q31(
 
 
 
-  
+
 #ifdef   __cplusplus
 }
 #endif

@@ -60,12 +60,12 @@ static camera_config_t camera_config = {
     .pin_pclk = PCLK_GPIO_NUM,
 
     //XCLK 20MHz or 10MHz for OV2640 double FPS (Experimental)
-    .xclk_freq_hz = 10000000,
+    .xclk_freq_hz = 15000000,
     .ledc_timer = LEDC_TIMER_0,
     .ledc_channel = LEDC_CHANNEL_0,
 
     .pixel_format = PIXFORMAT_JPEG, //YUV422,GRAYSCALE,RGB565,JPEG
-    .frame_size = FRAMESIZE_QVGA,    //QQVGA-UXGA Do not use sizes above QVGA when not JPEG 
+    .frame_size = FRAMESIZE_QVGA,    //QQVGA-UXGA Do not use sizes above QVGA when not JPEG
 
     .jpeg_quality = 20, //0-63 lower number means higher quality
     .fb_count = 1,       //if more than one, i2s runs in continuous mode. Use only with JPEG
@@ -73,7 +73,7 @@ static camera_config_t camera_config = {
 };
 
 ei_device_snapshot_resolutions_t EiCameraESP32::resolutions[] = {
-        { .width = 160, .height = 120 },        
+        { .width = 160, .height = 120 },
         { .width = 320, .height = 240 },
         { .width = 480, .height = 320 }
     };
@@ -102,7 +102,7 @@ void EiCameraESP32::get_resolutions(ei_device_snapshot_resolutions_t **res, uint
 
 bool EiCameraESP32::set_resolution(const ei_device_snapshot_resolutions_t res) {
 
-    framesize_t frame_size = FRAMESIZE_HVGA; 
+    framesize_t frame_size = FRAMESIZE_HVGA;
 
     switch(res.height) {
 
@@ -123,10 +123,10 @@ bool EiCameraESP32::set_resolution(const ei_device_snapshot_resolutions_t res) {
     break;
 
     case 320:
-    frame_size = FRAMESIZE_HVGA;               
+    frame_size = FRAMESIZE_HVGA;
     break;
 
-    default:     
+    default:
     break;
 
     }
@@ -198,7 +198,7 @@ bool EiCameraESP32::ei_camera_capture_rgb888_packed_big_endian(
         ei_printf("Conversion failed\n");
         return false;
     }
-    
+
     return true;
 }
 
@@ -226,10 +226,8 @@ bool EiCameraESP32::ei_camera_capture_jpeg(uint8_t **image, uint32_t *image_size
     return true;
 }
 
-bool EiCameraESP32::ei_camera_jpeg_to_rgb888(uint8_t *jpeg_image, uint32_t jpeg_image_size,
-                                             uint8_t *rgb88_image)
+bool EiCameraESP32::ei_camera_jpeg_to_rgb888(uint8_t *jpeg_image, uint32_t jpeg_image_size, uint8_t *rgb88_image)
 {
-    
     bool converted = fmt2rgb888(jpeg_image, jpeg_image_size, PIXFORMAT_JPEG, rgb88_image);
 
     if(!converted){

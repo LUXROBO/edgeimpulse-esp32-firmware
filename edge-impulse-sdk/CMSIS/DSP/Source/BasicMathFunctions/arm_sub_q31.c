@@ -60,7 +60,7 @@ void arm_sub_q31(
         q31_t * pDst,
         uint32_t blockSize)
 {
-    uint32_t blkCnt;   
+    uint32_t blkCnt;
     q31x4_t vecA;
     q31x4_t vecB;
 

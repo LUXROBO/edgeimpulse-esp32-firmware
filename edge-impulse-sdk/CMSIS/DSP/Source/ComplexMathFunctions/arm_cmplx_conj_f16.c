@@ -107,11 +107,11 @@ void arm_cmplx_conj_f16(
     while (blkCnt > 0U)
     {
       /* C[0] + jC[1] = A[0]+ j(-1)A[1] */
-  
+
       /* Calculate Complex Conjugate and store result in destination buffer. */
       *pDst++ =  *pSrc++;
       *pDst++ = -*pSrc++;
-  
+
       /* Decrement loop counter */
       blkCnt--;
     }

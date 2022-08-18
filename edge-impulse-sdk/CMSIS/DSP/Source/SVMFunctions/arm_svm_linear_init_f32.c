@@ -67,7 +67,7 @@
  */
 
 
-void arm_svm_linear_init_f32(arm_svm_linear_instance_f32 *S, 
+void arm_svm_linear_init_f32(arm_svm_linear_instance_f32 *S,
   uint32_t nbOfSupportVectors,
   uint32_t vectorDimension,
   float32_t intercept,

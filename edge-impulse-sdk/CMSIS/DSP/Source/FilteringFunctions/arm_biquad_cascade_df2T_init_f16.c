@@ -52,7 +52,7 @@
   <pre>
       {b10, b11, b12, a11, a12, b20, b21, b22, a21, a22, ...}
   </pre>
-                   
+
   @par
                    where <code>b1x</code> and <code>a1x</code> are the coefficients for the first stage,
                    <code>b2x</code> and <code>a2x</code> are the coefficients for the second stage,

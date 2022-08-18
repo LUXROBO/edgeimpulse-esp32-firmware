@@ -181,7 +181,7 @@ void arm_float_to_q7(
     inV = vaddq_f32(inV, r);
     cvt2 = vqmovn_s32(vcvtq_n_s32_f32(inV,7));
     pIn += 4;
-    
+
     outV = vqmovn_s16(vcombine_s16(cvt1,cvt2));
     vst1_s8(pDst, outV);
     pDst += 8;

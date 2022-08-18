@@ -70,5 +70,5 @@ void arm_mat_init_f16(
   @} end of MatrixInit group
  */
 
-#endif /* #if defined(ARM_FLOAT16_SUPPORTED) */ 
+#endif /* #if defined(ARM_FLOAT16_SUPPORTED) */
 
