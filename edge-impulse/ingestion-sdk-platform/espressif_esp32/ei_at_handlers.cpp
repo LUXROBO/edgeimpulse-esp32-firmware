@@ -457,9 +457,10 @@ bool at_get_config(void)
     ei_printf("===== Sensors ======\n");
     //TODO: move it to Sensor Manager
     for (size_t ix = 0; ix < sensor_list_size; ix++) {
-        ei_printf("Name: %s, ", sensor_list[ix].name);
-        ei_printf("Max sample length: %us, ", sensor_list[ix].max_sample_length_s);
-        ei_printf("Frequencies: [");
+        ei_printf(
+            "Name: %s, Max sample length: %hus, Frequencies: [",
+            sensor_list[ix].name,
+            sensor_list[ix].max_sample_length_s);
         for (size_t fx = 0; fx < EI_MAX_FREQUENCIES; fx++) {
             if (sensor_list[ix].frequencies[fx] != 0.0f) {
                 if (fx != 0) {

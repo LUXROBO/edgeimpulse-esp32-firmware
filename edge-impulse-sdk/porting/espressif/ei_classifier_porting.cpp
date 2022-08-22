@@ -82,17 +82,27 @@ void ei_putchar(char c)
  */
 EI_WEAK_FN void ei_printf(const char *format, ...)
 {
-    static char print_buf[2048] = {0, };
+    char print_buf[1024] = {0, };
 
     va_list args;
     va_start(args, format);
-    int r = vsnprintf(print_buf, sizeof(print_buf), format, args);
+    int len = vsnprintf(print_buf, sizeof(print_buf), format, args);
     va_end(args);
 
-    if (r > 0) {
-        wait_for_txfifo();
-        usb_serial_jtag_ll_write_txfifo((const uint8_t *)print_buf, r);
-        usb_serial_jtag_ll_txfifo_flush();
+    if (len > 0) {
+        for (int i = 0; i < len; i += USB_SERIAL_JTAG_PACKET_SZ_BYTES) {
+            int begin = i;
+            int end = i + USB_SERIAL_JTAG_PACKET_SZ_BYTES;
+            if (end > len)
+                end = len;
+
+            int size = end - begin;
+            const char* offset = print_buf + begin;
+
+            wait_for_txfifo();
+            usb_serial_jtag_ll_write_txfifo((const uint8_t *)offset, size);
+            usb_serial_jtag_ll_txfifo_flush();
+        }
     }
 }
 
