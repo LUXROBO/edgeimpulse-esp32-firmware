@@ -35,6 +35,7 @@
 #include "esp_system.h"
 #include "driver/gpio.h"
 #include "driver/uart.h"
+#include "hal/usb_serial_jtag_ll.h"
 //#include "esp_wifi.h"
 
 #include <freertos/FreeRTOS.h>
@@ -359,7 +360,15 @@ char ei_get_serial_byte(void)
  */
 void ei_putc(char cChar)
 {
-    putchar(cChar);
+    portTickType start_tick = xTaskGetTickCount();
+    while (!usb_serial_jtag_ll_txfifo_writable()) {
+        portTickType now_tick = xTaskGetTickCount();
+        if (now_tick > (start_tick + pdMS_TO_TICKS(1000))) {
+            return;
+        }
+    }
+    usb_serial_jtag_ll_write_txfifo((const uint8_t *)&cChar, 1);
+    usb_serial_jtag_ll_txfifo_flush();
 }
 
 

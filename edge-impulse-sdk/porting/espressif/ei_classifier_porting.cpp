@@ -33,6 +33,8 @@
 // for millis and micros
 #include "esp_timer.h"
 
+#include "hal/usb_serial_jtag_ll.h"
+
 #define EI_WEAK_FN __attribute__((weak))
 
 EI_WEAK_FN EI_IMPULSE_ERROR ei_run_impulse_check_canceled() {
@@ -55,14 +57,22 @@ uint64_t ei_read_timer_us() {
 void ei_putchar(char c)
 {
     /* Send char to serial output */
-    putchar(c);
+    portTickType start_tick = xTaskGetTickCount();
+    while (!usb_serial_jtag_ll_txfifo_writable()) {
+        portTickType now_tick = xTaskGetTickCount();
+        if (now_tick > (start_tick + pdMS_TO_TICKS(1000))) {
+            return;
+        }
+    }
+    usb_serial_jtag_ll_write_txfifo((const uint8_t *)&c, 1);
+    usb_serial_jtag_ll_txfifo_flush();
 }
 
 /**
  *  Printf function uses vsnprintf and output using USB Serial
  */
 __attribute__((weak)) void ei_printf(const char *format, ...) {
-    static char print_buf[1024] = { 0 };
+    static char print_buf[2048] = { 0 };
 
     va_list args;
     va_start(args, format);
@@ -70,7 +80,15 @@ __attribute__((weak)) void ei_printf(const char *format, ...) {
     va_end(args);
 
     if (r > 0) {
-       printf(print_buf);
+        portTickType start_tick = xTaskGetTickCount();
+        while (!usb_serial_jtag_ll_txfifo_writable()) {
+            portTickType now_tick = xTaskGetTickCount();
+            if (now_tick > (start_tick + pdMS_TO_TICKS(1000))) {
+                return;
+            }
+        }
+        usb_serial_jtag_ll_write_txfifo((const uint8_t *)print_buf, r);
+        usb_serial_jtag_ll_txfifo_flush();
     }
 }
 

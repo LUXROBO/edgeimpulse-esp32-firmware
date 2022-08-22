@@ -32,8 +32,8 @@
 #include "sensor_aq.h"
 
 static esp_adc_cal_characteristics_t *adc_chars;
-static const adc_channel_t channel = ADC1_CHANNEL_0;
-static const adc_bits_width_t width = ADC_WIDTH_BIT_DEFAULT;
+static const adc1_channel_t channel = ADC1_CHANNEL_0;
+static const adc_bits_width_t width = (adc_bits_width_t)ADC_WIDTH_BIT_DEFAULT;
 static const adc_atten_t atten = ADC_ATTEN_DB_11;
 static const adc_unit_t unit = ADC_UNIT_1;
 
