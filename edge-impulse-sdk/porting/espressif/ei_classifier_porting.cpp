@@ -37,33 +37,42 @@
 
 #define EI_WEAK_FN __attribute__((weak))
 
-EI_WEAK_FN EI_IMPULSE_ERROR ei_run_impulse_check_canceled() {
+static void wait_for_txfifo()
+{
+    portTickType start_tick = xTaskGetTickCount();
+    while (!usb_serial_jtag_ll_txfifo_writable()) {
+        portTickType now_tick = xTaskGetTickCount();
+        if (now_tick > (start_tick + pdMS_TO_TICKS(200))) {
+            return;
+        }
+    }
+}
+
+EI_WEAK_FN EI_IMPULSE_ERROR ei_run_impulse_check_canceled()
+{
     return EI_IMPULSE_OK;
 }
 
-EI_WEAK_FN EI_IMPULSE_ERROR ei_sleep(int32_t time_ms) {
+EI_WEAK_FN EI_IMPULSE_ERROR ei_sleep(int32_t time_ms)
+{
     vTaskDelay(time_ms / portTICK_RATE_MS);
     return EI_IMPULSE_OK;
 }
 
-uint64_t ei_read_timer_ms() {
+uint64_t ei_read_timer_ms()
+{
     return esp_timer_get_time()/1000;
 }
 
-uint64_t ei_read_timer_us() {
+uint64_t ei_read_timer_us()
+{
     return esp_timer_get_time();
 }
 
 void ei_putchar(char c)
 {
     /* Send char to serial output */
-    portTickType start_tick = xTaskGetTickCount();
-    while (!usb_serial_jtag_ll_txfifo_writable()) {
-        portTickType now_tick = xTaskGetTickCount();
-        if (now_tick > (start_tick + pdMS_TO_TICKS(1000))) {
-            return;
-        }
-    }
+    wait_for_txfifo();
     usb_serial_jtag_ll_write_txfifo((const uint8_t *)&c, 1);
     usb_serial_jtag_ll_txfifo_flush();
 }
@@ -71,8 +80,9 @@ void ei_putchar(char c)
 /**
  *  Printf function uses vsnprintf and output using USB Serial
  */
-__attribute__((weak)) void ei_printf(const char *format, ...) {
-    static char print_buf[2048] = { 0 };
+EI_WEAK_FN void ei_printf(const char *format, ...)
+{
+    static char print_buf[2048] = {0, };
 
     va_list args;
     va_start(args, format);
@@ -80,38 +90,37 @@ __attribute__((weak)) void ei_printf(const char *format, ...) {
     va_end(args);
 
     if (r > 0) {
-        portTickType start_tick = xTaskGetTickCount();
-        while (!usb_serial_jtag_ll_txfifo_writable()) {
-            portTickType now_tick = xTaskGetTickCount();
-            if (now_tick > (start_tick + pdMS_TO_TICKS(1000))) {
-                return;
-            }
-        }
+        wait_for_txfifo();
         usb_serial_jtag_ll_write_txfifo((const uint8_t *)print_buf, r);
         usb_serial_jtag_ll_txfifo_flush();
     }
 }
 
-__attribute__((weak)) void ei_printf_float(float f) {
+EI_WEAK_FN void ei_printf_float(float f)
+{
     ei_printf("%f", f);
 }
 
-__attribute__((weak)) void *ei_malloc(size_t size) {
+EI_WEAK_FN void *ei_malloc(size_t size)
+{
     return malloc(size);
 }
 
-__attribute__((weak)) void *ei_calloc(size_t nitems, size_t size) {
+EI_WEAK_FN void *ei_calloc(size_t nitems, size_t size)
+{
     return calloc(nitems, size);
 }
 
-__attribute__((weak)) void ei_free(void *ptr) {
+EI_WEAK_FN void ei_free(void *ptr)
+{
     free(ptr);
 }
 
 #if defined(__cplusplus) && EI_C_LINKAGE == 1
 extern "C"
 #endif
-__attribute__((weak)) void DebugLog(const char* s) {
+EI_WEAK_FN void DebugLog(const char* s)
+{
     ei_printf("%s", s);
 }
 

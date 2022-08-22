@@ -363,7 +363,7 @@ void ei_putc(char cChar)
     portTickType start_tick = xTaskGetTickCount();
     while (!usb_serial_jtag_ll_txfifo_writable()) {
         portTickType now_tick = xTaskGetTickCount();
-        if (now_tick > (start_tick + pdMS_TO_TICKS(1000))) {
+        if (now_tick > (start_tick + pdMS_TO_TICKS(200))) {
             return;
         }
     }
