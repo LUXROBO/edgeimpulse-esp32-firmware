@@ -59,11 +59,6 @@ extern "C" int app_main()
         __DATE__,
         __TIME__);
 
-    /* Setup the inertial sensor */
-    if (ei_inertial_init() == false) {
-        ei_printf("Inertial sensor initialization failed\r\n");
-    }
-
     /* Setup the analog sensor */
     if (ei_analog_sensor_init() == false) {
         ei_printf("ADC sensor initialization failed\r\n");

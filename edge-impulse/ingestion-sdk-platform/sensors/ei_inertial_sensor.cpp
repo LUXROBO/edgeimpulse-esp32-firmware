@@ -35,20 +35,20 @@
 
 static float imu_data[INERTIAL_AXIS_SAMPLED];
 
-// LIS3DHTR lis;
+LIS3DHTR lis;
 
 bool ei_inertial_init(void) {
 
-    // lis.begin(LIS3DHTR_DEFAULT_ADDRESS);
+    lis.begin(LIS3DHTR_DEFAULT_ADDRESS);
 
-    // if(lis.isConnection() == false) {
-    //     ei_printf("ERR: failed to connect to inertial sensor!\n");
-    //     return false;
-    // }
+    if(lis.isConnection() == false) {
+        ei_printf("ERR: failed to connect to inertial sensor!\n");
+        return false;
+    }
 
     ei_sleep(100);
-    // lis.setFullScaleRange(LIS3DHTR_RANGE_2G);
-    // lis.setOutputDataRate(LIS3DHTR_DATARATE_100HZ);
+    lis.setFullScaleRange(LIS3DHTR_RANGE_2G);
+    lis.setOutputDataRate(LIS3DHTR_DATARATE_100HZ);
 
     if(ei_add_sensor_to_fusion_list(inertial_sensor) == false) {
         ei_printf("ERR: failed to register Inertial sensor!\n");
