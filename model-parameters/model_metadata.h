@@ -44,9 +44,9 @@
 #define EI_CLASSIFIER_DATATYPE_FLOAT32           1
 #define EI_CLASSIFIER_DATATYPE_INT8              9
 
-#define EI_CLASSIFIER_PROJECT_ID                 91810
-#define EI_CLASSIFIER_PROJECT_OWNER              "Dmitry"
-#define EI_CLASSIFIER_PROJECT_NAME               "mic_keyword_mfcc"
+#define EI_CLASSIFIER_PROJECT_ID                 124503
+#define EI_CLASSIFIER_PROJECT_OWNER              "matt"
+#define EI_CLASSIFIER_PROJECT_NAME               "lego8421-project-1"
 #define EI_CLASSIFIER_PROJECT_DEPLOY_VERSION     1
 #define EI_CLASSIFIER_NN_INPUT_FRAME_SIZE        650
 #define EI_CLASSIFIER_RAW_SAMPLE_COUNT           16000
@@ -56,7 +56,7 @@
 #define EI_CLASSIFIER_INPUT_HEIGHT               0
 #define EI_CLASSIFIER_INPUT_FRAMES               0
 #define EI_CLASSIFIER_INTERVAL_MS                0.0625
-#define EI_CLASSIFIER_LABEL_COUNT                4
+#define EI_CLASSIFIER_LABEL_COUNT                2
 #define EI_CLASSIFIER_HAS_ANOMALY                0
 #define EI_CLASSIFIER_FREQUENCY                  16000
 #define EI_CLASSIFIER_USE_QUANTIZED_DSP_BLOCK    0
@@ -69,12 +69,13 @@
 
 #define EI_CLASSIFIER_TFLITE_INPUT_DATATYPE         EI_CLASSIFIER_DATATYPE_INT8
 #define EI_CLASSIFIER_TFLITE_INPUT_QUANTIZED        1
-#define EI_CLASSIFIER_TFLITE_INPUT_SCALE            0.046380069106817245
-#define EI_CLASSIFIER_TFLITE_INPUT_ZEROPOINT        23
+#define EI_CLASSIFIER_TFLITE_INPUT_SCALE            0.038198813796043396
+#define EI_CLASSIFIER_TFLITE_INPUT_ZEROPOINT        -5
 #define EI_CLASSIFIER_TFLITE_OUTPUT_DATATYPE        EI_CLASSIFIER_DATATYPE_INT8
 #define EI_CLASSIFIER_TFLITE_OUTPUT_QUANTIZED       1
 #define EI_CLASSIFIER_TFLITE_OUTPUT_SCALE           0.00390625
 #define EI_CLASSIFIER_TFLITE_OUTPUT_ZEROPOINT       -128
+
 
 
 
@@ -177,6 +178,8 @@ typedef struct {
     int spectral_peaks_count;
     float spectral_peaks_threshold;
     const char * spectral_power_edges;
+    bool do_log;
+    bool do_fft_overlap;
 } ei_dsp_config_spectral_analysis_t;
 
 typedef struct {
@@ -200,5 +203,11 @@ typedef struct {
     int high_frequency;
     float pre_cof;
 } ei_dsp_config_audio_syntiant_t;
+
+typedef struct {
+    uint16_t implementation_version;
+    int axes;
+    bool scaling;
+} ei_dsp_config_imu_syntiant_t;
 
 #endif // _EI_CLASSIFIER_MODEL_METADATA_H_
