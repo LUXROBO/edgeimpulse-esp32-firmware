@@ -70,7 +70,7 @@ extern "C" int app_main()
 
     dev->set_state(eiStateFinished);
 
-    while(1){
+    while(1) {
         /* handle command comming from uart */
         char data = ei_get_serial_byte();
 

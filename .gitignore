@@ -33,8 +33,7 @@
 
 /build
 /temp
-
-#/firmware-sdk
+/test
 
 /.vscode
 .DS_Store
