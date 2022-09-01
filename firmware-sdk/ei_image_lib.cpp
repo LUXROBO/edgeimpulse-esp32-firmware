@@ -75,7 +75,7 @@ static bool ei_camera_take_snapshot_encode_and_output_no_init(size_t width, size
 
     auto camera = EiCamera::get_camera();
 
-    // check if minimum suitable sensor resolution is the same as 
+    // check if minimum suitable sensor resolution is the same as
     // desired snapshot resolution
     // if not we need to resize later
     fb_resoluton = camera->search_resolution(width, height);
@@ -146,7 +146,7 @@ ei_camera_take_snapshot_output_on_serial(size_t width, size_t height, bool use_m
 {
     auto camera = EiCamera::get_camera();
 
-    // sets camera sensor resolution to the best suitable 
+    // sets camera sensor resolution to the best suitable
     // might not be the same as final snapshot resolution
     // this is why below we pass desired snapshot resolution
     // to ei_camera_take_snapshot_encode_and_output_no_init
@@ -159,7 +159,7 @@ ei_camera_take_snapshot_output_on_serial(size_t width, size_t height, bool use_m
         respond_and_change_to_max_baud();
     }
 
-    // here we pass desired snapshot resolution 
+    // here we pass desired snapshot resolution
     // if it is different from camera sensor resolution
     // we will resize before sending out the image
     bool isOK = ei_camera_take_snapshot_encode_and_output_no_init(width, height);

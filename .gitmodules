@@ -1,0 +1,12 @@
+[submodule "components/esp32-camera"]
+	path = components/esp32-camera
+	url = https://github.com/AIWintermuteAI/esp32-camera.git
+[submodule "components/LIS3DHTR_ESP-IDF"]
+	path = components/LIS3DHTR_ESP-IDF
+	url = https://github.com/AIWintermuteAI/LIS3DHTR_ESP-IDF.git
+[submodule "components/esp-nn"]
+	path = components/esp-nn
+	url = https://github.com/espressif/esp-nn.git
+[submodule "esp-idf"]
+	path = esp-idf
+	url = https://github.com/espressif/esp-idf.git

@@ -22,7 +22,7 @@
  * limitations under the License.
  */
 
- 
+
 #ifndef _BASIC_MATH_FUNCTIONS_F16_H_
 #define _BASIC_MATH_FUNCTIONS_F16_H_
 
@@ -152,10 +152,10 @@ extern "C"
   @return        none
  */
 
-void arm_clip_f16(const float16_t * pSrc, 
-  float16_t * pDst, 
-  float16_t low, 
-  float16_t high, 
+void arm_clip_f16(const float16_t * pSrc,
+  float16_t * pDst,
+  float16_t low,
+  float16_t high,
   uint32_t numSamples);
 
 #endif /* defined(ARM_FLOAT16_SUPPORTED)*/

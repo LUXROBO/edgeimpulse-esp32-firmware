@@ -59,8 +59,8 @@ float32_t arm_kullback_leibler_f32(const float32_t * pSrcA,const float32_t * pSr
 {
     uint32_t blkCnt;
     float32_t accum, pA,pB;
- 
-    
+
+
     blkCnt = blockSize;
 
     accum = 0.0f;
@@ -93,9 +93,9 @@ float32_t arm_kullback_leibler_f32(const float32_t * pSrcA,const float32_t * pSr
        pA = *pSrcA++;
        pB = *pSrcB++;
        accum += pA * logf(pB / pA);
-       
+
        blkCnt--;
-    
+
     }
 
     return(-accum);
@@ -115,7 +115,7 @@ float32_t arm_kullback_leibler_f32(const float32_t * pSrcA,const float32_t * pSr
     float32x4_t accumV;
     float32x2_t accumV2;
     float32x4_t tmpVA, tmpVB,tmpV;
- 
+
     pInA = pSrcA;
     pInB = pSrcB;
 
@@ -136,9 +136,9 @@ float32_t arm_kullback_leibler_f32(const float32_t * pSrcA,const float32_t * pSr
       tmpVB = vlogq_f32(tmpVB);
 
       accumV = vmlaq_f32(accumV, tmpVA, tmpVB);
-       
+
       blkCnt--;
-    
+
     }
 
     accumV2 = vpadd_f32(vget_low_f32(accumV),vget_high_f32(accumV));
@@ -150,9 +150,9 @@ float32_t arm_kullback_leibler_f32(const float32_t * pSrcA,const float32_t * pSr
        pA = *pInA++;
        pB = *pInB++;
        accum += pA * logf(pB/pA);
-       
+
        blkCnt--;
-    
+
     }
 
     return(-accum);
@@ -164,7 +164,7 @@ float32_t arm_kullback_leibler_f32(const float32_t * pSrcA,const float32_t * pSr
     const float32_t *pInA, *pInB;
     uint32_t blkCnt;
     float32_t accum, pA,pB;
- 
+
     pInA = pSrcA;
     pInB = pSrcB;
     blkCnt = blockSize;
@@ -176,9 +176,9 @@ float32_t arm_kullback_leibler_f32(const float32_t * pSrcA,const float32_t * pSr
        pA = *pInA++;
        pB = *pInB++;
        accum += pA * logf(pB / pA);
-       
+
        blkCnt--;
-    
+
     }
 
     return(-accum);

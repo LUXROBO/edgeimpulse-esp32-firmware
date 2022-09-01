@@ -50,7 +50,7 @@
  * The equation used for the conversion process is:
  *
  * <pre>
- * 	pDst[n] = (q15_t) pSrc[n];   0 <= n < blockSize.
+ *  pDst[n] = (q15_t) pSrc[n];   0 <= n < blockSize.
  * </pre>
  *
  */

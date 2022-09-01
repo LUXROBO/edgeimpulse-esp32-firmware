@@ -88,9 +88,9 @@ void arm_sub_f16(
 
         /* Increment pointers */
         pSrcA += 8;
-        pSrcB += 8; 
+        pSrcB += 8;
         pDst += 8;
-        
+
         /* Decrement the loop counter */
         blkCnt--;
     }

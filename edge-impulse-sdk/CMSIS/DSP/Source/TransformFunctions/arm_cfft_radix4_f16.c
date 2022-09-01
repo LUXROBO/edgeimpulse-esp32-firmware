@@ -93,22 +93,22 @@ void arm_cfft_radix4by2_f16(
         ia++;
 
         l = i + n2;
-       
+
         /*  Butterfly implementation */
         a0 = pSrc[2 * i] + pSrc[2 * l];
         xt = pSrc[2 * i] - pSrc[2 * l];
-  
+
         yt = pSrc[2 * i + 1] - pSrc[2 * l + 1];
         a1 = pSrc[2 * l + 1] + pSrc[2 * i + 1];
-  
+
         p0 = xt * cosVal;
         p1 = yt * sinVal;
         p2 = yt * cosVal;
         p3 = xt * sinVal;
-  
+
         pSrc[2 * i]     = a0;
         pSrc[2 * i + 1] = a1;
-  
+
         pSrc[2 * l]     = p0 + p1;
         pSrc[2 * l + 1] = p2 - p3;
 

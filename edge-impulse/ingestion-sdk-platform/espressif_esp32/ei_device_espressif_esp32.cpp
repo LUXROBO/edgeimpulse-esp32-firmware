@@ -35,16 +35,15 @@
 #include "esp_system.h"
 #include "driver/gpio.h"
 #include "driver/uart.h"
+#include "hal/usb_serial_jtag_ll.h"
 //#include "esp_wifi.h"
 
 #include <freertos/FreeRTOS.h>
 #include <freertos/timers.h>
 
 /* Constants --------------------------------------------------------------- */
-#define EI_RED_LED_OFF      gpio_set_level(GPIO_NUM_21, 0);
-#define EI_WHITE_LED_OFF    gpio_set_level(GPIO_NUM_22, 0);
-#define EI_RED_LED_ON     gpio_set_level(GPIO_NUM_21, 1);
-#define EI_WHITE_LED_ON    gpio_set_level(GPIO_NUM_22, 1);
+#define EI_RED_LED_OFF      gpio_set_level(GPIO_NUM_3, 0)
+#define EI_RED_LED_ON       gpio_set_level(GPIO_NUM_3, 1)
 
 /** Global objects */
 TimerHandle_t fusion_timer;
@@ -80,7 +79,6 @@ EiDeviceESP32::EiDeviceESP32(EiDeviceMemory* mem)
     standalone_sensor_list[0].max_sample_length_s = mem->get_available_sample_bytes() / (16000 * 2);
     standalone_sensor_list[0].frequencies[0] = 16000.0f;
     standalone_sensor_list[0].frequencies[1] = 8000.0f;
-  
 }
 
 
@@ -93,10 +91,10 @@ void EiDeviceESP32::init_device_id(void)
 {
     // Setup device ID
     char temp[18];
-	uint8_t baseMac[6];
-	esp_read_mac(baseMac, ESP_MAC_WIFI_STA);
+    uint8_t baseMac[6];
+    esp_read_mac(baseMac, ESP_MAC_WIFI_STA);
 
-	sprintf(temp, 
+    sprintf(temp,
             "%02X:%02X:%02X:%02X:%02X:%02X",
             baseMac[0],
             baseMac[1],
@@ -106,7 +104,7 @@ void EiDeviceESP32::init_device_id(void)
             baseMac[5]);
 
     device_id = std::string(temp);
-    mac_address = std::string(temp);    
+    mac_address = std::string(temp);
 }
 
 EiDeviceInfo* EiDeviceInfo::get_device(void)
@@ -139,31 +137,27 @@ void EiDeviceESP32::set_state(EiState state)
 {
     switch(state) {
     case eiStateErasingFlash:
-        EI_WHITE_LED_ON;
+        EI_RED_LED_ON;
         break;
     case eiStateSampling:
         EI_RED_LED_ON;
         delay_ms(100);
         EI_RED_LED_OFF;
-        delay_ms(100);          
+        delay_ms(100);
         break;
     case eiStateUploading:
-        EI_RED_LED_ON;    
-        EI_WHITE_LED_ON;
+        EI_RED_LED_ON;
         break;
     case eiStateFinished:
-        for (int i = 0; i < 4; i++) {    
+        for (int i = 0; i < 4; i++) {
             EI_RED_LED_ON;
-            EI_WHITE_LED_ON;
             delay_ms(100);
             EI_RED_LED_OFF;
-            EI_WHITE_LED_OFF;
-            delay_ms(100);            
-        }                                
-        break;                
+            delay_ms(100);
+        }
+        break;
     default:
         EI_RED_LED_OFF;
-        EI_WHITE_LED_OFF;
     }
 }
 
@@ -275,7 +269,7 @@ void EiDeviceESP32::set_max_data_output_baudrate(void)
  */
 bool EiDeviceESP32::start_sample_thread(void (*sample_read_cb)(void), float sample_interval_ms)
 {
-    sample_cb_ptr = sample_read_cb;   
+    sample_cb_ptr = sample_read_cb;
     fusion_timer = xTimerCreate(
                         "Fusion sampler",
                         (uint32_t)sample_interval_ms / portTICK_RATE_MS,
@@ -294,7 +288,6 @@ bool EiDeviceESP32::start_sample_thread(void (*sample_read_cb)(void), float samp
  */
 bool EiDeviceESP32::stop_sample_thread(void)
 {
-    
     if (xTimerStop(fusion_timer, 0) != pdPASS)
     {
         ei_printf("ERR: timer has not been stopped \n");
@@ -335,7 +328,7 @@ uint32_t EiDeviceESP32::filesys_get_n_available_sample_blocks(void)
 bool ei_user_invoke_stop(void)
 {
     bool stop_found = false;
-	char ch = getchar();
+    char ch = getchar();
 
     if (ch == 'b') {
         stop_found = true;
@@ -351,12 +344,12 @@ bool ei_user_invoke_stop(void)
  */
 char ei_get_serial_byte(void)
 {
-	char ch = getchar();
+    char ch = getchar();
     // for some reason ESP32 only gets 10 (\n)and AT server has 13 (\r) as terminator character...
     if (ch == '\n') {
         ch = '\r';
     }
-    
+
     return ch;
 }
 
@@ -367,13 +360,21 @@ char ei_get_serial_byte(void)
  */
 void ei_putc(char cChar)
 {
-    putchar(cChar);
+    portTickType start_tick = xTaskGetTickCount();
+    while (!usb_serial_jtag_ll_txfifo_writable()) {
+        portTickType now_tick = xTaskGetTickCount();
+        if (now_tick > (start_tick + pdMS_TO_TICKS(200))) {
+            return;
+        }
+    }
+    usb_serial_jtag_ll_write_txfifo((const uint8_t *)&cChar, 1);
+    usb_serial_jtag_ll_txfifo_flush();
 }
 
 
 char ei_getchar()
 {
-	char ch = getchar();
+    char ch = getchar();
     // for some reason ESP32 only gets 10 (\n)and AT server has 13 (\r) as terminator character...
 
     if (ch == 255) {
@@ -383,7 +384,7 @@ char ei_getchar()
     if (ch == '\n') {
         ch = '\r';
     }
-    
+
     return ch;
 
 }

@@ -44,14 +44,10 @@ static ATServer *at;
 
 extern "C" int app_main()
 {
-    gpio_pad_select_gpio(GPIO_NUM_21);
-    gpio_reset_pin(GPIO_NUM_21);
+    gpio_pad_select_gpio(GPIO_NUM_3);
+    gpio_reset_pin(GPIO_NUM_3);
 
-    gpio_pad_select_gpio(GPIO_NUM_22);
-    gpio_reset_pin(GPIO_NUM_22);    
-    
-    gpio_set_direction(GPIO_NUM_21, GPIO_MODE_OUTPUT);
-    gpio_set_direction(GPIO_NUM_22, GPIO_MODE_OUTPUT);    
+    gpio_set_direction(GPIO_NUM_3, GPIO_MODE_OUTPUT);
 
     /* Initialize Edge Impulse sensors and commands */
 
@@ -63,11 +59,6 @@ extern "C" int app_main()
         __DATE__,
         __TIME__);
 
-    /* Setup the inertial sensor */
-    if (ei_inertial_init() == false) {
-        ei_printf("Inertial sensor initialization failed\r\n");
-    }
-
     /* Setup the analog sensor */
     if (ei_analog_sensor_init() == false) {
         ei_printf("ADC sensor initialization failed\r\n");
@@ -78,8 +69,8 @@ extern "C" int app_main()
     at->print_prompt();
 
     dev->set_state(eiStateFinished);
-    
-    while(1){
+
+    while(1) {
         /* handle command comming from uart */
         char data = ei_get_serial_byte();
 

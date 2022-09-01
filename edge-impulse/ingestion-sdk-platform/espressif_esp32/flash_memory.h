@@ -34,7 +34,7 @@
 
 /**
  * @brief
- * 
+ *
  */
 class EiFlashMemory : public EiDeviceMemory {
 protected:

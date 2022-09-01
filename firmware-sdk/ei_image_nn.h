@@ -90,8 +90,8 @@ int EiImageNN::cutout_get_data(uint32_t offset, uint32_t length, float *out_ptr)
     while (length != 0) {
         const int R_OFFSET = 0, G_OFFSET = 1, B_OFFSET = 2;
         // clang-format off
-        out_ptr[out_ptr_ix] = 
-            (image[offset + R_OFFSET] << 16) + 
+        out_ptr[out_ptr_ix] =
+            (image[offset + R_OFFSET] << 16) +
             (image[offset + G_OFFSET] << 8) +
             image[offset + B_OFFSET];
         // clang-format on

@@ -69,7 +69,7 @@ static int sensor_aq_mbedtls_hs256_finish(sensor_aq_signing_ctx_t *aq_ctx, uint8
     sensor_aq_mbedtls_hs256_ctx_t *hs_ctx = (sensor_aq_mbedtls_hs256_ctx_t*)aq_ctx->ctx;
 
     int ret = ei_mbedtls_md_hmac_finish(&hs_ctx->md_ctx, buffer);
-    // enabling this causes memory leak. will disable for now and debug later. 
+    // enabling this causes memory leak. will disable for now and debug later.
     // obviously that looks like something that should not be disabled
     // mbedtls_md_free(&hs_ctx->md_ctx);
     return ret;

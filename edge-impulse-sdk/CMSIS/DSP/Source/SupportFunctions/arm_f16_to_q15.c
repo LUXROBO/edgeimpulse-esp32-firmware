@@ -153,5 +153,5 @@ void arm_f16_to_q15(
   @} end of f16_to_x group
  */
 
-#endif /* #if defined(ARM_FLOAT16_SUPPORTED) */ 
+#endif /* #if defined(ARM_FLOAT16_SUPPORTED) */
 

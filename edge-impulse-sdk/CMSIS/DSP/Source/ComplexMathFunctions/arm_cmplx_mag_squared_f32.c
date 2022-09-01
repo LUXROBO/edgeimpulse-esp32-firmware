@@ -93,7 +93,7 @@ void arm_cmplx_mag_squared_f32(
 
         pSrc += 8;
         pDst += 4;
-        
+
         /*
          * Decrement the blockSize loop counter
          */
@@ -105,13 +105,13 @@ void arm_cmplx_mag_squared_f32(
     while (blkCnt > 0U)
     {
       /* C[0] = (A[0] * A[0] + A[1] * A[1]) */
-  
+
       real = *pSrc++;
       imag = *pSrc++;
-  
+
       /* store result in destination buffer. */
       *pDst++ = (real * real) + (imag * imag);
-  
+
       /* Decrement loop counter */
       blkCnt--;
     }

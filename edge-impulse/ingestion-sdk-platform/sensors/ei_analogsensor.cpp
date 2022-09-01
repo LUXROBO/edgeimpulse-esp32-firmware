@@ -32,14 +32,9 @@
 #include "sensor_aq.h"
 
 static esp_adc_cal_characteristics_t *adc_chars;
-#if CONFIG_IDF_TARGET_ESP32
-static const adc_channel_t channel = ADC_CHANNEL_6;     //GPIO34 if ADC1, GPIO14 if ADC2
-static const adc_bits_width_t width = ADC_WIDTH_BIT_12;
-#elif CONFIG_IDF_TARGET_ESP32S2
-static const adc_channel_t channel = ADC_CHANNEL_6;     // GPIO7 if ADC1, GPIO17 if ADC2
-static const adc_bits_width_t width = ADC_WIDTH_BIT_13;
-#endif
-static const adc_atten_t atten = ADC_ATTEN_DB_0;
+static const adc1_channel_t channel = ADC1_CHANNEL_0;
+static const adc_bits_width_t width = (adc_bits_width_t)ADC_WIDTH_BIT_DEFAULT;
+static const adc_atten_t atten = ADC_ATTEN_DB_11;
 static const adc_unit_t unit = ADC_UNIT_1;
 
 /* Constant defines -------------------------------------------------------- */
@@ -48,7 +43,7 @@ static float analog_data[ANALOG_AXIS_SAMPLED];
 bool ei_analog_sensor_init(void)
 {
     adc1_config_width(width);
-    //adc1_config_channel_atten(channel, atten);
+    adc1_config_channel_atten(channel, atten);
 
     ei_add_sensor_to_fusion_list(analog_sensor);
 

@@ -48,10 +48,10 @@
 #if defined(ARM_MATH_MVEI) && !defined(ARM_MATH_AUTOVECTORIZE)
 
 #include "edge-impulse-sdk/CMSIS/DSP/Include/arm_helium_utils.h"
-void arm_clip_q31(const q31_t * pSrc, 
-  q31_t * pDst, 
-  q31_t low, 
-  q31_t high, 
+void arm_clip_q31(const q31_t * pSrc,
+  q31_t * pDst,
+  q31_t low,
+  q31_t high,
   uint32_t numSamples)
 {
     uint32_t  blkCnt;
@@ -108,20 +108,20 @@ void arm_clip_q31(const q31_t * pSrc,
 }
 
 #else
-void arm_clip_q31(const q31_t * pSrc, 
-  q31_t * pDst, 
-  q31_t low, 
-  q31_t high, 
+void arm_clip_q31(const q31_t * pSrc,
+  q31_t * pDst,
+  q31_t low,
+  q31_t high,
   uint32_t numSamples)
 {
     for (uint32_t i = 0; i < numSamples; i++)
-    {                                        
-        if (pSrc[i] > high)                  
-            pDst[i] = high;                  
-        else if (pSrc[i] < low)              
-            pDst[i] = low;                   
-        else                                 
-            pDst[i] = pSrc[i];               
+    {
+        if (pSrc[i] > high)
+            pDst[i] = high;
+        else if (pSrc[i] < low)
+            pDst[i] = low;
+        else
+            pDst[i] = pSrc[i];
     }
 }
 #endif /* defined(ARM_MATH_MVEI) */

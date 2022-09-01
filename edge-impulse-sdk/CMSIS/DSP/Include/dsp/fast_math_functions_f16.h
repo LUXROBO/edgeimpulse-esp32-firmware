@@ -22,7 +22,7 @@
  * limitations under the License.
  */
 
- 
+
 #ifndef _FAST_MATH_FUNCTIONS_F16_H_
 #define _FAST_MATH_FUNCTIONS_F16_H_
 
@@ -70,7 +70,7 @@ __STATIC_FORCEINLINE arm_status arm_sqrt_f16(
 /**
   @} end of SQRT group
  */
-  
+
 /**
   @brief         Floating-point vector of log values.
   @param[in]     pSrc       points to the input vector

@@ -598,55 +598,55 @@ void arm_cfft_q31(
         q31_t * pSrc,
         uint8_t ifftFlag,
         uint8_t bitReverseFlag)
-{                                                                             
-        uint32_t fftLen = S->fftLen;     
+{
+        uint32_t fftLen = S->fftLen;
 
-        if (ifftFlag == 1U) {                                                            
-                                                                                         
-            switch (fftLen) {                                                            
-            case 16:                                                                     
-            case 64:                                                                     
-            case 256:                                                                    
-            case 1024:                                                                   
-            case 4096:                                                                   
-                _arm_radix4_butterfly_inverse_q31_mve(S, pSrc, fftLen); 
-                break;                                                                   
-                                                                                         
-            case 32:                                                                     
-            case 128:                                                                    
-            case 512:                                                                    
-            case 2048:                                                                   
-                arm_cfft_radix4by2_inverse_q31_mve(S, pSrc, fftLen);              
-                break;                                                                   
-            }  
-        } else {                                                                         
-            switch (fftLen) {                                                            
-            case 16:                                                                     
-            case 64:                                                                     
-            case 256:                                                                    
-            case 1024:                                                                   
-            case 4096:    
-                _arm_radix4_butterfly_q31_mve(S, pSrc, fftLen);         
-                break;                                                                   
-                                                                                         
-            case 32:                                                                     
-            case 128:                                                                    
-            case 512:                                                                    
-            case 2048:                                                                   
-                arm_cfft_radix4by2_q31_mve(S, pSrc, fftLen);                      
-                break;                                                                   
-            }                                                                            
-        }                                                                                
-                                                                                         
-                                                                                         
-        if (bitReverseFlag) 
-        {                                                            
-            
+        if (ifftFlag == 1U) {
+
+            switch (fftLen) {
+            case 16:
+            case 64:
+            case 256:
+            case 1024:
+            case 4096:
+                _arm_radix4_butterfly_inverse_q31_mve(S, pSrc, fftLen);
+                break;
+
+            case 32:
+            case 128:
+            case 512:
+            case 2048:
+                arm_cfft_radix4by2_inverse_q31_mve(S, pSrc, fftLen);
+                break;
+            }
+        } else {
+            switch (fftLen) {
+            case 16:
+            case 64:
+            case 256:
+            case 1024:
+            case 4096:
+                _arm_radix4_butterfly_q31_mve(S, pSrc, fftLen);
+                break;
+
+            case 32:
+            case 128:
+            case 512:
+            case 2048:
+                arm_cfft_radix4by2_q31_mve(S, pSrc, fftLen);
+                break;
+            }
+        }
+
+
+        if (bitReverseFlag)
+        {
+
             arm_bitreversal_32_inpl_mve((uint32_t*)pSrc, S->bitRevLength, S->pBitRevTable);
-       
-        } 
+
+        }
 }
-#else 
+#else
 
 extern void arm_radix4_butterfly_q31(
         q31_t * pSrc,

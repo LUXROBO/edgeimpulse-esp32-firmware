@@ -68,7 +68,7 @@ void arm_var_q31(
     q63_t           sumOfSquares = 0LL;
     q63_t           meanOfSquares, squareOfMean;        /* square of mean and mean of square */
     q63_t           sum = 0LL;
-    q31_t in; 
+    q31_t in;
 
     if (blockSize <= 1U) {
         *pResult = 0;
@@ -94,7 +94,7 @@ void arm_var_q31(
         pSrc += 4;
     }
 
-    
+
     /*
      * tail
      */
@@ -109,7 +109,7 @@ void arm_var_q31(
        sumOfSquares += ((q63_t) (in) * (in));
        /* Compute sum and store result in a temporary variable, sum. */
        sum += in;
-   
+
        /* Decrement loop counter */
        blkCnt--;
     }

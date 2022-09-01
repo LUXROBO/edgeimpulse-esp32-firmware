@@ -127,7 +127,7 @@ static time_t ei_time(time_t *t)
 static void ei_write_last_data(void)
 {
     EiDeviceInfo* dev = EiDeviceInfo::get_device();
-    EiDeviceMemory* mem = dev->get_memory();  
+    EiDeviceMemory* mem = dev->get_memory();
 
     uint8_t fill = ((uint8_t)write_addr & 0x03);
     uint8_t insert_end_address = 0;
@@ -158,7 +158,7 @@ static void ei_write_last_data(void)
 bool ei_sampler_start_sampling(void *v_ptr_payload, starter_callback ei_sample_start, uint32_t sample_size)
 {
     EiDeviceInfo* dev = EiDeviceInfo::get_device();
-    EiDeviceMemory* mem = dev->get_memory();  
+    EiDeviceMemory* mem = dev->get_memory();
 
     sensor_aq_payload_info *payload = (sensor_aq_payload_info *)v_ptr_payload;
 
@@ -180,7 +180,7 @@ bool ei_sampler_start_sampling(void *v_ptr_payload, starter_callback ei_sample_s
         ei_printf("Starting in %d ms... (or until all flash was erased)\n", 2000);
         ei_sleep(2000);
         ESP_LOGD(TAG, "Done waiting\n");
-    } 
+    }
     else {
         ei_printf("Starting in %d ms... (or until all flash was erased)\n",
                     ((sample_buffer_size / mem->block_size) + 1) * mem->block_erase_time);
@@ -199,8 +199,8 @@ bool ei_sampler_start_sampling(void *v_ptr_payload, starter_callback ei_sample_s
     if(ei_sample_start(&sample_data_callback, dev->get_sample_interval_ms()) == false) {
         return false;
     }
-    
-	ei_printf("Sampling...\n");
+
+    ei_printf("Sampling...\n");
 
     while(current_sample < samples_required) {
         //EiDevice.set_state(eiStateSampling);
@@ -208,7 +208,7 @@ bool ei_sampler_start_sampling(void *v_ptr_payload, starter_callback ei_sample_s
     };
 
     ei_write_last_data();
-    write_addr++;   
+    write_addr++;
 
     uint8_t final_byte[] = {0xff};
     int ctx_err = ei_mic_ctx.signature_ctx->update(ei_mic_ctx.signature_ctx, final_byte, 1);
@@ -286,7 +286,7 @@ bool ei_sampler_start_sampling(void *v_ptr_payload, starter_callback ei_sample_s
 static bool create_header(sensor_aq_payload_info *payload)
 {
     EiDeviceInfo* dev = EiDeviceInfo::get_device();
-    EiDeviceMemory* mem = dev->get_memory();   
+    EiDeviceMemory* mem = dev->get_memory();
     sensor_aq_init_mbedtls_hs256_context(&ei_mic_signing_ctx, &ei_mic_hs_ctx, dev->get_sample_hmac_key().c_str());
 
     int tr = sensor_aq_init(&ei_mic_ctx, payload, NULL, true);
@@ -359,7 +359,7 @@ static bool sample_data_callback(const void *sample_buf, uint32_t byteLenght)
 
     if (++current_sample >= samples_required) {
         return true;
-    } 
+    }
     else {
         return false;
     }

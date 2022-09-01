@@ -85,7 +85,7 @@ void arm_cmplx_mult_real_f32(
     f32x4_t cmplxVec;
     f32x4_t dstVec;
     uint32x4_t strideVec;
-    float32_t in;  
+    float32_t in;
 
 
     /* stride vector for pairs of real generation */
@@ -93,7 +93,7 @@ void arm_cmplx_mult_real_f32(
 
     /* Compute 4 complex outputs at a time */
     blkCnt = blockSizeC >> 2;
-    while (blkCnt > 0U) 
+    while (blkCnt > 0U)
     {
         cmplxVec = vld1q(pSrcCmplx);
         rVec = vldrwq_gather_shifted_offset_f32(pSrcReal, strideVec);
@@ -106,17 +106,17 @@ void arm_cmplx_mult_real_f32(
         blkCnt--;
     }
 
-    blkCnt = (blockSizeC & 3) >> 1; 
+    blkCnt = (blockSizeC & 3) >> 1;
     while (blkCnt > 0U)
     {
       /* C[2 * i    ] = A[2 * i    ] * B[i]. */
       /* C[2 * i + 1] = A[2 * i + 1] * B[i]. */
-  
+
       in = *pSrcReal++;
       /* store result in destination buffer. */
       *pCmplxDst++ = *pSrcCmplx++ * in;
       *pCmplxDst++ = *pSrcCmplx++ * in;
-  
+
       /* Decrement loop counter */
       blkCnt--;
     }
@@ -144,7 +144,7 @@ void arm_cmplx_mult_real_f32(
         ab = vld2q_f32(pSrcCmplx);  // load & separate real/imag pSrcA (de-interleave 2)
         r = vld1q_f32(pSrcReal);  // load & separate real/imag pSrcB
 
-	/* Increment pointers */
+        /* Increment pointers */
         pSrcCmplx += 8;
         pSrcReal += 4;
 

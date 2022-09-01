@@ -307,7 +307,7 @@ void arm_correlate_f32(
 {
 
 #if defined(ARM_MATH_DSP) && !defined(ARM_MATH_AUTOVECTORIZE)
-  
+
   const float32_t *pIn1;                               /* InputA pointer */
   const float32_t *pIn2;                               /* InputB pointer */
         float32_t *pOut = pDst;                        /* Output pointer */
@@ -585,16 +585,16 @@ void arm_correlate_f32(
 
         x = vextq_f32(x1v,x2v,2);
 
-	res = vmlaq_n_f32(res,x,c[2]);
+        res = vmlaq_n_f32(res,x,c[2]);
 
         x = vextq_f32(x1v,x2v,3);
 
-	res = vmlaq_n_f32(res,x,c[3]);
+        res = vmlaq_n_f32(res,x,c[3]);
 
         x1v = x2v;
         px+=4;
       } while (--k);
-      
+
       /* If the srcBLen is not a multiple of 4, compute any remaining MACs here.
        ** No loop unrolling is used. */
       k = srcBLen & 0x3;

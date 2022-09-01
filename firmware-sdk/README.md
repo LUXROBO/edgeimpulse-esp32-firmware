@@ -4,7 +4,7 @@ The firmware-sdk provides portable code for commonly needed processing tasks.  I
 
 # Core functions
 Chip specific implementations must be provided for the following header files:
-- ei_classifier_porting.h 
+- ei_classifier_porting.h
 - ei_device_info_lib.h
 - ei_device_interface.h
 
@@ -13,7 +13,7 @@ Chip specific implementations must be provided for the following header files:
 ## Camera
 
 - Ingestion (snapshot, snapshot_stream) format:
-The daemon (and the frame-to-jpeg debug tool) expect packed RGB 
+The daemon (and the frame-to-jpeg debug tool) expect packed RGB
 (3B per pixel, as opposed to 4B with high B to 0 for inference)
  - Big endian format (uint8_t image[i] is R, image[i+1] is G, ...
 
@@ -35,7 +35,7 @@ The daemon (and the frame-to-jpeg debug tool) expect packed RGB
 - (The "core" functions must also be present, see "Core functions" above)
 - Other support functions exist in ei_image_lib
  - YUV422 to RGB conversion
-- ei_image_nn.h supports inference, but does not need to be touched.  It calls the camera factory. 
+- ei_image_nn.h supports inference, but does not need to be touched.  It calls the camera factory.
 
 ### Interface notes
 

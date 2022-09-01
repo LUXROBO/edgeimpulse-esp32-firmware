@@ -136,7 +136,7 @@ void arm_conv_q15(
         *pDst++ = (q15_t) acc;
         pB++;
     }
-    
+
     for (i = 0; i <= block2 - 4; i += 4)
     {
         uint32_t  count = srcBLen;

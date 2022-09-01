@@ -510,7 +510,7 @@ void arm_correlate_f16(
 {
 
 #if defined(ARM_MATH_DSP) && !defined(ARM_MATH_AUTOVECTORIZE)
-  
+
   const float16_t *pIn1;                               /* InputA pointer */
   const float16_t *pIn2;                               /* InputB pointer */
         float16_t *pOut = pDst;                        /* Output pointer */
@@ -523,7 +523,7 @@ void arm_correlate_f16(
         uint32_t outBlockSize;                         /* Loop counter */
         int32_t inc = 1;                               /* Destination address modifier */
 
-#if defined (ARM_MATH_LOOPUNROLL) 
+#if defined (ARM_MATH_LOOPUNROLL)
     _Float16 acc0, acc1, acc2, acc3,c0;                    /* Accumulators */
     _Float16 x0, x1, x2, x3;                        /* temporary variables for holding input and coefficient values */
 #endif
@@ -627,7 +627,7 @@ void arm_correlate_f16(
     /* Accumulator is made zero for every iteration */
     sum = 0.0f16;
 
-#if defined (ARM_MATH_LOOPUNROLL) 
+#if defined (ARM_MATH_LOOPUNROLL)
 
     /* Loop unrolling: Compute 4 outputs at a time */
     k = count >> 2U;
@@ -717,7 +717,7 @@ void arm_correlate_f16(
    * srcBLen should be greater than or equal to 4 */
   if (srcBLen >= 4U)
   {
-#if defined (ARM_MATH_LOOPUNROLL) 
+#if defined (ARM_MATH_LOOPUNROLL)
 
     /* Loop unrolling: Compute 4 outputs at a time */
     blkCnt = blockSize2 >> 2U;
@@ -875,7 +875,7 @@ void arm_correlate_f16(
       /* Accumulator is made zero for every iteration */
       sum = 0.0f16;
 
-#if defined (ARM_MATH_LOOPUNROLL) 
+#if defined (ARM_MATH_LOOPUNROLL)
 
     /* Loop unrolling: Compute 4 outputs at a time */
       k = srcBLen >> 2U;
@@ -1002,7 +1002,7 @@ void arm_correlate_f16(
     /* Accumulator is made zero for every iteration */
     sum = 0.0f16;
 
-#if defined (ARM_MATH_LOOPUNROLL) 
+#if defined (ARM_MATH_LOOPUNROLL)
 
     /* Loop unrolling: Compute 4 outputs at a time */
     k = count >> 2U;

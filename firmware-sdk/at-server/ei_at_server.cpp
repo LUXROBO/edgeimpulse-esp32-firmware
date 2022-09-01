@@ -60,8 +60,8 @@ void ATServer::register_help_command(void)
 /**
  * @brief Register a new command. If the same command already exists
  * (by comparing \ref ATCommand_t.command field) then overwrite it.
- * 
- * @param command 
+ *
+ * @param command
  * @return true if the command has been registered
  * @return false if some sanity checks failed
  */
@@ -137,13 +137,13 @@ bool ATServer::print_help(void)
 {
     bool new_line_required = false;
 
-    /* 
+    /*
      * print list of commands in the following style
      * AT+COMMAND
      * AT+COMMAND?
      * AT+COMMAND=arg1,arg2
      *      Help text for the command
-     * 
+     *
      */
     ei_printf("AT Server\nCommand set version: " AT_COMMAND_VERSION "\n");
     ei_printf("Arguments in square brackets are optional, eg.:\nAT+CMD=arg1,[arg2]\n\n");

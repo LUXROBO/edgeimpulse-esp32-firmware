@@ -77,7 +77,7 @@ void arm_copy_q31(
     /* Decrement loop counter */
     blkCnt--;
   }
-    
+
 }
 
 #else

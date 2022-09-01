@@ -180,7 +180,7 @@ void arm_biquad_cascade_df2T_f32(
     while (stage > 0U);
 }
 #else
-#if defined(ARM_MATH_NEON) 
+#if defined(ARM_MATH_NEON)
 
 void arm_biquad_cascade_df2T_f32(
   const arm_biquad_cascade_df2T_instance_f32 * S,
@@ -238,7 +238,7 @@ void arm_biquad_cascade_df2T_f32(
       dV = vld2q_f32(pState);
 
       sample = blockSize;
-      
+
       while (sample > 0U) {
          /* y[n] = b0 * x[n] + d1 */
          /* d1 = b1 * x[n] + a1 * y[n] + d2 */
@@ -272,7 +272,7 @@ void arm_biquad_cascade_df2T_f32(
 
          sample--;
       }
-     
+
       /* Store the updated state variables back into the state array */
       vst2q_f32(pState,dV);
       pState += 8;
@@ -286,11 +286,11 @@ void arm_biquad_cascade_df2T_f32(
       /* decrement the loop counter */
       stageCnt--;
 
-   } 
+   }
 
    /* Tail */
    stageCnt = stage & 3;
-   
+
    while (stageCnt > 0U)
    {
       /* Reading the coefficients */

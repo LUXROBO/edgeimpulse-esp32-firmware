@@ -96,9 +96,9 @@ float16_t arm_entropy_f16(const float16_t * pSrcA,uint32_t blockSize)
     {
        p = *pSrcA++;
        accum += p * logf(p);
-       
+
        blkCnt--;
-    
+
     }
 
     return (-accum);
@@ -111,7 +111,7 @@ float16_t arm_entropy_f16(const float16_t * pSrcA,uint32_t blockSize)
     const float16_t *pIn;
     uint32_t blkCnt;
     _Float16 accum, p;
- 
+
     pIn = pSrcA;
     blkCnt = blockSize;
 
@@ -121,9 +121,9 @@ float16_t arm_entropy_f16(const float16_t * pSrcA,uint32_t blockSize)
     {
        p = *pIn++;
        accum += p * logf(p);
-       
+
        blkCnt--;
-    
+
     }
 
     return(-accum);
@@ -134,5 +134,5 @@ float16_t arm_entropy_f16(const float16_t * pSrcA,uint32_t blockSize)
  * @} end of Entropy group
  */
 
-#endif /* #if defined(ARM_FLOAT16_SUPPORTED) */ 
+#endif /* #if defined(ARM_FLOAT16_SUPPORTED) */
 

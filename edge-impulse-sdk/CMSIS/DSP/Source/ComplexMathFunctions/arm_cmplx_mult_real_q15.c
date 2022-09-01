@@ -66,7 +66,7 @@ void arm_cmplx_mult_real_q15(
   uint16x8_t strideVec;
   uint32_t blockSizeC = numSamples * CMPLX_DIM;   /* loop counters */
   uint32_t blkCnt;
-  q15_t in;  
+  q15_t in;
 
   /*
   * stride vector for pairs of real generation
@@ -75,7 +75,7 @@ void arm_cmplx_mult_real_q15(
 
   blkCnt = blockSizeC >> 3;
 
-  while (blkCnt > 0U) 
+  while (blkCnt > 0U)
   {
     cmplxVec = vld1q(pSrcCmplx);
     rVec = vldrhq_gather_shifted_offset_s16(pSrcReal, strideVec);

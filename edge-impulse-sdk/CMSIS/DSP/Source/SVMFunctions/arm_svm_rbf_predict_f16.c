@@ -346,5 +346,5 @@ void arm_svm_rbf_predict_f16(
  * @} end of rbfsvm group
  */
 
-#endif /* #if defined(ARM_FLOAT16_SUPPORTED) */ 
+#endif /* #if defined(ARM_FLOAT16_SUPPORTED) */
 

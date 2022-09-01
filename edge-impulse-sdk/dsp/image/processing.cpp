@@ -38,10 +38,10 @@ enum YUV_OPTIONS
 
 /**
  * @brief Convert YUV to RGB
- * 
+ *
  * @param rgb_out Output buffer (can be the same as yuv_in if big enough)
  * @param yuv_in Input buffer
- * @param in_size_B Size of input image in B 
+ * @param in_size_B Size of input image in B
  * @param opts Note, only BIG_ENDIAN_ORDER supported presently
  */
 int yuv422_to_rgb888(
@@ -102,11 +102,11 @@ int yuv422_to_rgb888(
 /**
  * @brief Crops an image. Can be in-place. 4B alignment for best performance
  * (Alignment is tested, will fall back to B by B movement)
- * 
+ *
  * @param srcWidth X dimension in pixels
  * @param srcHeight Y dimension in pixels
- * @param srcImage Input buffer 
- * @param startX X coord of first pixel to keep 
+ * @param srcImage Input buffer
+ * @param startX X coord of first pixel to keep
  * @param startY Y coord of the first pixel to keep
  * @param dstWidth Desired X dimension in pixels (should be smaller than srcWidth)
  * @param dstHeight Desired Y dimension in pixels (should be smaller than srcHeight)
@@ -234,7 +234,7 @@ int crop_image_rgb888_packed(
  * Can be used to resize the image smaller or larger
  * If resizing much smaller than 1/3 size, then a more rubust algorithm should average all of the pixels
  * This algorithm uses bilinear interpolation - averages a 2x2 region to generate each new pixel
- * 
+ *
  * @param srcWidth Input image width in pixels
  * @param srcHeight Input image height in pixels
  * @param srcImage Input buffer
@@ -278,7 +278,7 @@ int resize_image(
     //dstWidth still needed as is
     //dstHeight shouldn't be scaled
 
-    const uint8_t *s; 
+    const uint8_t *s;
     uint8_t *d;
 
     for (y = 0; y < dstHeight; y++) {
@@ -324,7 +324,7 @@ int resize_image(
  * @brief Calculate new dims that match the aspect ratio of destination
  * This prevents a squashed look
  * The smallest axis is held constant
- * 
+ *
  * @param srcWidth Input width in pixels
  * @param srcHeight Input height in pixels
  * @param dstWidth Ultimate width in pixels
@@ -373,7 +373,7 @@ int crop_and_interpolate_rgb888(
         dstImage,
         cropWidth,
         cropHeight);
-    
+
     if( res != EIDSP_OK) { return res; }
     // Finally, interpolate down to desired dimensions, in place
     return resize_image(dstImage, cropWidth, cropHeight, dstImage, dstWidth, dstHeight, 3);

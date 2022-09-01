@@ -1,6 +1,6 @@
 #include "ei_at_server.h"
 
-/* 
+/*
  * The definition of get_instance method is here,
  * because AT Server is designed as a singleton class
  * therefore unit testing of this pattern is pretty difficult.

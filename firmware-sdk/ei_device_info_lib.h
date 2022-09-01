@@ -303,13 +303,13 @@ public:
     }
 
     /**
-	 * @brief      Get pointer to the list of available sensors, and the number of sensors
-	 *             used
-	 * @param      sensor_list       Place pointer to sensor list here
-	 * @param      sensor_list_size  Fill in the number of sensors in the list
-	 *
-	 * @return     The sensor list.
-	 */
+     * @brief      Get pointer to the list of available sensors, and the number of sensors
+     *             used
+     * @param      sensor_list       Place pointer to sensor list here
+     * @param      sensor_list_size  Fill in the number of sensors in the list
+     *
+     * @return     The sensor list.
+     */
     virtual bool get_sensor_list(const ei_device_sensor_t **sensor_list, size_t *sensor_list_size)
     {
         *sensor_list = NULL;
@@ -318,13 +318,13 @@ public:
     }
 
     /**
-	 * @brief      Create resolution list for snapshot setting
-	 *             The studio and daemon require this list
-	 * @param      snapshot_list       Place pointer to resolution list
-	 * @param      snapshot_list_size  Write number of resolutions here
-	 *
-	 * @return     False if all went ok
-	 */
+     * @brief      Create resolution list for snapshot setting
+     *             The studio and daemon require this list
+     * @param      snapshot_list       Place pointer to resolution list
+     * @param      snapshot_list_size  Write number of resolutions here
+     *
+     * @return     False if all went ok
+     */
     virtual bool get_snapshot_list(
         const ei_device_snapshot_resolutions_t **snapshot_list,
         size_t *snapshot_list_size,
@@ -381,15 +381,15 @@ public:
 
     static constexpr int STR_SIZE = 32;
     /**
-	 * @brief      Gets the device ID string
+     * @brief      Gets the device ID string
      * Deprecated.  C strings are unsafe.
      * Get a copy of string from std::string get_id(), and call str() on that.
-	 *
-	 * @param      out_buffer  Destination buffer for ID
-	 * @param      out_size    Length of ID in bytes
-	 *
-	 * @return     Zero if ok, non-zero to signal an error
-	 */
+     *
+     * @param      out_buffer  Destination buffer for ID
+     * @param      out_size    Length of ID in bytes
+     *
+     * @return     Zero if ok, non-zero to signal an error
+     */
     virtual int get_id(uint8_t out_buffer[STR_SIZE], size_t *out_size)
     {
         *out_size = device_id.copy((char *)out_buffer, STR_SIZE - 1);
@@ -398,26 +398,26 @@ public:
     };
 
     /**
-	 * @brief      Get pointer to zero terminatied id string
+     * @brief      Get pointer to zero terminatied id string
      * Deprecated.  C strings are unsafe.
      * Get a copy of string from get_id, and call str() on that.
-	 *
-	 * @return     The id pointer.
-	 */
+     *
+     * @return     The id pointer.
+     */
     virtual const char *get_id_pointer(void)
     {
         return device_id.c_str();
     }
 
     /**
-	 * @brief      Gets the device type string
+     * @brief      Gets the device type string
      * Deprecated.  C strings are unsafe.
      * Get a copy of string from std::string get_id(), and call str() on that.
-	 * @param      out_buffer  Destination buffer for type
-	 * @param      out_size    Length of type string in bytes
-	 *
-	 * @return     Zero if ok, non-zero to signal an error
-	 */
+     * @param      out_buffer  Destination buffer for type
+     * @param      out_size    Length of type string in bytes
+     *
+     * @return     Zero if ok, non-zero to signal an error
+     */
     virtual int get_type(uint8_t out_buffer[STR_SIZE], size_t *out_size)
     {
         *out_size = device_type.copy((char*)out_buffer, STR_SIZE - 1);
@@ -426,11 +426,11 @@ public:
     }
 
     /**
-	 * @brief      Get pointer to zero terminatied type string
+     * @brief      Get pointer to zero terminatied type string
      * Deprecated.  C strings are unsafe.
      * Get a copy of string from std::string get_id(), and call str() on that.
-	 * @return     The type pointer.
-	 */
+     * @return     The type pointer.
+     */
     virtual const char *get_type_pointer(void)
     {
         return device_type.c_str();

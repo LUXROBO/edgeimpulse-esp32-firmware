@@ -85,7 +85,7 @@ void arm_negate_f16(
         /* Increment pointers */
         pSrc += 8;
         pDst += 8;
-        
+
         /* Decrement the loop counter */
         blkCnt--;
     }

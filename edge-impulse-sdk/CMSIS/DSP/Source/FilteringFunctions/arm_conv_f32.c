@@ -373,7 +373,7 @@ void arm_conv_f32(
 
       /* Increment pointers */
       px += 4;
-      py -= 4; 
+      py -= 4;
 
       /* Decrement the loop counter */
       k--;
@@ -467,7 +467,7 @@ void arm_conv_f32(
    * srcBLen should be greater than or equal to 4 */
   if (srcBLen >= 4U)
   {
-   
+
 #if defined(ARM_MATH_NEON)
       float32x4_t c;
       float32x4_t x1v;
@@ -475,7 +475,7 @@ void arm_conv_f32(
       float32x4_t x;
       float32x4_t res = vdupq_n_f32(0) ;
 #endif /* #if defined(ARM_MATH_NEON) */
-   
+
 #if defined (ARM_MATH_LOOPUNROLL) || defined(ARM_MATH_NEON)
 
     /* Loop unrolling: Compute 4 outputs at a time */
@@ -506,26 +506,26 @@ void arm_conv_f32(
         x = x1v;
         res = vmlaq_n_f32(res,x,c[3]);
 
-	x = vextq_f32(x1v,x2v,1);
+        x = vextq_f32(x1v,x2v,1);
 
         res = vmlaq_n_f32(res,x,c[2]);
 
         x = vextq_f32(x1v,x2v,2);
 
-	res = vmlaq_n_f32(res,x,c[1]);
+        res = vmlaq_n_f32(res,x,c[1]);
 
-	x = vextq_f32(x1v,x2v,3);
+        x = vextq_f32(x1v,x2v,3);
 
-	res = vmlaq_n_f32(res,x,c[0]);
+        res = vmlaq_n_f32(res,x,c[0]);
 
-        py -= 4; 
+        py -= 4;
 
         x1v = x2v ;
         x2v = vld1q_f32(px+4);
 
       } while (--k);
-      
-      
+
+
       /* If the srcBLen is not a multiple of 4, compute any remaining MACs here.
        ** No loop unrolling is used. */
       k = srcBLen & 0x3;
@@ -723,7 +723,7 @@ void arm_conv_f32(
       }
 
       accum = vpadd_f32(vget_low_f32(res), vget_high_f32(res));
-      sum += accum[0] + accum[1]; 
+      sum += accum[0] + accum[1];
 
       /* If the srcBLen is not a multiple of 4, compute any remaining MACs here.
        ** No loop unrolling is used. */
@@ -872,7 +872,7 @@ void arm_conv_f32(
     }
 
     accum = vpadd_f32(vget_low_f32(res), vget_high_f32(res));
-    sum += accum[0] + accum[1]; 
+    sum += accum[0] + accum[1];
 
 #else
     while (k > 0U)

@@ -244,7 +244,7 @@ arm_status arm_mat_inverse_f32(
                         blkCnt = (numCols - l) >> 2;
                         while (blkCnt > 0U)
                         {
-                            
+
                             vecA = vldrwq_f32(pTmpA);
                             vecB = vldrwq_f32(pTmpB);
                             vstrwq_f32(pTmpB, vecA);
@@ -371,7 +371,7 @@ arm_status arm_mat_inverse_f32(
             if (blkCnt > 0U)
             {
                 mve_pred16_t p0 = vctp32q(blkCnt);
-                
+
 
                 vecA = vldrwq_f32(pTmpA);
                 vecA = vecA * invIn;
@@ -699,7 +699,7 @@ arm_status arm_mat_inverse_f32(
       /* Temporary variable to hold the pivot value */
       in = *pInT1;
 
-    
+
       /* Destination pointer modifier */
       k = 1U;
 
@@ -820,7 +820,7 @@ arm_status arm_mat_inverse_f32(
         vec1 = vmulq_f32(vec1, tmpV);
         vst1q_f32(pInT2, vec1);
         pInT2 += 4;
-      
+
         /* Decrement the loop counter */
         j--;
       }
@@ -877,7 +877,7 @@ arm_status arm_mat_inverse_f32(
           /* Loop over the number of columns to the right of the pivot element,
              to replace the elements in the input matrix */
           j = (numCols - l) >> 2;
-	  
+  
           while (j > 0U)
           {
             /* Replace the element by the sum of that row
@@ -893,7 +893,7 @@ arm_status arm_mat_inverse_f32(
             j--;
           }
 
-	  /* Tail */
+          /* Tail */
           j = (numCols - l) & 3;
 
           while (j > 0U)
@@ -926,7 +926,7 @@ arm_status arm_mat_inverse_f32(
             j--;
           }
 
-	  /* Tail */
+    /* Tail */
           j = numCols & 3;
 
           while (j > 0U)
@@ -1108,7 +1108,7 @@ arm_status arm_mat_inverse_f32(
       /* Temporary variable to hold the pivot value */
       in = *pInT1;
 
-      
+
       /* Destination pointer modifier */
       k = 1U;
 

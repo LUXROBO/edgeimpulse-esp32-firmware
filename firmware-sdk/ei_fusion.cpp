@@ -210,7 +210,7 @@ void ei_fusion_read_axis_data(void)
  *
  * @param[in]  callsampler          callback function from ei_sampler
  * @param[in]  sample_interval_ms   sample interval from ei_sampler
- * 
+ *
  * @retval  false if initialisation failed
  */
 bool ei_fusion_sample_start(sampler_callback callsampler, float sample_interval_ms)

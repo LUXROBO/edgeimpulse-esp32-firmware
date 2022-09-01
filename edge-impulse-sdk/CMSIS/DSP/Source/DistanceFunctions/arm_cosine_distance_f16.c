@@ -80,5 +80,5 @@ float16_t arm_cosine_distance_f16(const float16_t *pA,const float16_t *pB, uint3
  * @} end of CosineDist group
  */
 
-#endif /* #if defined(ARM_FLOAT16_SUPPORTED) */ 
+#endif /* #if defined(ARM_FLOAT16_SUPPORTED) */
 

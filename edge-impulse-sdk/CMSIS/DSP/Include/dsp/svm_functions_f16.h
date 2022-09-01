@@ -22,7 +22,7 @@
  * limitations under the License.
  */
 
- 
+
 #ifndef _SVM_FUNCTIONS_F16_H_
 #define _SVM_FUNCTIONS_F16_H_
 
@@ -49,11 +49,11 @@ extern "C"
  * generated from the scikit-learn object. Some examples are given in
  * DSP/Testing/PatternGeneration/SVM.py
  *
- * If more than 2 classes are needed, the functions in this folder 
+ * If more than 2 classes are needed, the functions in this folder
  * will have to be used, as building blocks, to do multi-class classification.
  *
  * No multi-class classification is provided in this SVM folder.
- * 
+ *
  */
 
 /**
@@ -149,7 +149,7 @@ typedef struct
  */
 
 
-void arm_svm_linear_init_f16(arm_svm_linear_instance_f16 *S, 
+void arm_svm_linear_init_f16(arm_svm_linear_instance_f16 *S,
   uint32_t nbOfSupportVectors,
   uint32_t vectorDimension,
   float16_t intercept,
@@ -165,9 +165,9 @@ void arm_svm_linear_init_f16(arm_svm_linear_instance_f16 *S,
  * @return none.
  *
  */
-  
-void arm_svm_linear_predict_f16(const arm_svm_linear_instance_f16 *S, 
-   const float16_t * in, 
+
+void arm_svm_linear_predict_f16(const arm_svm_linear_instance_f16 *S,
+   const float16_t * in,
    int32_t * pResult);
 
 
@@ -188,7 +188,7 @@ void arm_svm_linear_predict_f16(const arm_svm_linear_instance_f16 *S,
  */
 
 
-void arm_svm_polynomial_init_f16(arm_svm_polynomial_instance_f16 *S, 
+void arm_svm_polynomial_init_f16(arm_svm_polynomial_instance_f16 *S,
   uint32_t nbOfSupportVectors,
   uint32_t vectorDimension,
   float16_t intercept,
@@ -208,8 +208,8 @@ void arm_svm_polynomial_init_f16(arm_svm_polynomial_instance_f16 *S,
  * @return none.
  *
  */
-void arm_svm_polynomial_predict_f16(const arm_svm_polynomial_instance_f16 *S, 
-   const float16_t * in, 
+void arm_svm_polynomial_predict_f16(const arm_svm_polynomial_instance_f16 *S,
+   const float16_t * in,
    int32_t * pResult);
 
 
@@ -227,7 +227,7 @@ void arm_svm_polynomial_predict_f16(const arm_svm_polynomial_instance_f16 *S,
  *
  */
 
-void arm_svm_rbf_init_f16(arm_svm_rbf_instance_f16 *S, 
+void arm_svm_rbf_init_f16(arm_svm_rbf_instance_f16 *S,
   uint32_t nbOfSupportVectors,
   uint32_t vectorDimension,
   float16_t intercept,
@@ -245,8 +245,8 @@ void arm_svm_rbf_init_f16(arm_svm_rbf_instance_f16 *S,
  * @return none.
  *
  */
-void arm_svm_rbf_predict_f16(const arm_svm_rbf_instance_f16 *S, 
-   const float16_t * in, 
+void arm_svm_rbf_predict_f16(const arm_svm_rbf_instance_f16 *S,
+   const float16_t * in,
    int32_t * pResult);
 
 /**
@@ -264,7 +264,7 @@ void arm_svm_rbf_predict_f16(const arm_svm_rbf_instance_f16 *S,
  *
  */
 
-void arm_svm_sigmoid_init_f16(arm_svm_sigmoid_instance_f16 *S, 
+void arm_svm_sigmoid_init_f16(arm_svm_sigmoid_instance_f16 *S,
   uint32_t nbOfSupportVectors,
   uint32_t vectorDimension,
   float16_t intercept,
@@ -283,8 +283,8 @@ void arm_svm_sigmoid_init_f16(arm_svm_sigmoid_instance_f16 *S,
  * @return none.
  *
  */
-void arm_svm_sigmoid_predict_f16(const arm_svm_sigmoid_instance_f16 *S, 
-   const float16_t * in, 
+void arm_svm_sigmoid_predict_f16(const arm_svm_sigmoid_instance_f16 *S,
+   const float16_t * in,
    int32_t * pResult);
 
 

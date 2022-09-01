@@ -66,7 +66,7 @@ arm_status arm_mat_scale_q15(
   q15x8_t vecIn, vecOut;
   q15_t const *pInVec;
   int32_t totShift = shift + 1;   /* shift to apply after scaling */
-  
+
   pInVec = (q15_t const *) pIn;
 
   #ifdef ARM_MATH_MATRIX_CHECK

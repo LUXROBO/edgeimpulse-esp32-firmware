@@ -39,7 +39,7 @@ class EiDeviceMemory {
 protected:
     /**
      * @brief Direct read from memory, should be implemented per device/memory type.
-     * 
+     *
      * @param data pointer to buffer for data to be read
      * @param address absolute address in the memory (format and value depending on memory chip/type)
      * @param num_bytes number of bytes to be read @refitem data should be at leas num_bytes long
@@ -49,7 +49,7 @@ protected:
 
     /**
      * @brief Direct write to memory, should be implemented per device/memory type.
-     * 
+     *
      * @param data pointer to bufer with data to write
      * @param address absolute address in the memory (format and value depending on memory chip/type)
      * @param num_bytes number of bytes to write
@@ -59,7 +59,7 @@ protected:
 
     /**
      * @brief Erase memory region
-     * 
+     *
      * @param address absolute address in memory whwere the erase should begin. Typically block aligned.
      * @param num_bytes number of bytes to be erased, typically multiple of block size.
      * @return uint32_t numer of bytes that has been erased, if differes from num_bytes, then some oerror occured.
@@ -68,23 +68,23 @@ protected:
 
     /**
      * @brief size of device configuration block, device or even firmware specific.
-     * 
+     *
      */
     uint32_t config_size;
     /**
      * @brief number of blocks occupied by config. Typically 1, but depending on memory
      * type and config size, it can be multiple blocks.
-     * 
+     *
      */
     uint32_t used_blocks;
     /**
      * @brief total number of blocks in the memory
-     * 
+     *
      */
     uint32_t memory_blocks;
     /**
      * @brief total size of memory, typically integer multiply of blocks
-     * 
+     *
      */
     uint32_t memory_size;
 
@@ -102,9 +102,9 @@ public:
 
     /**
      * @brief Construct a new Ei Device Memory object, make sure to pass all necessary data
-     * from derived class. Usually constructor of the derived class needs to get this data 
+     * from derived class. Usually constructor of the derived class needs to get this data
      * from user code or read from chip.
-     * 
+     *
      * @param config_size see property description
      * @param erase_time see property description
      * @param memory_size see property description
@@ -226,7 +226,7 @@ public:
     /**
      * @brief for RAM memory, we don't need to care about the blocks and
      * pack data one after another for better memory utilization.
-     * 
+     *
      */
     uint32_t
     read_sample_data(uint8_t *sample_data, uint32_t address, uint32_t sample_data_size) override

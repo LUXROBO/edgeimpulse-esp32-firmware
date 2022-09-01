@@ -22,7 +22,7 @@
  * limitations under the License.
  */
 
- 
+
 #ifndef _TRANSFORM_FUNCTIONS_F16_H_
 #define _TRANSFORM_FUNCTIONS_F16_H_
 
@@ -146,7 +146,7 @@ arm_status arm_rfft_fast_init_f16 (
   void arm_cfft_radix2_f16(
   const arm_cfft_radix2_instance_f16 * S,
         float16_t * pSrc);
-  
+
 #endif /* defined(ARM_FLOAT16_SUPPORTED)*/
 
 #ifdef   __cplusplus

@@ -103,7 +103,7 @@ void arm_float_to_q31(
     while (blkCnt > 0U)
     {
        /* C = A * 2147483648 */
-   
+
        /* convert from float to Q31 and store result in destination buffer */
 #ifdef ARM_MATH_ROUNDING
 

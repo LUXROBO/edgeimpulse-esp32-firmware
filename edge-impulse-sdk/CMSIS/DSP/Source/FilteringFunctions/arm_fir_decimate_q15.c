@@ -311,7 +311,7 @@ void arm_fir_decimate_q15(
     {
         mve_pred16_t p0 = vctp16q(blkCnt);
         vstrhq_p_s16(pStateCurnt, vldrhq_s16(pState), p0);
-    }  
+    }
 }
 #else
 #if defined (ARM_MATH_DSP)
@@ -535,7 +535,7 @@ void arm_fir_decimate_q15(
   /* Points to the start of the state buffer */
   pStateCur = S->pState;
   i = (numTaps - 1U) >> 2U;
- 
+
   /* copy data */
   while (i > 0U)
   {

@@ -114,7 +114,7 @@ float16_t arm_minkowski_distance_f16(const float16_t *pA,const float16_t *pB, in
     _Float16 sum;
     uint32_t i;
 
-    sum = 0.0f; 
+    sum = 0.0f;
     for(i=0; i < blockSize; i++)
     {
        sum += (_Float16)powf(fabsf(pA[i] - pB[i]),order);
@@ -132,5 +132,5 @@ float16_t arm_minkowski_distance_f16(const float16_t *pA,const float16_t *pB, in
  * @} end of Minkowski group
  */
 
-#endif /* #if defined(ARM_FLOAT16_SUPPORTED) */ 
+#endif /* #if defined(ARM_FLOAT16_SUPPORTED) */
 

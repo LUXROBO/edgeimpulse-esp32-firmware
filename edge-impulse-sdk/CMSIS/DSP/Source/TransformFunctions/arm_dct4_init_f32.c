@@ -43,7 +43,7 @@
   @param[in,out] S          points to an instance of floating-point DCT4/IDCT4 structure
   @param[in]     S_RFFT     points to an instance of floating-point RFFT/RIFFT structure
   @param[in]     S_CFFT     points to an instance of floating-point CFFT/CIFFT structure
-  @param[in]     N			length of the DCT4
+  @param[in]     N          length of the DCT4
   @param[in]     Nby2       half of the length of the DCT4
   @param[in]     normalize  normalizing factor.
   @return        execution status

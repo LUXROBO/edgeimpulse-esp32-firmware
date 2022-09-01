@@ -70,7 +70,7 @@
  */
 
 
-void arm_svm_linear_init_f16(arm_svm_linear_instance_f16 *S, 
+void arm_svm_linear_init_f16(arm_svm_linear_instance_f16 *S,
   uint32_t nbOfSupportVectors,
   uint32_t vectorDimension,
   float16_t intercept,
@@ -92,5 +92,5 @@ void arm_svm_linear_init_f16(arm_svm_linear_instance_f16 *S,
  * @} end of linearsvm group
  */
 
-#endif /* #if defined(ARM_FLOAT16_SUPPORTED) */ 
+#endif /* #if defined(ARM_FLOAT16_SUPPORTED) */
 

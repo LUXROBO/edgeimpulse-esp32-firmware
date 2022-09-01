@@ -94,7 +94,7 @@ void arm_scale_f16(
     while (blkCnt > 0U)
     {
         /* C = A + offset */
- 
+
         /* Add offset and then store the results in the destination buffer. */
         vec1 = vld1q(pSrc);
         res = vmulq(vec1,scale);
@@ -103,7 +103,7 @@ void arm_scale_f16(
         /* Increment pointers */
         pSrc += 8;
         pDst += 8;
-        
+
         /* Decrement the loop counter */
         blkCnt--;
     }

@@ -22,7 +22,7 @@
  * limitations under the License.
  */
 
- 
+
 #ifndef _STATISTICS_FUNCTIONS_H_
 #define _STATISTICS_FUNCTIONS_H_
 
@@ -140,8 +140,8 @@ float32_t arm_kullback_leibler_f32(const float32_t * pSrcA
  * @return Kullback-Leibler  Divergence D(A || B)
  *
  */
-float64_t arm_kullback_leibler_f64(const float64_t * pSrcA, 
-                const float64_t * pSrcB, 
+float64_t arm_kullback_leibler_f64(const float64_t * pSrcA,
+                const float64_t * pSrcB,
                 uint32_t blockSize);
 
 
@@ -349,7 +349,7 @@ float64_t arm_kullback_leibler_f64(const float64_t * pSrcA,
         q15_t * pResult);
 
 
-  
+
   /**
    * @brief  Minimum value of a Q7 vector.
    * @param[in]  pSrc       is input pointer

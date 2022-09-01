@@ -150,8 +150,8 @@
         vstrhq_p_s16(pTempDest, vldrhq_z_s16(pTempSrc, p), p);                               \
     }                                                                                        \
 }
-    
-static void arm_fir_q15_25_32_mve(const arm_fir_instance_q15 * S, 
+
+static void arm_fir_q15_25_32_mve(const arm_fir_instance_q15 * S,
   const q15_t * __restrict pSrc,
   q15_t * __restrict pDst, uint32_t blockSize)
 {
@@ -160,7 +160,7 @@ static void arm_fir_q15_25_32_mve(const arm_fir_instance_q15 * S,
     #undef NBTAPS
 }
 
-static void arm_fir_q15_17_24_mve(const arm_fir_instance_q15 * S, 
+static void arm_fir_q15_17_24_mve(const arm_fir_instance_q15 * S,
   const q15_t * __restrict pSrc,
   q15_t * __restrict pDst, uint32_t blockSize)
 {
@@ -170,7 +170,7 @@ static void arm_fir_q15_17_24_mve(const arm_fir_instance_q15 * S,
 }
 
 
-static void arm_fir_q15_9_16_mve(const arm_fir_instance_q15 * S, 
+static void arm_fir_q15_9_16_mve(const arm_fir_instance_q15 * S,
   const q15_t * __restrict pSrc,
   q15_t * __restrict pDst, uint32_t blockSize)
 {
@@ -179,8 +179,8 @@ static void arm_fir_q15_9_16_mve(const arm_fir_instance_q15 * S,
     #undef NBTAPS
 }
 
-static void arm_fir_q15_1_8_mve(const arm_fir_instance_q15 * S, 
-  const q15_t * __restrict pSrc, 
+static void arm_fir_q15_1_8_mve(const arm_fir_instance_q15 * S,
+  const q15_t * __restrict pSrc,
   q15_t * __restrict pDst, uint32_t blockSize)
 {
     #define NBTAPS 8
@@ -657,11 +657,11 @@ void arm_fir_q15(
     while (tapCnt > 0U)
     {
       acc0 += (q31_t) *px++ * *pb++;
-	    acc0 += (q31_t) *px++ * *pb++;
+      acc0 += (q31_t) *px++ * *pb++;
 
       tapCnt--;
     }
-    
+
 
     /* The result is in 2.30 format. Convert to 1.15 with saturation.
        Then store the output in the destination buffer. */

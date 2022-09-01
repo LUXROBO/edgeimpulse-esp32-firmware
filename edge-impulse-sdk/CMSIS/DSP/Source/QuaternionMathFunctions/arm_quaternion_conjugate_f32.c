@@ -53,8 +53,8 @@
 #if defined(ARM_MATH_MVEF) && !defined(ARM_MATH_AUTOVECTORIZE)
 
 #include "edge-impulse-sdk/CMSIS/DSP/Include/arm_helium_utils.h"
-void arm_quaternion_conjugate_f32(const float32_t *pInputQuaternions, 
-    float32_t *pConjugateQuaternions, 
+void arm_quaternion_conjugate_f32(const float32_t *pInputQuaternions,
+    float32_t *pConjugateQuaternions,
     uint32_t nbQuaternions)
 {
    f32x4_t vec1;
@@ -62,7 +62,7 @@ void arm_quaternion_conjugate_f32(const float32_t *pInputQuaternions,
    for(uint32_t i=0; i < nbQuaternions; i++)
    {
       vec1 = vld1q(pInputQuaternions);
-      
+
 
       vec1 = vsetq_lane_f32(-vgetq_lane(vec1, 0),vec1,0);
       vec1 = vnegq_f32(vec1);
@@ -75,8 +75,8 @@ void arm_quaternion_conjugate_f32(const float32_t *pInputQuaternions,
    }
 }
 #else
-void arm_quaternion_conjugate_f32(const float32_t *pInputQuaternions, 
-    float32_t *pConjugateQuaternions, 
+void arm_quaternion_conjugate_f32(const float32_t *pInputQuaternions,
+    float32_t *pConjugateQuaternions,
     uint32_t nbQuaternions)
 {
    for(uint32_t i=0; i < nbQuaternions; i++)

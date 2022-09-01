@@ -60,11 +60,10 @@ bool ei_inertial_init(void) {
 
 float *ei_fusion_inertial_read_data(int n_samples)
 {
-    
-    lis.getAcceleration(&imu_data[0], &imu_data[1], &imu_data[2]);
+    // lis.getAcceleration(&imu_data[0], &imu_data[1], &imu_data[2]);
     imu_data[0] *= CONVERT_G_TO_MS2;
     imu_data[1] *= CONVERT_G_TO_MS2;
     imu_data[2] *= CONVERT_G_TO_MS2;
-    
+
     return imu_data;
 }

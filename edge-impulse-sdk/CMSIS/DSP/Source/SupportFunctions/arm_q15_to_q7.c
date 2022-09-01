@@ -69,11 +69,11 @@ void arm_q15_to_q7(
     {
         /* C = (q7_t) A >> 8 */
         /* convert from q15 to q7 and then store the results in the destination buffer */
-        tmp = vld2q(pSrcVec);   
+        tmp = vld2q(pSrcVec);
         pSrcVec += 16;
         vecDst = vqshrnbq_n_s16(vecDst, tmp.val[0], 8);
         vecDst = vqshrntq_n_s16(vecDst, tmp.val[1], 8);
-        vst1q(pDst, vecDst);    
+        vst1q(pDst, vecDst);
         pDst += 16;
         /*
          * Decrement the blockSize loop counter

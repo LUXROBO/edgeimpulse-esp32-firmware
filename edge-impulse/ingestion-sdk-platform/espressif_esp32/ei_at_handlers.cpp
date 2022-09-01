@@ -262,7 +262,7 @@ bool at_read_raw(const char **argv, const int argc)
                 ei_printf("\n");
             else
                 ei_printf(" ");
-        }  
+        }
     }
     ei_printf("\n");
 
@@ -500,7 +500,7 @@ bool at_get_config(void)
     ei_printf("Connected: 0\n");
     ei_printf("Present:   0\n");
     ei_printf("\n");
-        
+
     ei_printf("===== Sampling parameters =====\n");
     ei_printf("Label:     %s\n", dev->get_sample_label().c_str());
     ei_printf("Interval:  %.2f ms.\n", dev->get_sample_interval_ms());

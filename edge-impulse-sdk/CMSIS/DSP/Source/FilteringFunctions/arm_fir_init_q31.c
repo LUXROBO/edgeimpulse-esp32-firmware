@@ -40,7 +40,7 @@
 /**
   @brief         Initialization function for the Q31 FIR filter.
   @param[in,out] S          points to an instance of the Q31 FIR filter structure
-  @param[in] 	 numTaps    number of filter coefficients in the filter
+  @param[in]     numTaps    number of filter coefficients in the filter
   @param[in]     pCoeffs    points to the filter coefficients buffer
   @param[in]     pState     points to the state buffer
   @param[in]     blockSize  number of samples processed
@@ -61,14 +61,14 @@
                    is still set to its right value in the init function.) It just means that
                    the implementation may require to read more coefficients due to the vectorization and
                    to avoid having to manage too many different cases in the code.
-  
+
     @par          Helium state buffer
                    The state buffer must contain some additional temporary data
                    used during the computation but which is not the state of the FIR.
                    The first 2*4*ceil(blockSize/4) samples are temporary data.
                    The remaining samples are the state of the FIR filter.
                    So the state buffer has size <code> numTaps + 8*ceil(blockSize/4) + blockSize - 1 </code>
-  
+
  */
 
 void arm_fir_init_q31(

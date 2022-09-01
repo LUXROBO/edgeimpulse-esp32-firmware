@@ -115,11 +115,11 @@ void arm_offset_q31(
 
     /* Add offset and store result in destination buffer. */
     *pDst++ = __QADD(*pSrc++, offset);
-    
+
     *pDst++ = __QADD(*pSrc++, offset);
-    
+
     *pDst++ = __QADD(*pSrc++, offset);
-    
+
     *pDst++ = __QADD(*pSrc++, offset);
 
     /* Decrement loop counter */

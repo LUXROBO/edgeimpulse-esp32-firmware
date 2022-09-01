@@ -108,7 +108,7 @@ void arm_abs_q31(
     int32x4_t vec1;
     int32x4_t res;
 
-    /* Compute 4 outputs at a time */  
+    /* Compute 4 outputs at a time */
     blkCnt = blockSize >> 2U;
 
     while (blkCnt > 0U)
@@ -123,7 +123,7 @@ void arm_abs_q31(
         /* Increment pointers */
         pSrc += 4;
         pDst += 4;
-        
+
         /* Decrement the blockSize loop counter */
         blkCnt--;
     }

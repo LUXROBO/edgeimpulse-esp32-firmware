@@ -87,7 +87,7 @@ float16_t arm_canberra_distance_f16(const float16_t *pA,const float16_t *pB, uin
         b = vabsq(b);
         a = vaddq(a, b);
 
-        /* 
+        /*
          * May divide by zero when a and b have both the same lane at zero.
          */
         a = vrecip_hiprec_f16(a);
@@ -118,7 +118,7 @@ float16_t arm_canberra_distance_f16(const float16_t *pA,const float16_t *pB, uin
         b = vabsq(b);
         a = vaddq(a, b);
 
-        /* 
+        /*
          * May divide by zero when a and b have both the same lane at zero.
          */
         a = vrecip_hiprec_f16(a);
@@ -165,5 +165,5 @@ float16_t arm_canberra_distance_f16(const float16_t *pA,const float16_t *pB, uin
  * @} end of Canberra group
  */
 
-#endif /* #if defined(ARM_FLOAT16_SUPPORTED) */ 
+#endif /* #if defined(ARM_FLOAT16_SUPPORTED) */
 
