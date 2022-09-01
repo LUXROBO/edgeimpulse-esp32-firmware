@@ -54,8 +54,8 @@
 #include "edge-impulse-sdk/CMSIS/DSP/Include/arm_helium_utils.h"
 #include "edge-impulse-sdk/CMSIS/DSP/Include/arm_vec_math.h"
 
-uint32_t arm_gaussian_naive_bayes_predict_f32(const arm_gaussian_naive_bayes_instance_f32 *S,
-   const float32_t * in,
+uint32_t arm_gaussian_naive_bayes_predict_f32(const arm_gaussian_naive_bayes_instance_f32 *S, 
+   const float32_t * in, 
    float32_t *pBuffer)
 {
     uint32_t         nbClass;
@@ -144,11 +144,11 @@ uint32_t arm_gaussian_naive_bayes_predict_f32(const arm_gaussian_naive_bayes_ins
 
 
 
-uint32_t arm_gaussian_naive_bayes_predict_f32(const arm_gaussian_naive_bayes_instance_f32 *S,
-   const float32_t * in,
+uint32_t arm_gaussian_naive_bayes_predict_f32(const arm_gaussian_naive_bayes_instance_f32 *S, 
+   const float32_t * in, 
    float32_t *pBuffer)
 {
-
+    
     const float32_t *pPrior = S->classPriors;
 
     const float32_t *pTheta = S->theta;
@@ -179,7 +179,7 @@ uint32_t arm_gaussian_naive_bayes_predict_f32(const arm_gaussian_naive_bayes_ins
     while(classBlkCnt > 0)
     {
 
-
+        
         pIn = in;
 
         tmp = logf(*pPrior++);
@@ -208,7 +208,7 @@ uint32_t arm_gaussian_naive_bayes_predict_f32(const arm_gaussian_naive_bayes_ins
            tmpVb = vmulq_n_f32(sigmaV1,DPI_F);
            tmpVb = vlogq_f32(tmpVb);
            tmpV1 = vmlsq_n_f32(tmpV1,tmpVb,0.5f);
-
+           
            tmpVb = vsubq_f32(inV,thetaV);
            tmpVb = vmulq_f32(tmpVb,tmpVb);
            tmpVb = vmulq_f32(tmpVb, vinvq_f32(sigmaV));
@@ -229,7 +229,7 @@ uint32_t arm_gaussian_naive_bayes_predict_f32(const arm_gaussian_naive_bayes_ins
         }
         tmpV2 = vpadd_f32(vget_low_f32(tmpV),vget_high_f32(tmpV));
         tmp += vget_lane_f32(tmpV2, 0) + vget_lane_f32(tmpV2, 1);
-
+         
         tmpV2 = vpadd_f32(vget_low_f32(tmpV1),vget_high_f32(tmpV1));
         tmp1 += vget_lane_f32(tmpV2, 0) + vget_lane_f32(tmpV2, 1);
 
@@ -260,7 +260,7 @@ uint32_t arm_gaussian_naive_bayes_predict_f32(const arm_gaussian_naive_bayes_ins
         pTheta += S->vectorDimension;
         pSigma1 += S->vectorDimension;
         pTheta1 += S->vectorDimension;
-
+        
         classBlkCnt--;
     }
 
@@ -269,7 +269,7 @@ uint32_t arm_gaussian_naive_bayes_predict_f32(const arm_gaussian_naive_bayes_ins
     while(classBlkCnt > 0)
     {
 
-
+        
         pIn = in;
 
         tmp = logf(*pPrior++);
@@ -287,7 +287,7 @@ uint32_t arm_gaussian_naive_bayes_predict_f32(const arm_gaussian_naive_bayes_ins
            tmpVb = vmulq_n_f32(sigmaV,DPI_F);
            tmpVb = vlogq_f32(tmpVb);
            tmpV = vmlsq_n_f32(tmpV,tmpVb,0.5f);
-
+           
            tmpVb = vsubq_f32(inV,thetaV);
            tmpVb = vmulq_f32(tmpVb,tmpVb);
            tmpVb = vmulq_f32(tmpVb, vinvq_f32(sigmaV));
@@ -316,7 +316,7 @@ uint32_t arm_gaussian_naive_bayes_predict_f32(const arm_gaussian_naive_bayes_ins
         }
 
         *buffer++ = tmp;
-
+        
         classBlkCnt--;
     }
 
@@ -336,8 +336,8 @@ uint32_t arm_gaussian_naive_bayes_predict_f32(const arm_gaussian_naive_bayes_ins
  * @return The predicted class
  *
  */
-uint32_t arm_gaussian_naive_bayes_predict_f32(const arm_gaussian_naive_bayes_instance_f32 *S,
-   const float32_t * in,
+uint32_t arm_gaussian_naive_bayes_predict_f32(const arm_gaussian_naive_bayes_instance_f32 *S, 
+   const float32_t * in, 
    float32_t *pBuffer)
 {
     uint32_t nbClass;
@@ -359,7 +359,7 @@ uint32_t arm_gaussian_naive_bayes_predict_f32(const arm_gaussian_naive_bayes_ins
     for(nbClass = 0; nbClass < S->numberOfClasses; nbClass++)
     {
 
-
+        
         pIn = in;
 
         tmp = 0.0;

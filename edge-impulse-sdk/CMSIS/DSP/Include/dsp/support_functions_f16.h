@@ -22,7 +22,7 @@
  * limitations under the License.
  */
 
-
+ 
 #ifndef _SUPPORT_FUNCTIONS_F16_H_
 #define _SUPPORT_FUNCTIONS_F16_H_
 

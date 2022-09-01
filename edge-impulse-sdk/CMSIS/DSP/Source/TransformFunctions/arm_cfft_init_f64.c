@@ -45,7 +45,7 @@
                    - \ref ARM_MATH_ARGUMENT_ERROR : an error is detected
 
   @par          Use of this function is mandatory only for the MVE version of the FFT.
-                Other versions can still initialize directly the data structure using
+                Other versions can still initialize directly the data structure using 
                 variables declared in arm_const_structs.h
  */
 
@@ -114,19 +114,19 @@ arm_status arm_cfft_init_f64(
         case 128U:
             FFTINIT(f64,128);
             break;
-#endif
+#endif 
 
 #if !defined(ARM_DSP_CONFIG_TABLES) || defined(ARM_ALL_FFT_TABLES) || (defined(ARM_TABLE_TWIDDLECOEF_f64_64) && defined(ARM_TABLE_BITREVIDX_FLT_64))
         case 64U:
             FFTINIT(f64,64);
             break;
-#endif
+#endif 
 
 #if !defined(ARM_DSP_CONFIG_TABLES) || defined(ARM_ALL_FFT_TABLES) || (defined(ARM_TABLE_TWIDDLECOEF_f64_32) && defined(ARM_TABLE_BITREVIDX_FLT_32))
         case 32U:
             FFTINIT(f64,32);
             break;
-#endif
+#endif 
 
 #if !defined(ARM_DSP_CONFIG_TABLES) || defined(ARM_ALL_FFT_TABLES) || (defined(ARM_TABLE_TWIDDLECOEF_f64_16) && defined(ARM_TABLE_BITREVIDX_FLT_16))
         case 16U:

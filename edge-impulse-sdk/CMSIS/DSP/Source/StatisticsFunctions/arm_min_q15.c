@@ -72,7 +72,7 @@ void arm_min_q15(
     blkCnt = blockSize >> 3;
     while (blkCnt > 0U)
     {
-        vecSrc = vldrhq_s16(pSrc);
+        vecSrc = vldrhq_s16(pSrc);  
         pSrc += 8;
         /*
          * Get current min per lane and current index per lane
@@ -88,7 +88,7 @@ void arm_min_q15(
          */
         blkCnt--;
     }
-
+   
     /*
      * Get min value across the vector
      */
@@ -111,7 +111,7 @@ void arm_min_q15(
     {
       /* Initialize minVal to the next consecutive values one by one */
       temp = *pSrc++;
-
+  
       /* compare for the minimum value */
       if (minValue > temp)
       {
@@ -119,7 +119,7 @@ void arm_min_q15(
         minValue = temp;
         idx = blockSize - blkCnt;
       }
-
+  
       /* Decrement loop counter */
       blkCnt--;
     }

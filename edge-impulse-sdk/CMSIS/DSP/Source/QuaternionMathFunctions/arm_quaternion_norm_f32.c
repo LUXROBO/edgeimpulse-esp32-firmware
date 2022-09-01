@@ -55,7 +55,7 @@
 
 #include "edge-impulse-sdk/CMSIS/DSP/Include/arm_helium_utils.h"
 
-void arm_quaternion_norm_f32(const float32_t *pInputQuaternions,
+void arm_quaternion_norm_f32(const float32_t *pInputQuaternions, 
   float32_t *pNorms,
   uint32_t nbQuaternions)
 {
@@ -77,7 +77,7 @@ void arm_quaternion_norm_f32(const float32_t *pInputQuaternions,
 
 #else
 
-void arm_quaternion_norm_f32(const float32_t *pInputQuaternions,
+void arm_quaternion_norm_f32(const float32_t *pInputQuaternions, 
   float32_t *pNorms,
   uint32_t nbQuaternions)
 {

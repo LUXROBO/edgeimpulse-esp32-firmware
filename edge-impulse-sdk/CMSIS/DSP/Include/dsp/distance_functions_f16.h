@@ -22,7 +22,7 @@
  * limitations under the License.
  */
 
-
+ 
 #ifndef _DISTANCE_FUNCTIONS_F16_H_
 #define _DISTANCE_FUNCTIONS_F16_H_
 
@@ -36,7 +36,7 @@
 #if defined (__ARMCC_VERSION) && (__ARMCC_VERSION >= 6100100) && (__ARMCC_VERSION < 6150001)
 /* Defined in minkowski_f32 */
 __attribute__((weak)) float __powisf2(float a, int b);
-#endif
+#endif 
 
 #include "edge-impulse-sdk/CMSIS/DSP/Include/dsp/statistics_functions_f16.h"
 #include "edge-impulse-sdk/CMSIS/DSP/Include/dsp/basic_math_functions_f16.h"

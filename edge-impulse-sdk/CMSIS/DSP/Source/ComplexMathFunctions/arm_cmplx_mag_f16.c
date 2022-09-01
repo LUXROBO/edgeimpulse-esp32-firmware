@@ -90,7 +90,7 @@ void arm_cmplx_mag_f16(
         q15x8_t newtonStartVec;
         f16x8_t sumHalf, invSqrt;
 
-        vecSrc = vld2q(pSrc);
+        vecSrc = vld2q(pSrc);  
         pSrc += 16;
         sum = vmulq(vecSrc.val[0], vecSrc.val[0]);
         sum = vfmaq(sum, vecSrc.val[1], vecSrc.val[1]);
@@ -120,7 +120,7 @@ void arm_cmplx_mag_f16(
          * sqrt(x) = x * invSqrt(x)
          */
         sum = vmulq(sum, invSqrt);
-        vstrhq_f16(pDst, sum);
+        vstrhq_f16(pDst, sum); 
         pDst += 8;
         /*
          * Decrement the blockSize loop counter

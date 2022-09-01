@@ -56,7 +56,7 @@ void arm_q7_to_q31(
         q31_t * pDst,
         uint32_t blockSize)
 {
-    uint32_t blkCnt;
+    uint32_t blkCnt;   
     q31x4_t         vecDst;
 
     blkCnt = blockSize >> 2;

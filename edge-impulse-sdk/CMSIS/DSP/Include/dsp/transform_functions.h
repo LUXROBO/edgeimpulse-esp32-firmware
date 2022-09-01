@@ -22,7 +22,7 @@
  * limitations under the License.
  */
 
-
+ 
 #ifndef _TRANSFORM_FUNCTIONS_H_
 #define _TRANSFORM_FUNCTIONS_H_
 
@@ -312,7 +312,7 @@ void arm_cfft_q31(
   arm_status arm_cfft_init_f64(
   arm_cfft_instance_f64 * S,
   uint16_t fftLen);
-
+  
   void arm_cfft_f64(
   const arm_cfft_instance_f64 * S,
         float64_t * p1,

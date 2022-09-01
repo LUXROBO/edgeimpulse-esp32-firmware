@@ -147,7 +147,7 @@ arm_status arm_cfft_radix4_init_q15(
   }
 
 #endif
-#endif
+#endif 
 #endif
   return (status);
 }

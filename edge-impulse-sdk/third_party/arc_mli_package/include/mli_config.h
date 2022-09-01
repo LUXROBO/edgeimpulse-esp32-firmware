@@ -10,7 +10,7 @@
 /**
  * @file MLI Library Configuration header
  *
- * @brief This header defines MLI Library configuration
+ * @brief This header defines MLI Library configuration 
  */
 
 #ifndef _MLI_CONFIG_H_

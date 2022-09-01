@@ -66,7 +66,7 @@
  *
  */
 
-void arm_svm_rbf_init_f16(arm_svm_rbf_instance_f16 *S,
+void arm_svm_rbf_init_f16(arm_svm_rbf_instance_f16 *S, 
   uint32_t nbOfSupportVectors,
   uint32_t vectorDimension,
   float16_t intercept,
@@ -91,5 +91,5 @@ void arm_svm_rbf_init_f16(arm_svm_rbf_instance_f16 *S,
  * @} end of rbfsvm group
  */
 
-#endif /* #if defined(ARM_FLOAT16_SUPPORTED) */
+#endif /* #if defined(ARM_FLOAT16_SUPPORTED) */ 
 

@@ -19,7 +19,7 @@
 /* ----------------------------------------------------------------------
  * Project:      CMSIS NN Library
  * Title:        arm_depthwise_conv_s8.c
- * Description:  s8 version of depthwise convolution.
+ * Description:	 s8 version of depthwise convolution.
  *
  * $Date:        09. October 2020
  * $Revision:    V.2.0.1

@@ -115,7 +115,7 @@ float32_t arm_chebyshev_distance_f32(const float32_t *pA,const float32_t *pB, ui
       diff = fabsf(tmpA - tmpB);
       maxVal = diff;
       blockSize--;
-
+   
       while(blockSize > 0)
       {
          tmpA = *pA++;
@@ -142,16 +142,16 @@ float32_t arm_chebyshev_distance_f32(const float32_t *pA,const float32_t *pB, ui
 
       maxValV = diffV;
 
-
+  
       blkCnt = blockSize >> 2;
       while(blkCnt > 0)
       {
            a = vld1q_f32(pA);
            b = vld1q_f32(pB);
-
+   
            diffV = vabdq_f32(a,b);
            maxValV = vmaxq_f32(maxValV, diffV);
-
+   
            pA += 4;
            pB += 4;
            blkCnt --;
@@ -160,7 +160,7 @@ float32_t arm_chebyshev_distance_f32(const float32_t *pA,const float32_t *pB, ui
       maxValV2 = vpmax_f32(maxValV2,maxValV2);
       maxVal = vget_lane_f32(maxValV2,0);
 
-
+  
       blkCnt = blockSize & 3;
       while(blkCnt > 0)
       {
@@ -199,7 +199,7 @@ float32_t arm_chebyshev_distance_f32(const float32_t *pA,const float32_t *pB, ui
       }
       blockSize --;
    }
-
+  
    return(maxVal);
 }
 #endif

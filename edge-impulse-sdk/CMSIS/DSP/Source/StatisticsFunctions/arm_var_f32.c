@@ -112,7 +112,7 @@ void arm_var_f32(
        /* Decrement loop counter */
        blkCnt--;
     }
-
+   
     /* Variance */
     *pResult = sum / (float32_t) (blockSize - 1);
 }

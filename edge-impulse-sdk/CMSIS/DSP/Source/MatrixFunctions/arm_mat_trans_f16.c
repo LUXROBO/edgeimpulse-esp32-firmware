@@ -198,5 +198,5 @@ arm_status arm_mat_trans_f16(
  * @} end of MatrixTrans group
  */
 
-#endif /* #if defined(ARM_FLOAT16_SUPPORTED) */
+#endif /* #if defined(ARM_FLOAT16_SUPPORTED) */ 
 

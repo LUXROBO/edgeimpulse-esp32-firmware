@@ -72,7 +72,7 @@ void arm_split_rifft_q15(
                    If the input buffer is of length N, the output buffer must have length 2*N.
                    The input buffer is modified by this function.
   @par
-                   For the RIFFT, the source buffer must at least have length
+                   For the RIFFT, the source buffer must at least have length 
                    fftLenReal + 2.
                    The last two elements must be equal to what would be generated
                    by the RFFT:
@@ -142,7 +142,7 @@ void arm_rfft_q15(
 #define MVE_CMPLX_MULT_FX_AxB_S16(A,B)          vqdmladhxq_s16(vqdmlsdhq_s16((__typeof(A))vuninitializedq_s16(), A, B), A, B)
 #define MVE_CMPLX_MULT_FX_AxConjB_S16(A,B)      vqdmladhq_s16(vqdmlsdhxq_s16((__typeof(A))vuninitializedq_s16(), A, B), A, B)
 
-#endif
+#endif 
 
 void arm_split_rfft_q15(
         q15_t * pSrc,
@@ -214,7 +214,7 @@ void arm_split_rfft_q15(
   const q15_t * pBTable,
         q15_t * pDst,
         uint32_t modifier)
-{
+{       
         uint32_t i;                                    /* Loop Counter */
         q31_t outR, outI;                              /* Temporary variables for output */
   const q15_t *pCoefA, *pCoefB;                        /* Temporary pointers for twiddle factors */

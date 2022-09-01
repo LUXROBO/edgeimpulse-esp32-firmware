@@ -80,7 +80,7 @@ arm_status arm_mat_cholesky_f64(
 
     pA = pSrc->pData;
     pG = pDst->pData;
-
+    
 
     for(i=0 ; i < n ; i++)
     {
@@ -110,7 +110,7 @@ arm_status arm_mat_cholesky_f64(
 
   }
 
-
+  
   /* Return to application */
   return (status);
 }

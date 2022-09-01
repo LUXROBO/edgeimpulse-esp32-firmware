@@ -89,12 +89,12 @@ arm_status arm_mat_scale_f16(
          * C(m,n) = A(m,n) * scale
          * Scaling and results are stored in the destination buffer.
          */
-        vecIn = vld1q(pInVec);
+        vecIn = vld1q(pInVec); 
         pInVec += 8;
 
         vecOut = vmulq_f16(vecIn, vecScale);
 
-        vst1q(pOut, vecOut);
+        vst1q(pOut, vecOut); 
         pOut += 8;
         /*
          * Decrement the blockSize loop counter
@@ -108,7 +108,7 @@ arm_status arm_mat_scale_f16(
     if (blkCnt > 0U)
     {
         mve_pred16_t p0 = vctp16q(blkCnt);
-        vecIn = vld1q(pInVec);
+        vecIn = vld1q(pInVec); 
         vecOut = vecIn * scale;
 
         vstrhq_p(pOut, vecOut, p0);
@@ -204,5 +204,5 @@ arm_status arm_mat_scale_f16(
   @} end of MatrixScale group
  */
 
-#endif /* #if defined(ARM_FLOAT16_SUPPORTED) */
+#endif /* #if defined(ARM_FLOAT16_SUPPORTED) */ 
 

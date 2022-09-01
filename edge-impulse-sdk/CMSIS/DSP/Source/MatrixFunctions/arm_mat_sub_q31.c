@@ -95,12 +95,12 @@ arm_status arm_mat_sub_q31(
     {
         /* C(m,n) = A(m,n) + B(m,n) */
         /* sub and then store the results in the destination buffer. */
-        vecA = vld1q(pSrcAVec);
+        vecA = vld1q(pSrcAVec); 
         pSrcAVec += 4;
-        vecB = vld1q(pSrcBVec);
+        vecB = vld1q(pSrcBVec); 
         pSrcBVec += 4;
         vecDst = vqsubq(vecA, vecB);
-        vst1q(pDataDst, vecDst);
+        vst1q(pDataDst, vecDst);  
         pDataDst += 4;
         /*
          * Decrement the blockSize loop counter
@@ -114,9 +114,9 @@ arm_status arm_mat_sub_q31(
     if (blkCnt > 0U)
     {
         mve_pred16_t p0 = vctp32q(blkCnt);
-        vecA = vld1q(pSrcAVec);
+        vecA = vld1q(pSrcAVec); 
         pSrcAVec += 4;
-        vecB = vld1q(pSrcBVec);
+        vecB = vld1q(pSrcBVec); 
         pSrcBVec += 4;
         vecDst = vqsubq_m(vecDst, vecA, vecB, p0);
         vstrwq_p(pDataDst, vecDst, p0);

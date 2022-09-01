@@ -109,7 +109,7 @@
                  used during the computation but which is not the state of the FIR.
                  The first A samples are temporary data.
                  The remaining samples are the state of the FIR filter.
-  @par
+  @par                 
                  So the state buffer has size <code> numTaps + A + blockSize - 1 </code> :
                  - A is blockSize for f32
                  - A is 8*ceil(blockSize/8) for f16
@@ -150,8 +150,8 @@
         }
 
 
-__STATIC_INLINE void arm_fir_f32_1_4_mve(const arm_fir_instance_f32 * S,
-  const float32_t * __restrict pSrc,
+__STATIC_INLINE void arm_fir_f32_1_4_mve(const arm_fir_instance_f32 * S, 
+  const float32_t * __restrict pSrc, 
   float32_t * __restrict pDst, uint32_t blockSize)
 {
     float32_t *pRefStatePtr = S->pState + blockSize;
@@ -236,8 +236,8 @@ __STATIC_INLINE void arm_fir_f32_1_4_mve(const arm_fir_instance_f32 * S,
 
 
 
-__STATIC_INLINE void arm_fir_f32_5_8_mve(const arm_fir_instance_f32 * S,
-  const float32_t * __restrict pSrc,
+__STATIC_INLINE void arm_fir_f32_5_8_mve(const arm_fir_instance_f32 * S, 
+  const float32_t * __restrict pSrc, 
   float32_t * __restrict pDst, uint32_t blockSize)
 {
     float32_t *pRefStatePtr = S->pState + blockSize;
@@ -276,7 +276,7 @@ __STATIC_INLINE void arm_fir_f32_5_8_mve(const arm_fir_instance_f32 * S,
     c7 = *pCoeffs++;
 
     cnt = blockSize >> 2;
-    while(cnt > 0)
+    while(cnt > 0) 
     {
         float32x4_t vecAcc0;
         float32x4_t vecIn0;
@@ -304,7 +304,7 @@ __STATIC_INLINE void arm_fir_f32_5_8_mve(const arm_fir_instance_f32 * S,
     }
 
     cnt = blockSize & 3;
-    if (cnt > 0)
+    if (cnt > 0) 
     {
         float32x4_t vecAcc0;
         float32x4_t vecIn0;
@@ -352,7 +352,7 @@ const float32_t * pSrc,
 float32_t * pDst,
 uint32_t blockSize)
 {
-    /*
+    /* 
        S->pState is the arm_fir_partial_accu
        S->pState + blockSize is the FIR state
     */
@@ -433,7 +433,7 @@ uint32_t blockSize)
     }
 
     cnt = blockSize & 3;
-    if (cnt > 0)
+    if (cnt > 0) 
     {
         float32x4_t vecAcc0;
         float32x4_t vecIn0;

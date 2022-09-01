@@ -88,7 +88,7 @@ arm_status status;                             /* status of matrix inverse */
             ut_row = &pUT[n*i];
 
             float64_t tmp=a_col[i * n];
-
+            
             for(k=n-1; k > i; k--)
             {
                 tmp -= ut_row[k] * pX[n*k+j];
@@ -107,7 +107,7 @@ arm_status status;                             /* status of matrix inverse */
 
   }
 
-
+  
   /* Return to application */
   return (status);
 }

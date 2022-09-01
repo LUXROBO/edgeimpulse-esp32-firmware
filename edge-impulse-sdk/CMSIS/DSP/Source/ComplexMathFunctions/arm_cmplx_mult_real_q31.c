@@ -76,7 +76,7 @@ void arm_cmplx_mult_real_q31(
 
     /* Compute 4 complex outputs at a time */
     blkCnt = blockSizeC >> 2;
-    while (blkCnt > 0U)
+    while (blkCnt > 0U) 
     {
         cmplxVec = vld1q(pSrcCmplx);
         rVec = vldrwq_gather_shifted_offset_s32(pSrcReal, strideVec);
@@ -89,17 +89,17 @@ void arm_cmplx_mult_real_q31(
         blkCnt --;
     }
 
-    blkCnt = (blockSizeC & 3) >> 1;
+    blkCnt = (blockSizeC & 3) >> 1; 
     while (blkCnt > 0U)
     {
       /* C[2 * i    ] = A[2 * i    ] * B[i]. */
       /* C[2 * i + 1] = A[2 * i + 1] * B[i]. */
-
+  
       in = *pSrcReal++;
       /* store saturated result in 1.31 format to destination buffer */
       *pCmplxDst++ = (__SSAT((q31_t) (((q63_t) *pSrcCmplx++ * in) >> 32), 31) << 1);
       *pCmplxDst++ = (__SSAT((q31_t) (((q63_t) *pSrcCmplx++ * in) >> 32), 31) << 1);
-
+  
       /* Decrement loop counter */
       blkCnt--;
     }

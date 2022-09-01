@@ -1,4 +1,4 @@
-/* Edge Impulse inferencing library
+/* Edge Impulse inferencing library 
  * Copyright (c) 2020 EdgeImpulse Inc.
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -28,10 +28,10 @@
 #include <limits>
 
 /**
- * @brief
- *
+ * @brief 
+ * 
  * @tparam input_t Type of input array.  Either matrix_i16_t, or matrix_i32_t
- * @tparam acc_t Accumulator size that matches above.  64bit for i16
+ * @tparam acc_t Accumulator size that matches above.  64bit for i16 
  */
 template <class input_t, class acc_t>
 class fir_filter
@@ -39,7 +39,7 @@ class fir_filter
 private:
     /**
      * @brief Set the taps lowpass object
-     *
+     * 
      * @param cutoff_normalized Should be in the range 0..0.5 (0.5 being the nyquist)
      */
     void set_taps_lowpass(float cutoff_normalized, std::vector<float> &f_taps)
@@ -97,7 +97,7 @@ public:
      * @param filter_size Number of taps desired (note, filter order +1)
      * @param lowpass_cutoff Lowpass cutoff freqency.  If 0, will be a high pass filter
      * @param highpass_cutoff Highpass cutoff.  If 0, will just be a lowpass.  If both lowpass and higpass, bandpass
-     * @param decimation_ratio To downsample, ratio of samples to get rid of.
+     * @param decimation_ratio To downsample, ratio of samples to get rid of.  
      * For example, 4 to go from sample rate of 40k to 10k.  LOWPASS CUTOFF MUST MATCH THIS
      * If you don't filter the high frequencies, they WILL alias into the passband
      * So in the above example, you would want to cutoff at 5K (so you have some buffer)
@@ -111,7 +111,7 @@ public:
     {
         this->filter_size = filter_size;
         std::vector<float> f_taps(filter_size, 0);
-        if( highpass_cutoff == 0 && lowpass_cutoff == 0 )
+        if( highpass_cutoff == 0 && lowpass_cutoff == 0 ) 
         {
             ei_printf("You must choose either a lowpass or highpass cutoff");
             return; // return a filter that will return zeros always
@@ -146,7 +146,7 @@ public:
 /**
  * @brief Apply the filter to the input data.  You can do this blockwise, as the object preserves memory of old samples
  * Call reset if there's a gap in the data
- *
+ * 
  * @param src Source array
  * @param dest Output array (can be the same as source for in place)
  * @param size Number of samples to process
@@ -198,7 +198,7 @@ public:
     /**
      * @brief Reset the filter (when changing rows for instance, for a new signal)
      * This simply clears the filter history
-     *
+     * 
      */
     void reset()
     {

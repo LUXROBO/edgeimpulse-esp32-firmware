@@ -83,7 +83,7 @@ void arm_mean_q7(
     {
       /* C = (A[0] + A[1] + A[2] + ... + A[blockSize-1]) */
       sum += *pSrc++;
-
+  
       /* Decrement loop counter */
       blkCnt--;
     }

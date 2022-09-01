@@ -60,8 +60,8 @@ uint64_t ei_read_timer_us() {
 #if DEVICE_USTICKER
     return us_ticker_read();
 #elif DEVICE_LPTICKER
-    const ticker_info_t *info = lp_ticker_get_info();
-    uint32_t n_ticks = lp_ticker_read();
+	const ticker_info_t *info = lp_ticker_get_info();
+	uint32_t n_ticks = lp_ticker_read();
     return (uint64_t)n_ticks * (1000000UL / info->frequency);
 #else
     #error "Target does not have DEVICE_LPTICKER nor DEVICE_USTICKER"

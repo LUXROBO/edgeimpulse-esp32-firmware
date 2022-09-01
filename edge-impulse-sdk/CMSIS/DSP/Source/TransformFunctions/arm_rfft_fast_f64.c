@@ -139,7 +139,7 @@ void merge_rfft_f64(
    *pOut++ = 0.5 * ( xAR - xAI );
 
    pB  =  p + 2*k ;
-   pA +=  2;
+   pA +=  2	   ;
 
    while (k > 0U)
    {

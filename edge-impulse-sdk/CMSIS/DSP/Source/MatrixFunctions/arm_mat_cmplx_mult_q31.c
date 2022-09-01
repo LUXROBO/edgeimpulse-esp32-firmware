@@ -557,7 +557,7 @@ arm_status arm_mat_cmplx_mult_q31(
 
           q63_t sumImag = (q63_t) pInA[0] * pInB[1];
           sumImag += (q63_t) pInA[1] * pInB[0];
-
+       
           /* Store result in destination buffer */
           pOut[0] = (q31_t) clip_q63_to_q31(sumReal >> 31);
           pOut[1] = (q31_t) clip_q63_to_q31(sumImag >> 31);
@@ -625,7 +625,7 @@ arm_status arm_mat_cmplx_mult_q31(
 
             pSrcA0Vec = (q31_t const *) pInA0;
             pSrcA1Vec = (q31_t const *) pInA1;
-
+            
 
             vecOffs = vecColBOffs;
 
@@ -644,22 +644,22 @@ arm_status arm_mat_cmplx_mult_q31(
                 vecOffs = vecOffs + (uint32_t) (numColsB * 2 * CMPLX_DIM);
 
 
-                vecA = vld1q(pSrcA0Vec);
+                vecA = vld1q(pSrcA0Vec);  
                 pSrcA0Vec += 4;
                 acc0 =  vmlsldavaq(acc0, vecA, vecB);
                 acc1 =  vmlaldavaxq(acc1, vecA, vecB);
 
-
-                vecA = vld1q(pSrcA1Vec);
+                
+                vecA = vld1q(pSrcA1Vec); 
                 pSrcA1Vec += 4;
-
+               
                 acc2 =  vmlsldavaq(acc2, vecA, vecB);
                 acc3 =  vmlaldavaxq(acc3, vecA, vecB);
 
 
                 blkCnt--;
             }
-
+            
 
             /*
              * tail
@@ -676,15 +676,15 @@ arm_status arm_mat_cmplx_mult_q31(
                  * move Matrix B read offsets, 2 rows down
                  */
                 vecOffs = vecOffs + (uint32_t) (numColsB * 2 * CMPLX_DIM);
-
-
+               
+                
                 vecA = vld1q(pSrcA0Vec);
                 acc0 =  vmlsldavaq(acc0, vecA, vecB);
                 acc1 =  vmlaldavaxq(acc1, vecA, vecB);
                 vecA = vld1q(pSrcA1Vec);
                 acc2 =  vmlsldavaq(acc2, vecA, vecB);
                 acc3 =  vmlaldavaxq(acc3, vecA, vecB);
-
+                
 
             }
 
@@ -752,7 +752,7 @@ arm_status arm_mat_cmplx_mult_q31(
             acc1 = 0LL;
 
             pSrcA0Vec = (q31_t const *) pInA0;
-
+           
             vecOffs = vecColBOffs;
 
             /*
@@ -768,12 +768,12 @@ arm_status arm_mat_cmplx_mult_q31(
                  * move Matrix B read offsets, 2 rows down
                  */
                 vecOffs = vecOffs + (uint32_t) (numColsB * 2 * CMPLX_DIM);
-
-                vecA = vld1q(pSrcA0Vec);
+               
+                vecA = vld1q(pSrcA0Vec);  
                 pSrcA0Vec += 4;
                 acc0 =  vmlsldavaq(acc0, vecA, vecB);
                 acc1 =  vmlaldavaxq(acc1, vecA, vecB);
-
+                
 
                 blkCnt--;
             }
@@ -794,9 +794,9 @@ arm_status arm_mat_cmplx_mult_q31(
                  * move Matrix B read offsets, 2 rows down
                  */
                 vecOffs = vecOffs + (uint32_t) (numColsB * 2 * CMPLX_DIM);
-
+               
                 vecA = vld1q(pSrcA0Vec);
-
+               
 
                 acc0 =  vmlsldavaq(acc0, vecA, vecB);
                 acc1 =  vmlaldavaxq(acc1, vecA, vecB);
@@ -807,7 +807,7 @@ arm_status arm_mat_cmplx_mult_q31(
             px[0] = (q31_t) clip_q63_to_q31(acc0 >> 31);
             px[1] = (q31_t) clip_q63_to_q31(acc1 >> 31);
 
-
+           
             px += CMPLX_DIM;
             /*
              * Decrement the column loop counter
@@ -826,7 +826,7 @@ arm_status arm_mat_cmplx_mult_q31(
         rowCnt--;
     }
 
-
+    
       /* Set status as ARM_MATH_SUCCESS */
     status = ARM_MATH_SUCCESS;
   }

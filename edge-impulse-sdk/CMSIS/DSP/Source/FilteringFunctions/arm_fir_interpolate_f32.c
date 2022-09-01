@@ -536,10 +536,10 @@ void arm_fir_interpolate_f32(
       /* Loop over the polyPhase length. Unroll by a factor of 4.
        ** Repeat until we've computed numTaps-(4*S->L) coefficients. */
       tapCnt = phaseLen >> 2U;
-
+     
       x0v = vld1q_f32(ptr1);
       x1v = vld1q_f32(ptr1 + 4);
-
+  
       while (tapCnt > 0U)
       {
         /* Read the input samples */
@@ -551,10 +551,10 @@ void arm_fir_interpolate_f32(
         /* Perform the multiply-accumulate */
         accV0 = vmlaq_n_f32(accV0,x0v,c0);
         accV1 = vmlaq_n_f32(accV1,x1v,c0);
-
+       
         /* Read the coefficients, inputs and perform multiply-accumulate */
         c1 = *(ptr2 + S->L);
-
+  
         xa = vextq_f32(x0v,x1v,1);
         xb = vextq_f32(x1v,x2v,1);
 
@@ -563,10 +563,10 @@ void arm_fir_interpolate_f32(
 
         /* Read the coefficients, inputs and perform multiply-accumulate */
         c2 = *(ptr2 + S->L * 2);
-
+  
         xa = vextq_f32(x0v,x1v,2);
         xb = vextq_f32(x1v,x2v,2);
-
+        
         accV0 = vmlaq_n_f32(accV0,xa,c2);
         accV1 = vmlaq_n_f32(accV1,xb,c2);
 
@@ -575,7 +575,7 @@ void arm_fir_interpolate_f32(
 
         xa = vextq_f32(x0v,x1v,3);
         xb = vextq_f32(x1v,x2v,3);
-
+        
         accV0 = vmlaq_n_f32(accV0,xa,c3);
         accV1 = vmlaq_n_f32(accV1,xb,c3);
 
@@ -617,7 +617,7 @@ void arm_fir_interpolate_f32(
 
              xa = vextq_f32(x0v,x1v,2);
              xb = vextq_f32(x1v,x2v,2);
-
+             
              accV0 = vmlaq_n_f32(accV0,xa,c0);
              accV1 = vmlaq_n_f32(accV1,xb,c0);
              ptr2 += S->L;
@@ -634,7 +634,7 @@ void arm_fir_interpolate_f32(
 
              xa = vextq_f32(x0v,x1v,1);
              xb = vextq_f32(x1v,x2v,1);
-
+             
              accV0 = vmlaq_n_f32(accV0,xa,c0);
              accV1 = vmlaq_n_f32(accV1,xb,c0);
              ptr2 += S->L;
@@ -651,7 +651,7 @@ void arm_fir_interpolate_f32(
 
         default:
         break;
-
+        
       }
 
       /* The result is in the accumulator, store in the destination buffer. */
@@ -746,7 +746,7 @@ void arm_fir_interpolate_f32(
         ptr2 += S->L;
 
         sum0v = vmlaq_f32(sum0v,x0v,x1v);
-
+       
         /* Decrement the loop counter */
         tapCnt--;
       }

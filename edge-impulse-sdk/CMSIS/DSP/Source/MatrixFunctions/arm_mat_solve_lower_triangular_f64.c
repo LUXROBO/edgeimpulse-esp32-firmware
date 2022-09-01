@@ -71,7 +71,7 @@
           b2 c2   x2   a2
              c3   x3   a3
 
-    x3 = a3 / c3
+    x3 = a3 / c3 
     x2 = (a2 - c2 x3) / b2
 
     */
@@ -95,7 +95,7 @@
             lt_row = &pLT[n*i];
 
             float64_t tmp=a_col[i * n];
-
+            
             for(k=0; k < i; k++)
             {
                 tmp -= lt_row[k] * pX[n*k+j];

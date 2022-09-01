@@ -325,9 +325,9 @@ void arm_svm_rbf_predict_f32(
     int32_t * pResult)
 {
     float32_t sum = S->intercept;
-
+   
     float32_t dot;
-    float32x4_t dotV;
+    float32x4_t dotV; 
 
     float32x4_t accuma,accumb,accumc,accumd,accum;
     float32x2_t accum2;
@@ -336,8 +336,8 @@ void arm_svm_rbf_predict_f32(
 
     float32x4_t vec2,vec2a,vec2b,vec2c,vec2d;
 
-    uint32_t blkCnt;
-    uint32_t vectorBlkCnt;
+    uint32_t blkCnt;   
+    uint32_t vectorBlkCnt;   
 
     const float32_t *pIn = in;
 
@@ -368,7 +368,7 @@ void arm_svm_rbf_predict_f32(
         blkCnt = S->vectorDimension >> 2;
         while (blkCnt > 0U)
         {
-
+        
             vec1 = vld1q_f32(pIn);
             vec2a = vld1q_f32(pSupporta);
             vec2b = vld1q_f32(pSupportb);
@@ -427,7 +427,7 @@ void arm_svm_rbf_predict_f32(
         }
 
         vec1 = vld1q_f32(pDualCoefs);
-        pDualCoefs += 4;
+        pDualCoefs += 4; 
 
         // To vectorize later
         dotV = vmulq_n_f32(dotV, -S->gamma);
@@ -457,7 +457,7 @@ void arm_svm_rbf_predict_f32(
         blkCnt = S->vectorDimension >> 2;
         while (blkCnt > 0U)
         {
-
+        
             vec1 = vld1q_f32(pIn);
             vec2 = vld1q_f32(pSupport);
             pIn += 4;

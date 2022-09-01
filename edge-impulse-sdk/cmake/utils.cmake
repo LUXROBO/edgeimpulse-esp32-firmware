@@ -116,7 +116,7 @@ function(INSTALL_DEPENDENCY dir name url branch type)
     endif()
     if(${type} STREQUAL "git")
         message("Cloning into: ${url}")
-        # git clone -b doesn't work with SHAs
+	    # git clone -b doesn't work with SHAs
         execute_process(
             COMMAND git clone --recurse-submodules ${url} ${name}
             WORKING_DIRECTORY ${CMAKE_CURRENT_LIST_DIR}/${dir}

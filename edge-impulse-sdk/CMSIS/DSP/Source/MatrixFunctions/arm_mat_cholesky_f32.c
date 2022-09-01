@@ -36,7 +36,7 @@
   Computes the Cholesky or LDL^t decomposition of a matrix.
 
 
-  If the input matrix does not have a decomposition, then the
+  If the input matrix does not have a decomposition, then the 
   algorithm terminates and returns error status ARM_MATH_DECOMPOSITION_FAILURE.
  */
 
@@ -101,7 +101,7 @@ arm_status arm_mat_cholesky_f32(
 
     pA = pSrc->pData;
     pG = pDst->pData;
-
+    
     for(i=0 ;i < n ; i++)
     {
        for(j=i ; j+3 < n ; j+=4)
@@ -122,7 +122,7 @@ arm_status arm_mat_cholesky_f32(
              p0 = vctp32q(kCnt);
 
              vecGi=vldrwq_z_f32(&pG[i * n + k],p0);
-
+             
              vecGj0=vldrwq_z_f32(&pG[(j + 0) * n + k],p0);
              vecGj1=vldrwq_z_f32(&pG[(j + 1) * n + k],p0);
              vecGj2=vldrwq_z_f32(&pG[(j + 2) * n + k],p0);
@@ -178,7 +178,7 @@ arm_status arm_mat_cholesky_f32(
 
   }
 
-
+  
   /* Return to application */
   return (status);
 }
@@ -219,14 +219,14 @@ arm_status arm_mat_cholesky_f32(
     f32x4_t acc, acc0, acc1, acc2, acc3;
     f32x4_t vecGi;
     f32x4_t vecGj,vecGj0,vecGj1,vecGj2,vecGj3;
-    f32x2_t tmp = vdup_n_f32(0);
+    f32x2_t tmp = vdup_n_f32(0);    
     float32_t sum=0.0f;
     float32_t sum0=0.0f,sum1=0.0f,sum2=0.0f,sum3=0.0f;
 
 
     pA = pSrc->pData;
     pG = pDst->pData;
-
+    
     for(i=0 ;i < n ; i++)
     {
        for(j=i ; j+3 < n ; j+=4)
@@ -247,7 +247,7 @@ arm_status arm_mat_cholesky_f32(
           {
 
              vecGi=vld1q_f32(&pG[i * n + k]);
-
+             
              vecGj0=vld1q_f32(&pG[(j + 0) * n + k]);
              vecGj1=vld1q_f32(&pG[(j + 1) * n + k]);
              vecGj2=vld1q_f32(&pG[(j + 2) * n + k]);
@@ -332,7 +332,7 @@ arm_status arm_mat_cholesky_f32(
           {
              sum = sum + pG[i * n + k] * pG[(j + 0) * n + k];
 
-
+            
              kCnt--;
              k++;
           }
@@ -356,7 +356,7 @@ arm_status arm_mat_cholesky_f32(
 
   }
 
-
+  
   /* Return to application */
   return (status);
 }
@@ -392,7 +392,7 @@ arm_status arm_mat_cholesky_f32(
 
     pA = pSrc->pData;
     pG = pDst->pData;
-
+    
 
     for(i=0 ; i < n ; i++)
     {
@@ -422,7 +422,7 @@ arm_status arm_mat_cholesky_f32(
 
   }
 
-
+  
   /* Return to application */
   return (status);
 }

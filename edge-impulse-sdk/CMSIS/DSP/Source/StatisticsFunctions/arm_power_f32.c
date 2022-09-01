@@ -98,11 +98,11 @@ void arm_power_f32(
     while (blkCnt > 0U)
     {
       /* C = A[0] * A[0] + A[1] * A[1] + ... + A[blockSize-1] * A[blockSize-1] */
-
+  
       /* Compute Power and store result in a temporary variable, sum. */
       in = *pSrc++;
       sum += in * in;
-
+  
       /* Decrement loop counter */
       blkCnt--;
     }

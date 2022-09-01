@@ -91,7 +91,7 @@ void arm_copy_f32(
     /* Decrement loop counter */
     blkCnt--;
   }
-
+    
 }
 
 #else

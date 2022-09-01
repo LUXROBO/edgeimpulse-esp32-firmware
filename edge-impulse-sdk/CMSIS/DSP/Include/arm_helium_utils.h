@@ -179,7 +179,7 @@ __STATIC_FORCEINLINE void mve_cmplx_sum_intra_vec_f16(
 }
 
 #endif
-#endif
+#endif 
 
 /***************************************
 
@@ -282,7 +282,7 @@ __STATIC_INLINE arm_status arm_mat_trans_32bit_generic_mve(
         while (blkCnt > 0U)
         {
             vecIn = vldrwq_gather_shifted_offset_u32(pDataC, vecOffs);
-            vstrwq(pDataDestR, vecIn);
+            vstrwq(pDataDestR, vecIn); 
             pDataDestR += 4;
             pDataC = pDataC + srcCols * 4;
             /*
@@ -362,7 +362,7 @@ __STATIC_INLINE arm_status arm_mat_cmplx_trans_32bit(
         while (blkCnt > 0U)
         {
             vecIn = vldrwq_gather_shifted_offset(pDataC, vecOffsCur);
-            vstrwq(pDataDestR, vecIn);
+            vstrwq(pDataDestR, vecIn); 
             pDataDestR += 4;
             vecOffsCur = vaddq(vecOffsCur, (srcCols << 2));
             /*
@@ -481,7 +481,7 @@ __STATIC_INLINE arm_status arm_mat_trans_16bit_generic(
         while (blkCnt > 0U)
         {
             vecIn = vldrhq_gather_shifted_offset_u16(pDataC, vecOffs);
-            vstrhq_u16(pDataDestR, vecIn);
+            vstrhq_u16(pDataDestR, vecIn); 
             pDataDestR += 8;
             pDataC = pDataC + srcCols * 8;
             /*
@@ -567,7 +567,7 @@ __STATIC_INLINE arm_status arm_mat_cmplx_trans_16bit(
         while (blkCnt > 0U)
         {
             vecIn = vldrhq_gather_shifted_offset(pDataC, vecOffsCur);
-            vstrhq(pDataDestR, vecIn);
+            vstrhq(pDataDestR, vecIn);  
             pDataDestR+= 8; // VEC_LANES_U16
             vecOffsCur = vaddq(vecOffsCur, (srcCols << 3));
             /*

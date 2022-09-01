@@ -75,7 +75,7 @@ void arm_float_to_q15(
 
 
     blkCnt = blockSize >> 3;
-    while (blkCnt > 0U)
+    while (blkCnt > 0U) 
     {
         /* C = A * 32768 */
         /* convert from float to q15 and then store the results in the destination buffer */

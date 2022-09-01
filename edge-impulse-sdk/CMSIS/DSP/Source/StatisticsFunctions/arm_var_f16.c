@@ -77,7 +77,7 @@ void arm_var_f16(
     __asm volatile(
         "   vmov.i32                     %[acc], #0 \n"
         : [acc] "+t"(sumVec)
-        :
+        : 
         : );
 #endif
 
@@ -96,7 +96,7 @@ void arm_var_f16(
         pSrc += 8;
     }
     while (blkCnt > 0);
-
+    
     /* Variance */
     *pResult = vecAddAcrossF16Mve(sumVec) / (float16_t) (blockSize - 1.0f);
 }
@@ -214,5 +214,5 @@ void arm_var_f16(
   @} end of variance group
  */
 
-#endif /* #if defined(ARM_FLOAT16_SUPPORTED) */
+#endif /* #if defined(ARM_FLOAT16_SUPPORTED) */ 
 

@@ -67,9 +67,9 @@ typedef enum _mli_status{
  * algorithms for processing, and other  implementation specific things.
  */
 typedef enum {
-    MLI_EL_FX_8 = 0,    /**< 8 bit depth fixed point data with configurable number
+    MLI_EL_FX_8 = 0,    /**< 8 bit depth fixed point data with configurable number 
                              of fractional bits Data container is int8_t*/
-    MLI_EL_FX_16,       /**< 16 bit depth fixed point data with configurable number
+    MLI_EL_FX_16,       /**< 16 bit depth fixed point data with configurable number 
                              of fractional bits Data container is int16_t*/
     MLI_EL_ASYM_I8,     /**< 8 bit asymetrical signed data with configurable zero offset vector
                              and multiplier vector. Data container is int8_t */
@@ -109,10 +109,10 @@ typedef union _mli_element_params {
     } fx;
 
     struct {
-        mli_data_container zero_point;  /**< 16bit signed zero point offset. Single value for all data in tensor if dim < 0
+        mli_data_container zero_point;  /**< 16bit signed zero point offset. Single value for all data in tensor if dim < 0 
                                         or pointer to an array of zero points regarding configured dimension (dim) otherwise.
                                         In case of array it's size can be looked up in the shape using the dimension to which the scales apply*/
-        mli_data_container scale;       /** 16bit signed scale factors. Single value for all data in tensor if dim < 0
+        mli_data_container scale;       /** 16bit signed scale factors. Single value for all data in tensor if dim < 0 
                                         or pointer to an array of scale factors regarding configured dimension (dim) otherwise.
                                         In case of array it's size can be looked up in the shape using the dimension to which the scales apply*/
         int32_t dim;               /**< dimension of the tensor to which the array's of quantization parameters apply */
@@ -313,7 +313,7 @@ typedef struct {
  * The size can be reduced in any dimension.
  */
 typedef struct {
-    uint32_t offset[MLI_MAX_RANK];   /**< subtensor start coordinates in the input tensor
+    uint32_t offset[MLI_MAX_RANK];   /**< subtensor start coordinates in the input tensor 
                                           The size of this array is determined by the rank of the input tensor*/
     uint32_t size[MLI_MAX_RANK];     /**< Size of the sub tensor in elements per dimension
                                           the number of entries in this array is determind by the input tensor */
@@ -323,13 +323,13 @@ typedef struct {
 /**
  * @brief Data layout type for vision kernels (convolutions/pooloing mostly).
  *
- * Provide information on how to interprete dimensions in input and params tensors:
+ * Provide information on how to interprete dimensions in input and params tensors: 
  * which dimension are height/ width/ channels
  *
- * LAYOUT_HWC - Data is stored in next order: [Height; Width; Channels]
- *              weights in [Filters(out channel); Height; Width; In Channels]
- * LAYOUT_HWCN - Data is stored as for HWC
- *              weights are [Height; Width; In Channels; Filters(out channel)]
+ * LAYOUT_HWC - Data is stored in next order: [Height; Width; Channels] 
+ *              weights in [Filters(out channel); Height; Width; In Channels] 
+ * LAYOUT_HWCN - Data is stored as for HWC 
+ *              weights are [Height; Width; In Channels; Filters(out channel)] 
  */
  typedef enum {
      LAYOUT_HWC,

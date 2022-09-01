@@ -80,7 +80,7 @@ float16_t arm_weighted_sum_f16(const float16_t *in,const float16_t *weigths, uin
     accum2V = vdupq_n_f16(0.0f16);
 
     blkCnt = blockSize >> 3;
-    while (blkCnt > 0)
+    while (blkCnt > 0) 
     {
         inV = vld1q(pIn);
         wV = vld1q(pW);
@@ -140,5 +140,5 @@ float16_t arm_weighted_sum_f16(const float16_t *in, const float16_t *weigths, ui
  * @} end of weightedsum group
  */
 
-#endif /* #if defined(ARM_FLOAT16_SUPPORTED) */
+#endif /* #if defined(ARM_FLOAT16_SUPPORTED) */ 
 

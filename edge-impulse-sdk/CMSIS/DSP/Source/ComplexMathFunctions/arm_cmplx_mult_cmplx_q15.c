@@ -64,7 +64,7 @@ void arm_cmplx_mult_cmplx_q15(
 
     blkCnt = (numSamples >> 3);
     blkCnt -= 1;
-    if (blkCnt > 0)
+    if (blkCnt > 0) 
     {
         /* should give more freedom to generate stall free code */
         vecSrcA = vld1q(pSrcA);
@@ -72,7 +72,7 @@ void arm_cmplx_mult_cmplx_q15(
         pSrcA += 8;
         pSrcB += 8;
 
-        while (blkCnt > 0)
+        while (blkCnt > 0) 
         {
 
             /* C[2 * i] = A[2 * i] * B[2 * i] - A[2 * i + 1] * B[2 * i + 1].  */
@@ -125,7 +125,7 @@ void arm_cmplx_mult_cmplx_q15(
          * tail
          */
         blkCnt = CMPLX_DIM * (numSamples & 7);
-        do
+        do 
         {
             mve_pred16_t    p = vctp16q(blkCnt);
 
@@ -145,8 +145,8 @@ void arm_cmplx_mult_cmplx_q15(
             blkCnt -= 8;
         }
         while ((int32_t) blkCnt > 0);
-    }
-    else
+    } 
+    else 
     {
         blkCnt = numSamples * CMPLX_DIM;
         while (blkCnt > 0) {

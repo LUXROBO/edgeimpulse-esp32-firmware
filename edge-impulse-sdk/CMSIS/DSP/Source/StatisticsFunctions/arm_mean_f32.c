@@ -57,7 +57,7 @@ void arm_mean_f32(
     uint32_t  blkCnt;           /* loop counters */
     f32x4_t vecSrc;
     f32x4_t sumVec = vdupq_n_f32(0.0f);
-    float32_t sum = 0.0f;
+    float32_t sum = 0.0f; 
 
     /* Compute 4 outputs at a time */
     blkCnt = blockSize >> 2U;
@@ -79,7 +79,7 @@ void arm_mean_f32(
     {
       /* C = (A[0] + A[1] + A[2] + ... + A[blockSize-1]) */
       sum += *pSrc++;
-
+  
       /* Decrement loop counter */
       blkCnt--;
     }
@@ -112,7 +112,7 @@ void arm_mean_f32(
     /* C = (A[0] + A[1] + A[2] + ... + A[blockSize-1]) */
     inV = vld1q_f32(pSrc);
     sumV = vaddq_f32(sumV, inV);
-
+    
     pSrc += 4;
     /* Decrement the loop counter */
     blkCnt--;

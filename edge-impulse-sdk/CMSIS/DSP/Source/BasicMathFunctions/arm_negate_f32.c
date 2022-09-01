@@ -87,7 +87,7 @@ void arm_negate_f32(
         /* Increment pointers */
         pSrc += 4;
         pDst += 4;
-
+        
         /* Decrement the loop counter */
         blkCnt--;
     }
@@ -123,7 +123,7 @@ void arm_negate_f32(
     {
         /* C = -A */
 
-        /* Negate and then store the results in the destination buffer. */
+    	/* Negate and then store the results in the destination buffer. */
         vec1 = vld1q_f32(pSrc);
         res = vnegq_f32(vec1);
         vst1q_f32(pDst, res);
@@ -131,7 +131,7 @@ void arm_negate_f32(
         /* Increment pointers */
         pSrc += 4;
         pDst += 4;
-
+        
         /* Decrement the loop counter */
         blkCnt--;
     }

@@ -74,7 +74,7 @@ float32_t arm_canberra_distance_f32(const float32_t *pA,const float32_t *pB, uin
         b = vabsq(b);
         a = vaddq(a, b);
 
-        /*
+        /* 
          * May divide by zero when a and b have both the same lane at zero.
          */
         a = vrecip_medprec_f32(a);
@@ -105,7 +105,7 @@ float32_t arm_canberra_distance_f32(const float32_t *pA,const float32_t *pB, uin
         b = vabsq(b);
         a = vaddq(a, b);
 
-        /*
+        /* 
          * May divide by zero when a and b have both the same lane at zero.
          */
         a = vrecip_medprec_f32(a);
@@ -153,11 +153,11 @@ float32_t arm_canberra_distance_f32(const float32_t *pA,const float32_t *pB, uin
         a = vaddq_f32(a,b);
         isZeroV = vceqq_f32(a,zeroV);
 
-        /*
+        /* 
          * May divide by zero when a and b have both the same lane at zero.
          */
         a = vinvq_f32(a);
-
+        
         /*
          * Force result of a division by 0 to 0. It the behavior of the
          * sklearn canberra function.

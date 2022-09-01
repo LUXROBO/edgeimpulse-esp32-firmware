@@ -226,7 +226,7 @@ void arm_lms_norm_f32(
       bV = vld1q_f32(pb);
       sumV = vmlaq_f32(sumV, xV, bV);
 
-      px += 4;
+      px += 4; 
       pb += 4;
 
       /* Decrement the loop counter */
@@ -277,7 +277,7 @@ void arm_lms_norm_f32(
       px += 4;
       bV = vmlaq_n_f32(bV,xV,w);
 
-      vst1q_f32(pb,bV);
+      vst1q_f32(pb,bV); 
       pb += 4;
 
 
@@ -324,7 +324,7 @@ void arm_lms_norm_f32(
   while (tapCnt > 0U)
   {
     tempV = vld1q_f32(pState);
-    vst1q_f32(pStateCurnt,tempV);
+    vst1q_f32(pStateCurnt,tempV); 
     pState += 4;
     pStateCurnt += 4;
 

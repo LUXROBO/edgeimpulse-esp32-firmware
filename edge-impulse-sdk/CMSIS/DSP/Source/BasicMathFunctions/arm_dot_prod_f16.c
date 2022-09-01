@@ -72,8 +72,8 @@ void arm_dot_prod_f16(
 {
     f16x8_t vecA, vecB;
     f16x8_t vecSum;
-    uint32_t blkCnt;
-    float16_t sum = 0.0f;
+    uint32_t blkCnt; 
+    float16_t sum = 0.0f;  
     vecSum = vdupq_n_f16(0.0f);
 
     /* Compute 4 outputs at a time */
@@ -87,7 +87,7 @@ void arm_dot_prod_f16(
          */
         vecA = vld1q(pSrcA);
         pSrcA += 8;
-
+        
         vecB = vld1q(pSrcB);
         pSrcB += 8;
 

@@ -110,18 +110,18 @@ void arm_mat_vec_mult_f32(
         {
             f32x4_t vecA;
 
-            vecIn = vld1q(pInVec);
+            vecIn = vld1q(pInVec);      
             pInVec += 4;
-            vecA = vld1q(pSrcA0Vec);
+            vecA = vld1q(pSrcA0Vec);    
             pSrcA0Vec += 4;
             acc0 = vfmaq(acc0, vecIn, vecA);
-            vecA = vld1q(pSrcA1Vec);
+            vecA = vld1q(pSrcA1Vec);  
             pSrcA1Vec += 4;
             acc1 = vfmaq(acc1, vecIn, vecA);
-            vecA = vld1q(pSrcA2Vec);
+            vecA = vld1q(pSrcA2Vec);  
             pSrcA2Vec += 4;
             acc2 = vfmaq(acc2, vecIn, vecA);
-            vecA = vld1q(pSrcA3Vec);
+            vecA = vld1q(pSrcA3Vec);  
             pSrcA3Vec += 4;
             acc3 = vfmaq(acc3, vecIn, vecA);
 
@@ -193,12 +193,12 @@ void arm_mat_vec_mult_f32(
         {
             f32x4_t vecA;
 
-            vecIn = vld1q(pInVec);
+            vecIn = vld1q(pInVec);      
             pInVec += 4;
-            vecA = vld1q(pSrcA0Vec);
+            vecA = vld1q(pSrcA0Vec);    
             pSrcA0Vec += 4;
             acc0 = vfmaq(acc0, vecIn, vecA);
-            vecA = vld1q(pSrcA1Vec);
+            vecA = vld1q(pSrcA1Vec);    
             pSrcA1Vec += 4;
             acc1 = vfmaq(acc1, vecIn, vecA);
 
@@ -255,9 +255,9 @@ void arm_mat_vec_mult_f32(
         {
             f32x4_t vecA;
 
-            vecIn = vld1q(pInVec);
+            vecIn = vld1q(pInVec);      
             pInVec += 4;
-            vecA = vld1q(pSrcA0Vec);
+            vecA = vld1q(pSrcA0Vec);    
             pSrcA0Vec += 4;
             acc0 = vfmaq(acc0, vecIn, vecA);
 

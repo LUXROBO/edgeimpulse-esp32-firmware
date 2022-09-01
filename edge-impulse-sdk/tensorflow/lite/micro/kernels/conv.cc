@@ -1596,7 +1596,7 @@ TfLiteStatus Eval(TfLiteContext* context, TfLiteNode* node) {
                          TfLiteTypeGetName(input->type), input->type);
       return kTfLiteError;
   }
-
+  
   conv_total_time += esp_timer_get_time() - start_time;
   return kTfLiteOk;
 }

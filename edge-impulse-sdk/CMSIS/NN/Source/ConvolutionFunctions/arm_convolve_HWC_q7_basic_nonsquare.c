@@ -19,7 +19,7 @@
 /* ----------------------------------------------------------------------
  * Project:      CMSIS NN Library
  * Title:        arm_convolve_HWC_q7_basic.c
- * Description:  Q7 version of convolution
+ * Description:	 Q7 version of convolution
  *
  * $Date:        January 26, 2021
  * $Revision:    V.1.0.2

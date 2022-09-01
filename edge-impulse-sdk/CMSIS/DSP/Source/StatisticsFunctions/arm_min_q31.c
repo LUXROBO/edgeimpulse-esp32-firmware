@@ -73,7 +73,7 @@ void arm_min_q31(
     blkCnt = blockSize >> 2U;
     while (blkCnt > 0U)
     {
-        vecSrc = vldrwq_s32(pSrc);
+        vecSrc = vldrwq_s32(pSrc);  
         pSrc += 4;
         /*
          * Get current min per lane and current index per lane
@@ -89,7 +89,7 @@ void arm_min_q31(
          */
         blkCnt--;
     }
-
+    
     /*
      * Get min value across the vector
      */
@@ -111,7 +111,7 @@ void arm_min_q31(
     {
       /* Initialize temp to the next consecutive values one by one */
       temp = *pSrc++;
-
+  
       /* compare for the minimum value */
       if (minValue > temp)
       {
@@ -119,7 +119,7 @@ void arm_min_q31(
         minValue = temp;
         idx = blockSize - blkCnt;
       }
-
+  
       /* Decrement loop counter */
       blkCnt--;
     }

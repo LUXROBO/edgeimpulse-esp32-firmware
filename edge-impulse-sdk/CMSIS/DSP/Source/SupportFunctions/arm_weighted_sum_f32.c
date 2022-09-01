@@ -67,7 +67,7 @@ float32_t arm_weighted_sum_f32(const float32_t *in,const float32_t *weigths, uin
     accum2V = vdupq_n_f32(0.0);
 
     blkCnt = blockSize >> 2;
-    while (blkCnt > 0)
+    while (blkCnt > 0) 
     {
         inV = vld1q(pIn);
         wV = vld1q(pW);
@@ -127,7 +127,7 @@ float32_t arm_weighted_sum_f32(const float32_t *in,const float32_t *weigths, uin
         inV = vld1q_f32(pIn);
         wV = vld1q_f32(pW);
 
-        pIn += 4;
+        pIn += 4; 
         pW += 4;
 
         accum1V = vmlaq_f32(accum1V,inV,wV);

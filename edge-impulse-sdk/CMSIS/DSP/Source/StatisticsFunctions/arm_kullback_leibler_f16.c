@@ -73,8 +73,8 @@ float16_t arm_kullback_leibler_f16(const float16_t * pSrcA,const float16_t * pSr
 {
     uint32_t blkCnt;
     _Float16 accum, pA,pB;
-
-
+ 
+    
     blkCnt = blockSize;
 
     accum = 0.0f16;
@@ -107,9 +107,9 @@ float16_t arm_kullback_leibler_f16(const float16_t * pSrcA,const float16_t * pSr
        pA = *pSrcA++;
        pB = *pSrcB++;
        accum += pA * logf(pB / pA);
-
+       
        blkCnt--;
-
+    
     }
 
     return(-accum);
@@ -121,7 +121,7 @@ float16_t arm_kullback_leibler_f16(const float16_t * pSrcA,const float16_t * pSr
     const float16_t *pInA, *pInB;
     uint32_t blkCnt;
     _Float16 accum, pA,pB;
-
+ 
     pInA = pSrcA;
     pInB = pSrcB;
     blkCnt = blockSize;
@@ -133,9 +133,9 @@ float16_t arm_kullback_leibler_f16(const float16_t * pSrcA,const float16_t * pSr
        pA = *pInA++;
        pB = *pInB++;
        accum += pA * logf(pB / pA);
-
+       
        blkCnt--;
-
+    
     }
 
     return(-accum);
@@ -146,5 +146,5 @@ float16_t arm_kullback_leibler_f16(const float16_t * pSrcA,const float16_t * pSr
  * @} end of Kullback-Leibler group
  */
 
-#endif /* #if defined(ARM_FLOAT16_SUPPORTED) */
+#endif /* #if defined(ARM_FLOAT16_SUPPORTED) */ 
 

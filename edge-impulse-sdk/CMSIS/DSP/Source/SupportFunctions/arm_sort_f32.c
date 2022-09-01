@@ -48,9 +48,9 @@
  */
 
 void arm_sort_f32(
-  const arm_sort_instance_f32 * S,
-        float32_t * pSrc,
-        float32_t * pDst,
+  const arm_sort_instance_f32 * S, 
+        float32_t * pSrc, 
+        float32_t * pDst, 
         uint32_t blockSize)
 {
     switch(S->alg)

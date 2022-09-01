@@ -68,11 +68,11 @@ void arm_q31_to_q15(
     {
         /* C = (q15_t) A >> 16 */
         /* convert from q31 to q15 and then store the results in the destination buffer */
-        tmp = vld2q(pSrcVec);
+        tmp = vld2q(pSrcVec);   
         pSrcVec += 8;
         vecDst = vshrnbq_n_s32(vecDst, tmp.val[0], 16);
         vecDst = vshrntq_n_s32(vecDst, tmp.val[1], 16);
-        vst1q(pDst, vecDst);
+        vst1q(pDst, vecDst);    
         pDst += 8;
         /*
          * Decrement the blockSize loop counter
@@ -87,10 +87,10 @@ void arm_q31_to_q15(
     while (blkCnt > 0U)
     {
       /* C = (q15_t) (A >> 16) */
-
+  
       /* Convert from q31 to q15 and store result in destination buffer */
       *pDst++ = (q15_t) (*pSrcVec++ >> 16);
-
+  
       /* Decrement loop counter */
       blkCnt--;
     }

@@ -67,13 +67,13 @@ void arm_f16_to_float(
     blkCnt = blockSize >> 3;
     while (blkCnt > 0)
     {
-        vecDst = vldrhq_f16(pSrc);
+        vecDst = vldrhq_f16(pSrc);          
         pSrc += 8;
 
         tmp.val[0] = vcvtbq_f32_f16(vecDst);
         tmp.val[1] = vcvttq_f32_f16(vecDst);
         vst2q(pDst,tmp);
-
+        
         pDst += 8;
         /*
          * Decrement the blockSize loop counter
@@ -126,5 +126,5 @@ void arm_f16_to_float(
   @} end of f16_to_x group
  */
 
-#endif /* #if defined(ARM_FLOAT16_SUPPORTED) */
+#endif /* #if defined(ARM_FLOAT16_SUPPORTED) */ 
 

@@ -70,9 +70,9 @@ void arm_q31_to_float(
     {
         /* C = (float32_t) A / 2147483648 */
         /* convert from q31 to float and then store the results in the destination buffer */
-        vecDst = vld1q(pSrcVec);
+        vecDst = vld1q(pSrcVec);   
         pSrcVec += 4;
-        vstrwq(pDst, vcvtq_n_f32_s32(vecDst, 31));
+        vstrwq(pDst, vcvtq_n_f32_s32(vecDst, 31));  
         pDst += 4;
         /*
          * Decrement the blockSize loop counter
@@ -87,10 +87,10 @@ void arm_q31_to_float(
     while (blkCnt > 0U)
     {
       /* C = (float32_t) A / 2147483648 */
-
+  
       /* Convert from q31 to float and store result in destination buffer */
       *pDst++ = ((float32_t) *pSrcVec++ / 2147483648.0f);
-
+  
       /* Decrement loop counter */
       blkCnt--;
     }

@@ -141,7 +141,7 @@ float32_t arm_jensenshannon_distance_f32(const float32_t *pA,const float32_t *pB
     float32x4_t aV,bV,t, tmpV, accumV;
     float32x2_t accumV2;
 
-    accum = 0.0f;
+    accum = 0.0f; 
     accumV = vdupq_n_f32(0.0f);
 
     blkCnt = blockSize >> 2;
@@ -221,7 +221,7 @@ float32_t arm_jensenshannon_distance_f32(const float32_t *pA,const float32_t *pB
     float32_t left, right,sum, result, tmp;
     uint32_t i;
 
-    left = 0.0f;
+    left = 0.0f; 
     right = 0.0f;
     for(i=0; i < blockSize; i++)
     {

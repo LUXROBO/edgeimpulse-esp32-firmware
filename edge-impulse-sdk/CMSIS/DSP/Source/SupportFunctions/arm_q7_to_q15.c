@@ -70,10 +70,10 @@ void arm_q7_to_q15(
         /* C = (q15_t) A << 8 */
         /* convert from q7 to q15 and then store the results in the destination buffer */
         /* load q7 + 32-bit widening */
-        vecDst = vldrbq_s16(pSrcVec);
+        vecDst = vldrbq_s16(pSrcVec);    
         pSrcVec += 8;
         vecDst = vecDst << 8;
-        vstrhq(pDst, vecDst);
+        vstrhq(pDst, vecDst);   
         pDst += 8;
         /*
          * Decrement the blockSize loop counter

@@ -143,5 +143,5 @@ void arm_rms_f16(
   @} end of RMS group
  */
 
-#endif /* #if defined(ARM_FLOAT16_SUPPORTED) */
+#endif /* #if defined(ARM_FLOAT16_SUPPORTED) */ 
 

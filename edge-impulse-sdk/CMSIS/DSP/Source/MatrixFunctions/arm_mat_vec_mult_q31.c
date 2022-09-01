@@ -93,13 +93,13 @@ void arm_mat_vec_mult_q31(
         blkCnt = numCols >> 2;
         while (blkCnt > 0U)
         {
-            vecMatA0 = vld1q(pMat0Vec);
+            vecMatA0 = vld1q(pMat0Vec); 
             pMat0Vec += 4;
-            vecMatA1 = vld1q(pMat1Vec);
+            vecMatA1 = vld1q(pMat1Vec); 
             pMat1Vec += 4;
-            vecMatA2 = vld1q(pMat2Vec);
+            vecMatA2 = vld1q(pMat2Vec); 
             pMat2Vec += 4;
-            vecIn = vld1q(pVec);
+            vecIn = vld1q(pVec);        
             pVec += 4;
 
             acc0 = vmlaldavaq(acc0, vecIn, vecMatA0);
@@ -170,11 +170,11 @@ void arm_mat_vec_mult_q31(
         blkCnt = numCols >> 2;
         while (blkCnt > 0U)
         {
-            vecMatA0 = vld1q(pMat0Vec);
+            vecMatA0 = vld1q(pMat0Vec); 
             pMat0Vec += 4;
-            vecMatA1 = vld1q(pMat1Vec);
+            vecMatA1 = vld1q(pMat1Vec); 
             pMat1Vec += 4;
-            vecIn = vld1q(pVec);
+            vecIn = vld1q(pVec);        
             pVec += 4;
 
             acc0 = vmlaldavaq(acc0, vecIn, vecMatA0);
@@ -236,9 +236,9 @@ void arm_mat_vec_mult_q31(
         blkCnt = numCols >> 2;
         while (blkCnt > 0U)
         {
-            vecMatA0 = vld1q(pMat0Vec);
+            vecMatA0 = vld1q(pMat0Vec); 
             pMat0Vec += 4;
-            vecIn = vld1q(pVec);
+            vecIn = vld1q(pVec);        
             pVec += 4;
             acc0 = vmlaldavaq(acc0, vecIn, vecMatA0);
             blkCnt--;

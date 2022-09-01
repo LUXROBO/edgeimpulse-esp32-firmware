@@ -91,7 +91,7 @@ void arm_cmplx_mag_squared_f16(
 
         pSrc += 16;
         pDst += 8;
-
+        
         /*
          * Decrement the blockSize loop counter
          */

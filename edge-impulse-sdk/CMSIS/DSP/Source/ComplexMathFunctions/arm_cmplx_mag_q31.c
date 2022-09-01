@@ -104,15 +104,15 @@ void arm_cmplx_mag_q31(
     while (blkCnt > 0U)
     {
       /* C[0] = sqrt(A[0] * A[0] + A[1] * A[1]) */
-
+  
       real = *pSrc++;
       imag = *pSrc++;
       acc0 = (q31_t) (((q63_t) real * real) >> 33);
       acc1 = (q31_t) (((q63_t) imag * imag) >> 33);
-
+  
       /* store result in 2.30 format in destination buffer. */
       arm_sqrt_q31(acc0 + acc1, pDst++);
-
+  
       /* Decrement loop counter */
       blkCnt--;
     }

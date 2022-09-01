@@ -71,7 +71,7 @@ void arm_max_q15(
     blkCnt = blockSize >> 3;
     while (blkCnt > 0U)
     {
-        vecSrc = vldrhq_s16(pSrc);
+        vecSrc = vldrhq_s16(pSrc);  
         pSrc += 8;
         /*
          * Get current max per lane and current index per lane
@@ -87,7 +87,7 @@ void arm_max_q15(
          */
         blkCnt--;
     }
-
+   
     /*
      * Get max value across the vector
      */
@@ -108,7 +108,7 @@ void arm_max_q15(
     {
       /* Initialize temp to the next consecutive values one by one */
       temp = *pSrc++;
-
+  
       /* compare for the maximum value */
       if (maxValue < temp)
       {
@@ -116,7 +116,7 @@ void arm_max_q15(
         maxValue = temp;
         idx = blockSize - blkCnt;
       }
-
+  
       /* Decrement loop counter */
       blkCnt--;
     }

@@ -38,7 +38,7 @@ void arm_vexp_f32(
         float32_t * pDst,
         uint32_t blockSize)
 {
-   uint32_t blkCnt;
+   uint32_t blkCnt; 
 
 #if (defined(ARM_MATH_MVEF) || defined(ARM_MATH_HELIUM)) && !defined(ARM_MATH_AUTOVECTORIZE)
    f32x4_t src;
@@ -87,10 +87,10 @@ void arm_vexp_f32(
    while (blkCnt > 0U)
    {
       /* C = log(A) */
-
+  
       /* Calculate log and store result in destination buffer. */
       *pDst++ = expf(*pSrc++);
-
+  
       /* Decrement loop counter */
       blkCnt--;
    }

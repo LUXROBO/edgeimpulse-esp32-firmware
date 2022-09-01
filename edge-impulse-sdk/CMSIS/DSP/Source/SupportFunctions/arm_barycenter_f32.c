@@ -48,9 +48,9 @@
  */
 
 #if defined(ARM_MATH_MVEF) && !defined(ARM_MATH_AUTOVECTORIZE)
-void arm_barycenter_f32(const float32_t *in,
-  const float32_t *weights,
-  float32_t *out,
+void arm_barycenter_f32(const float32_t *in, 
+  const float32_t *weights, 
+  float32_t *out, 
   uint32_t nbVectors,
   uint32_t vecDim)
 {
@@ -79,7 +79,7 @@ void arm_barycenter_f32(const float32_t *in,
     pIn4 = pIn3 + vecDim;
 
     blkCntVector = nbVectors >> 2;
-    while (blkCntVector > 0)
+    while (blkCntVector > 0) 
     {
         f32x4_t         outV, inV1, inV2, inV3, inV4;
         float32_t       w1, w2, w3, w4;
@@ -134,7 +134,7 @@ void arm_barycenter_f32(const float32_t *in,
     pIn = pIn1;
 
     blkCntVector = nbVectors & 3;
-    while (blkCntVector > 0)
+    while (blkCntVector > 0) 
     {
         f32x4_t         inV, outV;
 
@@ -143,7 +143,7 @@ void arm_barycenter_f32(const float32_t *in,
         accum += w;
 
         blkCntSample = vecDim >> 2;
-        while (blkCntSample > 0)
+        while (blkCntSample > 0) 
         {
             outV = vld1q_f32(pOut);
             inV = vld1q_f32(pIn);
@@ -156,7 +156,7 @@ void arm_barycenter_f32(const float32_t *in,
         }
 
         blkCntSample = vecDim & 3;
-        while (blkCntSample > 0)
+        while (blkCntSample > 0) 
         {
             *pOut = *pOut + *pIn++ * w;
             pOut++;
@@ -171,7 +171,7 @@ void arm_barycenter_f32(const float32_t *in,
     accum = 1.0f / accum;
 
     blkCntSample = vecDim >> 2;
-    while (blkCntSample > 0)
+    while (blkCntSample > 0) 
     {
         f32x4_t         tmp;
 
@@ -183,7 +183,7 @@ void arm_barycenter_f32(const float32_t *in,
     }
 
     blkCntSample = vecDim & 3;
-    while (blkCntSample > 0)
+    while (blkCntSample > 0) 
     {
         *pOut = *pOut * accum;
         pOut++;
@@ -233,12 +233,12 @@ void arm_barycenter_f32(const float32_t *in, const float32_t *weights, float32_t
    }
 
    /* Sum */
-
+  
    pIn1 = pIn;
    pIn2 = pIn1 + vecDim;
    pIn3 = pIn2 + vecDim;
    pIn4 = pIn3 + vecDim;
-
+   
    blkCntVector = nbVectors >> 2;
    while(blkCntVector > 0)
    {
@@ -311,7 +311,7 @@ void arm_barycenter_f32(const float32_t *in, const float32_t *weights, float32_t
 
           blkCntSample--;
       }
-
+      
       blkCntSample = vecDim & 3;
       while(blkCntSample > 0)
       {

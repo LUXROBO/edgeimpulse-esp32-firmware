@@ -316,7 +316,7 @@ void arm_biquad_cas_df1_32x64_q31(
           b2 = *pCoeffs++;
           a1 = *pCoeffs++;
           a2 = *pCoeffs++;
-
+  
           vecCoef[0] = 0;
           vecCoef[1] = b2;
           vecCoef[2] = b1;
@@ -328,7 +328,7 @@ void arm_biquad_cas_df1_32x64_q31(
           Xn2 = pState[1];
           Yn1 = pState[2];
           Yn2 = pState[3];
-
+  
           /*
            * append history with initial samples
            */
@@ -339,12 +339,12 @@ void arm_biquad_cas_df1_32x64_q31(
           hist[3] = pIn[0];
           hist[4] = pIn[1];
           hist[5] = pIn[2];
-
+  
           const q31_t  *pIn1 = hist;
           q31x4_t vecIn0 = *(q31x4_t *) & pIn[0];
           q31x4_t vecIn1 = *(q31x4_t *) & pIn[1];
           q31x4_t vecIn2 = *(q31x4_t *) & pIn[2];
-
+  
           i = 3;
           do
           {
@@ -362,14 +362,14 @@ void arm_biquad_cas_df1_32x64_q31(
               *pOut++ = (q31_t) (Yn1 >> 32);
           }
           while (--i);
-
+  
           sample = blockSize - 3;
           pIn1 = pIn + 3;
-
+  
           i = sample / 4;
           while (i > 0U)
           {
-
+  
               acc = mult32x64(Yn1, a1);
               acc += mult32x64(Yn2, a2);
               Yn2 = Yn1;
@@ -382,7 +382,7 @@ void arm_biquad_cas_df1_32x64_q31(
                * Store the output in the destination buffer in 1.31 format.
                */
               *pOut++ = (q31_t) (Yn1 >> 32);
-
+  
               acc = mult32x64(Yn1, a1);
               acc += mult32x64(Yn2, a2);
               Yn2 = Yn1;
@@ -392,7 +392,7 @@ void arm_biquad_cas_df1_32x64_q31(
               pIn1 += 1;
               Yn1 = asrl(Yn1, -shift);
               *pOut++ = (q31_t) (Yn1 >> 32);
-
+  
               acc = mult32x64(Yn1, a1);
               acc += mult32x64(Yn2, a2);
               Yn2 = Yn1;
@@ -402,7 +402,7 @@ void arm_biquad_cas_df1_32x64_q31(
               pIn1 += 1;
               Yn1 = asrl(Yn1, -shift);
               *pOut++ = (q31_t) (Yn1 >> 32);
-
+  
               acc = mult32x64(Yn1, a1);
               acc += mult32x64(Yn2, a2);
               Yn2 = Yn1;
@@ -422,7 +422,7 @@ void arm_biquad_cas_df1_32x64_q31(
            */
           Xn2 = vecIn[2];
           Xn1 = vecIn[3];
-
+  
           int       loopRemainder = blockSize - 3 - 4 * ((blockSize - 3) / 4);
           if (loopRemainder == 1)
           {
@@ -441,7 +441,7 @@ void arm_biquad_cas_df1_32x64_q31(
                */
               Xn2 = vecIn0[2];
               Xn1 = vecIn0[3];
-
+  
           }
           else if (loopRemainder == 2)
           {
@@ -452,7 +452,7 @@ void arm_biquad_cas_df1_32x64_q31(
               Yn1 = vmlaldavaq(Yn1, vecIn0, vecCoef);
               Yn1 = asrl(Yn1, -shift);
               *pOut++ = (q31_t) (Yn1 >> 32);
-
+  
               acc = mult32x64(Yn1, a1);
               acc += mult32x64(Yn2, a2);
               Yn2 = Yn1;
@@ -465,7 +465,7 @@ void arm_biquad_cas_df1_32x64_q31(
                */
               Xn2 = vecIn1[2];
               Xn1 = vecIn1[3];
-
+  
           }
           else if (loopRemainder == 3)
           {
@@ -476,7 +476,7 @@ void arm_biquad_cas_df1_32x64_q31(
               Yn1 = vmlaldavaq(Yn1, vecIn0, vecCoef);
               Yn1 = asrl(Yn1, -shift);
               *pOut++ = (q31_t) (Yn1 >> 32);
-
+  
               acc = mult32x64(Yn1, a1);
               acc += mult32x64(Yn2, a2);
               Yn2 = Yn1;
@@ -484,7 +484,7 @@ void arm_biquad_cas_df1_32x64_q31(
               Yn1 = vmlaldavaq(Yn1, vecIn1, vecCoef);
               Yn1 = asrl(Yn1, -shift);
               *pOut++ = (q31_t) (Yn1 >> 32);
-
+  
               acc = mult32x64(Yn1, a1);
               acc += mult32x64(Yn2, a2);
               Yn2 = Yn1;
@@ -497,9 +497,9 @@ void arm_biquad_cas_df1_32x64_q31(
                */
               Xn2 = vecIn2[2];
               Xn1 = vecIn2[3];
-
+  
           }
-
+  
           /*
            * The first stage output is given as input to the second stage.
            */

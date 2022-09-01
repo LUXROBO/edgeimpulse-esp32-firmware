@@ -82,7 +82,7 @@ arm_status arm_mat_trans_q7(const arm_matrix_instance_q7 *pSrc, arm_matrix_insta
         {
             /* widened loads */
             vecIn = vldrbq_gather_offset_u16(pDataC, vecOffs);
-            vstrbq_u16(pDataDestR, vecIn);
+            vstrbq_u16(pDataDestR, vecIn);  
             pDataDestR += 8;
             pDataC = pDataC + pSrc->numCols * 8;
             /*

@@ -120,17 +120,17 @@ void arm_max_no_idx_f16(
    while (blockSize > 0U)
    {
        newVal = *pSrc++;
-
+   
        /* compare for the maximum value */
        if (maxValue < newVal)
        {
            /* Update the maximum value and it's index */
            maxValue = newVal;
        }
-
+   
        blockSize --;
    }
-
+    
    *pResult = maxValue;
 }
 
@@ -140,5 +140,5 @@ void arm_max_no_idx_f16(
   @} end of Max group
  */
 
-#endif /* #if defined(ARM_FLOAT16_SUPPORTED) */
+#endif /* #if defined(ARM_FLOAT16_SUPPORTED) */ 
 

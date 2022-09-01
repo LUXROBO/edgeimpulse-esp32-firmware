@@ -162,12 +162,12 @@ arm_status arm_mat_cmplx_mult_q15(
             acc3 = 0LL;
 
             vecOffs = vecColBOffs;
-
+          
 
             blkCnt = (numColsA * CMPLX_DIM) >> 3;
             while (blkCnt > 0U)
             {
-                vecA = vld1q(pSrcAVec);
+                vecA = vld1q(pSrcAVec); 
                 pSrcAVec += 8;
                 vecB = vldrhq_gather_shifted_offset(pInB, vecOffs);
 
@@ -251,16 +251,16 @@ arm_status arm_mat_cmplx_mult_q15(
 
             acc0 = 0LL;
             acc1 = 0LL;
-
+           
 
             vecOffs = vecColBOffs;
-
-
+           
+            
 
             blkCnt = (numColsA * CMPLX_DIM) >> 3;
             while (blkCnt > 0U)
             {
-                vecA = vld1q(pSrcAVec);
+                vecA = vld1q(pSrcAVec); 
                 pSrcAVec += 8;
                 vecB = vldrhq_gather_shifted_offset(pInB, vecOffs);
 
@@ -286,18 +286,18 @@ arm_status arm_mat_cmplx_mult_q15(
 
                 acc0 = vmlsldavaq_s16(acc0, vecA, vecB);
                 acc1 = vmlaldavaxq_s16(acc1, vecA, vecB);
-
+               
             }
             /*
              * Convert to 1.15, Store the results (1 x 2 block) in the destination buffer
              */
             *px++ = (q15_t)MVE_ASRL_SAT16(acc0, 15);
             *px++ = (q15_t)MVE_ASRL_SAT16(acc1, 15);
-
+           
         }
 
         i = i + numColsA * CMPLX_DIM;
-
+        
         /*
          * Decrement the row loop counter
          */

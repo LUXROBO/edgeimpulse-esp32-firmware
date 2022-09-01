@@ -377,22 +377,22 @@ arm_status arm_mat_mult_q7(
             acc2 = 0L;
             acc3 = 0L;
 
-            vecA = vld1q(pSrcAVec);
+            vecA = vld1q(pSrcAVec);  
             pSrcAVec += 16;
 
             blkCnt = numColsA >> 4;
             while (blkCnt > 0U)
             {
-                vecB = vld1q(pSrcBVec);
+                vecB = vld1q(pSrcBVec);  
                 pSrcBVec += 16;
                 acc0 = vmladavaq_s8(acc0, vecA, vecB);
-                vecA2 = vld1q(pSrcA2Vec);
+                vecA2 = vld1q(pSrcA2Vec);  
                 pSrcA2Vec += 16;
                 acc1 = vmladavaq_s8(acc1, vecA2, vecB);
-                vecB2 = vld1q(pSrcB2Vec);
+                vecB2 = vld1q(pSrcB2Vec);  
                 pSrcB2Vec += 16;
                 acc2 = vmladavaq_s8(acc2, vecA, vecB2);
-                vecA = vld1q(pSrcAVec);
+                vecA = vld1q(pSrcAVec);  
                 pSrcAVec += 16;
                 acc3 = vmladavaq_s8(acc3, vecA2, vecB2);
 
@@ -469,9 +469,9 @@ arm_status arm_mat_mult_q7(
             blkCnt = (numColsA) >> 4;
             while (blkCnt > 0U)
             {
-                vecA = vld1q(pSrcAVec);
+                vecA = vld1q(pSrcAVec);  
                 pSrcAVec += 16;
-                vecB = vld1q(pSrcBVec);
+                vecB = vld1q(pSrcBVec);  
                 pSrcBVec += 16;
                 acc0 = vmladavaq_s8(acc0, vecA, vecB);
 
@@ -535,9 +535,9 @@ arm_status arm_mat_mult_q7(
             blkCnt = (numColsA) >> 4;
             while (blkCnt > 0U)
             {
-                vecA = vld1q(pSrcAVec);
+                vecA = vld1q(pSrcAVec); 
                 pSrcAVec += 16;
-                vecB = vld1q(pSrcBVec);
+                vecB = vld1q(pSrcBVec); 
                 pSrcBVec += 16;
                 acc0 = vmladavaq_s8(acc0, vecA, vecB);
 

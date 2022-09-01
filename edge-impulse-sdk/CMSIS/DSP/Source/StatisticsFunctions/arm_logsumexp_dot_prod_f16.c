@@ -78,5 +78,5 @@ float16_t arm_logsumexp_dot_prod_f16(const float16_t * pSrcA,
  * @} end of LogSumExp group
  */
 
-#endif /* #if defined(ARM_FLOAT16_SUPPORTED) */
+#endif /* #if defined(ARM_FLOAT16_SUPPORTED) */ 
 

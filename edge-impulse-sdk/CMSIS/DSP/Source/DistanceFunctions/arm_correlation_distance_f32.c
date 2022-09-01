@@ -69,10 +69,10 @@ float32_t arm_correlation_distance_f32(float32_t *pA,float32_t *pB, uint32_t blo
     pwrb = pwrb / blockSize;
 
     arm_sqrt_f32(pwra * pwrb,&tmp);
-
+ 
     return(1.0f - dot / tmp);
 
-
+   
 }
 
 

@@ -54,8 +54,8 @@
 #if defined(ARM_MATH_MVEF) && !defined(ARM_MATH_AUTOVECTORIZE)
 
 #include "edge-impulse-sdk/CMSIS/DSP/Include/arm_helium_utils.h"
-void arm_quaternion_product_single_f32(const float32_t *qa,
-    const float32_t *qb,
+void arm_quaternion_product_single_f32(const float32_t *qa, 
+    const float32_t *qb, 
     float32_t *qr)
 {
     static uint32_t patternA[4] = { 0, 1, 0, 1 };
@@ -89,8 +89,8 @@ void arm_quaternion_product_single_f32(const float32_t *qa,
 }
 
 #else
-void arm_quaternion_product_single_f32(const float32_t *qa,
-    const float32_t *qb,
+void arm_quaternion_product_single_f32(const float32_t *qa, 
+    const float32_t *qb, 
     float32_t *qr)
 {
     qr[0] = qa[0] * qb[0] - qa[1] * qb[1] - qa[2] * qb[2] - qa[3] * qb[3];

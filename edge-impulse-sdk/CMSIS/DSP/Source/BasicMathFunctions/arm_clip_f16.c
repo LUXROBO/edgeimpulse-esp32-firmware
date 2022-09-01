@@ -50,10 +50,10 @@
 
 #include "edge-impulse-sdk/CMSIS/DSP/Include/arm_helium_utils.h"
 
-void arm_clip_f16(const float16_t * pSrc,
-  float16_t * pDst,
-  float16_t low,
-  float16_t high,
+void arm_clip_f16(const float16_t * pSrc, 
+  float16_t * pDst, 
+  float16_t low, 
+  float16_t high, 
   uint32_t numSamples)
 {
     uint32_t  blkCnt;
@@ -113,20 +113,20 @@ void arm_clip_f16(const float16_t * pSrc,
 
 #if defined(ARM_FLOAT16_SUPPORTED)
 
-void arm_clip_f16(const float16_t * pSrc,
-  float16_t * pDst,
-  float16_t low,
-  float16_t high,
+void arm_clip_f16(const float16_t * pSrc, 
+  float16_t * pDst, 
+  float16_t low, 
+  float16_t high, 
   uint32_t numSamples)
 {
     for (uint32_t i = 0; i < numSamples; i++)
-    {
-        if (pSrc[i] > high)
-            pDst[i] = high;
-        else if (pSrc[i] < low)
-            pDst[i] = low;
-        else
-            pDst[i] = pSrc[i];
+    {                                        
+        if (pSrc[i] > high)                  
+            pDst[i] = high;                  
+        else if (pSrc[i] < low)              
+            pDst[i] = low;                   
+        else                                 
+            pDst[i] = pSrc[i];               
     }
 }
 #endif /* defined(ARM_FLOAT16_SUPPORTED */
